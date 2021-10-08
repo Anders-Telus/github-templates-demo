@@ -1,5 +1,14 @@
 # Reference Application
 
+*DEMO APPLICATION*
+
+For more information please reach out to:
+- gonzalo.vazquez@telus.com
+- steve.choi@telus.com
+
+Follow the story at: https://github.com/telus/reference-application/wiki
+Discussions: https://github.com/telus/reference-application/discussions
+
 ### Structure
 
 *Bottom Up Approach*
