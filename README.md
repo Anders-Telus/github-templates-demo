@@ -7,6 +7,7 @@ For more information please reach out to:
 - steve.choi@telus.com
 
 Follow the story at: https://github.com/telus/reference-application/wiki
+
 Discussions: https://github.com/telus/reference-application/discussions
 
 ### Structure
