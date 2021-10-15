@@ -10,6 +10,10 @@ Follow the story at: https://github.com/telus/reference-application/wiki
 
 Discussions: https://github.com/telus/reference-application/discussions
 
+### High Level Architecture
+
+![Reference Application](https://user-images.githubusercontent.com/1566236/137524060-e77ae2b4-4969-4174-b4f1-8bfdda4de71d.png)
+
 ### Structure
 
 *Bottom Up Approach*
