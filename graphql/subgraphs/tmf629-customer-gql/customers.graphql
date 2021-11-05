@@ -1,0 +1,10 @@
+type Customer @key(fields:"id") {
+    id:ID!
+    name: String
+    status: String
+}
+
+extend type Query {
+    allCustomers: [Customer]
+    customer(id: ID!): Customer
+}

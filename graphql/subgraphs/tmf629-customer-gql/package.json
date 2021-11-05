@@ -1,0 +1,19 @@
+{
+  "name": "tmf629-customer-gql",
+  "version": "1.0.0",
+  "description": "Customer GraphQL Subgraph",
+  "main": "index.js",
+  "scripts": {
+    "start": "node customer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/federation": "^0.33.6",
+    "apollo-server": "^3.4.1",
+    "graphql": "^15.7.2",
+    "supergraph-demo-opentelemetry": "^0.0.3"
+  }
+}
