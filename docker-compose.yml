@@ -8,3 +8,7 @@ services:
     build: ./tmf-services/tmf666-account
     ports:
         - "4020:4020"
+  subgraph-tmf666:
+    build: ./graphql/subgraphs/tmf666-account-gql
+    ports:
+        - "4001:4001"
