@@ -17,6 +17,6 @@ RUN adduser -S telus -u 1001
 
 USER telus
 
-EXPOSE 4001
+#EXPOSE 4001
 
 CMD [ "node", "account.js" ]

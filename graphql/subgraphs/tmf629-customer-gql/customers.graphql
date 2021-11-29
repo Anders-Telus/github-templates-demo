@@ -2,9 +2,14 @@ type Customer @key(fields:"id") {
     id:ID!
     name: String
     status: String
+    accounts:[Account]
 }
 
 extend type Query {
     allCustomers: [Customer]
     customer(id: ID!): Customer
+}
+
+extend type Account @key(fields: "id") {
+  id: ID! @external
 }

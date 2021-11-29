@@ -20,8 +20,8 @@ const { readFileSync } = require('fs');
 const port = process.env.APOLLO_PORT || 4000;
 
 const customers = [
-    { id: "1234", name: "Test Customer", status: "active" },
-    { id: "4321", name: "Test Customer 2", status: "deactivated" }
+    { id: "C111", name: "Test Customer", status: "active", accounts:[{id: "AC01", name: "Test Account"}] },
+    { id: "C222", name: "Test Customer 2", status: "deactivated", accounts:[{id: "AC02", name: "Test Account"}] }
 ]
 
 const typeDefs = gql(readFileSync('./customers.graphql', { encoding: 'utf-8' }));

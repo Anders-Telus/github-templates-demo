@@ -17,11 +17,11 @@ const { ApolloServer, gql } = require('apollo-server');
 const { buildFederatedSchema } = require('@apollo/federation');
 const { readFileSync } = require('fs');
 
-const port = process.env.APOLLO_PORT || 4001;
+const port = process.env.APOLLO_PORT || 4000;
 
 const accounts = [
-    { id: "1234", name: "Test account", status: "active" },
-    { id: "4321", name: "Test account 2", status: "deactivated" }
+    { id: "A999", name: "Small business account", status: "active" , type:"small-business"},
+    { id: "A888", name: "Partner Test account", status: "deactivated", type:"partner" }
 ]
 
 const typeDefs = gql(readFileSync('./accounts.graphql', { encoding: 'utf-8' }));

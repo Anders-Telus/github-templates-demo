@@ -2,6 +2,7 @@ type Account @key(fields:"id") {
     id:ID!
     name: String
     status: String
+    type: String
 }
 
 extend type Query {

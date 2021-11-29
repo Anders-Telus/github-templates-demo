@@ -1,14 +1,25 @@
 version: "3.9"
 services:
-  tmf629:
-    build: ./tmf-services/tmf629-customer
+  router:
+    container_name: router
+    build: ./graphql/router
+    environment:
+      - APOLLO_SCHEMA_CONFIG_EMBEDDED=true
+    volumes:
+      - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
     ports:
-        - "4010:4010"
-  tmf666:
-    build: ./tmf-services/tmf666-account
-    ports:
-        - "4020:4020"
-  subgraph-tmf666:
+      - "4000:4000"
+  accounts:
+    container_name: accounts
     build: ./graphql/subgraphs/tmf666-account-gql
-    ports:
-        - "4001:4001"
+  customers:
+    container_name: customers
+    build: ./graphql/subgraphs/tmf629-customer-gql
+#  tmf629:
+#    build: ./tmf-services/tmf629-customer
+#    ports:
+#        - "4010:4010"
+#   tmf666:
+#     build: ./tmf-services/tmf666-account
+#     ports:
+#         - "4020:4020"
