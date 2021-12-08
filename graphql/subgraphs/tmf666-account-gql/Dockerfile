@@ -4,10 +4,12 @@ FROM node:alpine
 ENV NODE_VERSION 16.10.0
 
 RUN apk add --no-cache libc6-compat
-WORKDIR /app
+#WORKDIR /app
 COPY package.json ./
 
-COPY account.js .
+COPY *.js .
+COPY resolvers/ ./resolvers
+COPY datasources/ ./datasources
 COPY accounts.graphql .
 
 RUN npm install
@@ -19,4 +21,4 @@ USER telus
 
 #EXPOSE 4001
 
-CMD [ "node", "account.js" ]
+CMD [ "node", "index.js" ]

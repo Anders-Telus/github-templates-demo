@@ -4,19 +4,22 @@ schema
   @core(feature: "https://specs.apollo.dev/tag/v0.1")
 {
   query: Query
+  mutation: Mutation
 }
 
 directive @core(feature: String!) repeatable on SCHEMA
 
-directive @join__field(graph: join__Graph, requires: join__FieldSet, provides: join__FieldSet) on FIELD_DEFINITION
+directive @join__field(graph: join__Graph, requires: join__FieldSet, provides: join__FieldSet) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
 
 directive @join__type(graph: join__Graph!, key: join__FieldSet) repeatable on OBJECT | INTERFACE
 
-directive @join__owner(graph: join__Graph!) on OBJECT | INTERFACE
+directive @join__input(graph: join__Graph!, key: join__FieldSet) repeatable on OBJECT | INTERFACE | INPUT_OBJECT
+
+directive @join__owner(graph: join__Graph!) on OBJECT | INTERFACE | INPUT_OBJECT
 
 directive @join__graph(name: String!, url: String!) on ENUM_VALUE
 
-directive @tag(name: String!) repeatable on FIELD_DEFINITION
+directive @tag(name: String!) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
 
 scalar join__FieldSet
 
@@ -35,6 +38,17 @@ type Customer
   status: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
 }
 
+interface Error {
+  message: String!
+}
+
+type AccountNotFoundError implements Error {
+  message: String!
+  detailMessage: String
+}
+
+union AccountResult = Account | AccountNotFoundError
+
 type Account
   @join__owner(graph: ACCOUNTS)
 {
@@ -44,12 +58,47 @@ type Account
   type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
 }
 
-type Query {
-  allAccounts: [Account] @join__field(graph: ACCOUNTS)
-  account(id: ID!): Account @join__field(graph: ACCOUNTS)
-  allCustomers: [Customer] @join__field(graph: CUSTOMERS)
+input inputAccount 
+@join__owner(graph: ACCOUNTS)
+@join__input(graph: ACCOUNTS, key: "id")
+{
+  id: ID! @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  name: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
 }
 
+type AccountRegisterResultSuccess {
+  account: Account!
+}
 
+type AccountRegisterInvalidInputError implements Error {
+  message: String!
+  typeErrorMessage: String
+}
 
+union AccountRegisterResult =
+  AccountRegisterResultSuccess
+  | AccountRegisterInvalidInputError
 
+type RestUser
+@join__owner(graph: ACCOUNTS)
+{
+    id:ID @join__field(graph: ACCOUNTS)
+    name: String @join__field(graph: ACCOUNTS)
+    username: String @join__field(graph: ACCOUNTS)
+    email: String @join__field(graph: ACCOUNTS)
+    phone: String @join__field(graph: ACCOUNTS)
+    website: String @join__field(graph: ACCOUNTS)
+}
+
+type Query {
+  allAccounts: [Account] @join__field(graph: ACCOUNTS)
+  account(id: ID!): AccountResult @join__field(graph: ACCOUNTS)
+  allCustomers: [Customer] @join__field(graph: CUSTOMERS)
+  restUser(id: ID!): RestUser @join__field(graph: ACCOUNTS)
+}
+
+type Mutation{
+  createAccount(account: inputAccount!) : AccountRegisterResult @join__field(graph: ACCOUNTS)
+}

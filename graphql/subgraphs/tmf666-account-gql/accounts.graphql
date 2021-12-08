@@ -1,11 +1,56 @@
 type Account @key(fields:"id") {
+    id:ID
+    name: String
+    status: String
+    type: String
+}
+
+interface Error {
+  message: String!
+}
+
+type AccountNotFoundError implements Error {
+  message: String!
+  detailMessage: String
+}
+
+union AccountResult = Account | AccountNotFoundError
+
+input inputAccount {
     id:ID!
     name: String
     status: String
     type: String
 }
 
+type AccountRegisterResultSuccess {
+  account: Account!
+}
+
+type AccountRegisterInvalidInputError implements Error {
+  message: String!
+  typeErrorMessage: String
+}
+
+union AccountRegisterResult =
+  AccountRegisterResultSuccess
+  | AccountRegisterInvalidInputError
+
+type RestUser{
+    id:ID
+    name: String
+    username: String
+    email: String
+    phone: String
+    website: String
+}
+
 extend type Query {
     allAccounts: [Account]
-    account(id: ID!): Account
+    account(id: ID!): AccountResult
+    restUser(id: ID!): RestUser
+}
+
+extend type Mutation {
+    createAccount(account: inputAccount!): AccountRegisterResult!
 }
