@@ -1,12 +1,21 @@
-from node:16-alpine
+FROM node:14.17-alpine
 
-WORKDIR /usr/src/app
+ENV NO_UPDATE_NOTIFIER=true
 
-COPY package.json .
+ENV HOME=/app
+WORKDIR /app
+
+COPY ./ /app/
 
 RUN npm install
 
-COPY customers.js .
-COPY customers.graphql .
+RUN addgroup -g 1001 -S telus
+RUN adduser -S telus -u 1001
 
-CMD [ "node", "customers.js" ]
+RUN chown -R telus:telus /app
+RUN chmod -R 755 /app
+USER telus
+
+#EXPOSE 4001
+
+CMD [ "node", "index.js" ]

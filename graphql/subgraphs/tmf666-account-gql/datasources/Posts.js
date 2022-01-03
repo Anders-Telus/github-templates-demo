@@ -1,9 +1,9 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 
 export default class PostsAPI extends RESTDataSource {
-  constructor() {
+  constructor(baseURL) {
     super();
-    this.baseURL = 'https://jsonplaceholder.typicode.com/';
+    this.baseURL = baseURL;
   }
 
   async getPost(id) {

@@ -12,9 +12,28 @@ services:
   accounts:
     container_name: accounts
     build: ./graphql/subgraphs/tmf666-account-gql
+    environment:
+      - REST_ENDPOINT=${REST_ENDPOINT}
   customers:
     container_name: customers
     build: ./graphql/subgraphs/tmf629-customer-gql
+    environment:
+      - DB_USERNAME=${MONGO_USERNAME}
+      - DB_PASSWORD=${MONGO_PASSWORD}
+    ports:
+      - "4001:4001"
+    depends_on:
+      - "mongodb"
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - ./graphql/mongo-volume:/data/db
 #  tmf629:
 #    build: ./tmf-services/tmf629-customer
 #    ports:

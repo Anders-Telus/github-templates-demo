@@ -11,8 +11,12 @@ Listed below are the capabilities can be referred here:
 5. Unit tests
 6. Integration tests
 7. RestDataSource - to connect REST endpoints from subgraphs
-8. SQLDataSource - to connect with SQL Databases https://www.apollographql.com/docs/apollo-server/data/data-sources/
+8. MongoDataSource - to connect with Mongo Databases https://www.apollographql.com/docs/apollo-server/data/data-sources/
+9. Authentication & Authorization
 
 
 Sample APIs
 https://jsonplaceholder.typicode.com/
+
+Reference implementations
+https://codesandbox.io/s/njl57?file=/mongoose/schemas.js

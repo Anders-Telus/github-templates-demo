@@ -1,15 +1,33 @@
-type Customer @key(fields:"id") {
+type Customer {
     id:ID!
     name: String
     status: String
-    accounts:[Account]
 }
 
-extend type Query {
+type Query {
     allCustomers: [Customer]
     customer(id: ID!): Customer
+    branches: [Branch]
+    branch(_id: ID!): Branch
+    branchProfessionsByQuery(sourceId: Int!, ttl: Int): [Profession]
+    jobs(limit: Int): [Job]
 }
 
-extend type Account @key(fields: "id") {
-  id: ID! @external
+
+type Profession {
+  _id: ID!
+  name: String
+  branchSourceId: Int
+}
+
+type Branch {
+  _id: ID!
+  name: String
+  sourceId: Int
+  professions(ttl: Int): [Profession]
+}
+
+type Job {
+  _id: ID!
+  profession(ttl: Int): Profession
 }

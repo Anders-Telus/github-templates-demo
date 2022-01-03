@@ -24,6 +24,9 @@ import { buildFederatedSchema } from '@apollo/federation';
 import { readFileSync } from 'fs';
 
 const port = process.env.APOLLO_PORT || 4000;
+const restURL = process.env.REST_ENDPOINT || "dummy_url";
+
+console.log('REST endpoint:  '+restURL);
 
 const typeDefs = gql(readFileSync('./accounts.graphql', { encoding: 'utf-8' }));
 const resolvers = {
@@ -42,8 +45,8 @@ const server = new ApolloServer({
   }),
   dataSources: () => {
     return {
-      postsAPI: new PostsAPI(),
-      usersAPI: new UsersAPI(),
+      postsAPI: new PostsAPI(restURL),
+      usersAPI: new UsersAPI(restURL),
     };
   },
   context

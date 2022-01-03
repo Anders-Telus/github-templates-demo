@@ -27,3 +27,11 @@ Vagrantfile
 /**/.DS_Store
 /**/**/.DS_Store
 /**/**/node_modules
+node_modules
+.idea
+*.iml
+*.swp
+.vscode
+.DS_Store
+npm-debug.log
+graphql/mongo-volume

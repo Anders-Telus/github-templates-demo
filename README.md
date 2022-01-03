@@ -32,4 +32,5 @@ Discussions: https://github.com/telus/reference-application/discussions
 
 1. Clone repo
 2. Run `docker-compose up` to spin up the services
-3. Run `docker-compose down` to bring down the services
+3. Run `docker-compose down` to bring down the service
+4. To start with env file `docker-compose --env-file ./config/.env.dev up` 

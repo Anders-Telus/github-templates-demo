@@ -24,7 +24,7 @@ directive @tag(name: String!) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFIN
 scalar join__FieldSet
 
 enum join__Graph {
-  CUSTOMERS @join__graph(name: "customers" url: "http://customers:4000/graphql")
+  CUSTOMERS @join__graph(name: "customers" url: "http://customers:4001/graphql")
   ACCOUNTS @join__graph(name: "accounts" url: "http://accounts:4000/graphql")
 }
 
@@ -97,8 +97,32 @@ type Query {
   account(id: ID!): AccountResult @join__field(graph: ACCOUNTS)
   allCustomers: [Customer] @join__field(graph: CUSTOMERS)
   restUser(id: ID!): RestUser @join__field(graph: ACCOUNTS)
+  branches: [Branch] @join__field(graph: CUSTOMERS)
+  branch(_id: ID!): Branch @join__field(graph: CUSTOMERS)
+  branchProfessionsByQuery(sourceId: Int!, ttl: Int): [Profession] @join__field(graph: CUSTOMERS)
+  jobs(limit: Int): [Job] @join__field(graph: CUSTOMERS)
 }
 
 type Mutation{
   createAccount(account: inputAccount!) : AccountRegisterResult @join__field(graph: ACCOUNTS)
+}
+
+type Profession 
+ @join__owner(graph: CUSTOMERS)
+ {
+  _id: ID! @join__field(graph: CUSTOMERS)
+  name: String @join__field(graph: CUSTOMERS)
+  branchSourceId: Int @join__field(graph: CUSTOMERS)
+}
+
+type Branch  @join__owner(graph: CUSTOMERS) {
+  _id: ID! @join__field(graph: CUSTOMERS)
+  name: String @join__field(graph: CUSTOMERS)
+  sourceId: Int @join__field(graph: CUSTOMERS)
+  professions(ttl: Int): [Profession] @join__field(graph: CUSTOMERS)
+}
+
+type Job  @join__owner(graph: CUSTOMERS) {
+  _id: ID! @join__field(graph: CUSTOMERS)
+  profession(ttl: Int): Profession @join__field(graph: CUSTOMERS)
 }
