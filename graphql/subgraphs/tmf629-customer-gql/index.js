@@ -1,3 +1,18 @@
+// Open Telemetry (optional)
+const { ApolloOpenTelemetry } = require ("supergraph-demo-opentelemetry");
+
+if (process.env.APOLLO_OTEL_EXPORTER_TYPE) {
+  new ApolloOpenTelemetry({
+    type: 'subgraph',
+    name: 'customer',
+    exporter: {
+      type: process.env.APOLLO_OTEL_EXPORTER_TYPE, // console, zipkin, collector
+      host: process.env.APOLLO_OTEL_EXPORTER_HOST,
+      port: process.env.APOLLO_OTEL_EXPORTER_PORT,
+    }
+  }).setupInstrumentation();
+}
+
 const { ApolloServer, gql } = require("apollo-server");
 const mongoose = require("mongoose");
 const { GraphQLJSON } = require("graphql-type-json");

@@ -1,0 +1,64 @@
+version: '3'
+services:
+  router:
+    container_name: router
+    build: ./graphql/router
+    environment:
+      - APOLLO_SCHEMA_CONFIG_EMBEDDED=true
+      - APOLLO_OTEL_EXPORTER_TYPE=collector
+      - APOLLO_OTEL_EXPORTER_HOST=collector
+    volumes:
+      - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
+    ports:
+      - "4000:4000"
+  accounts:
+    container_name: accounts
+    build: ./graphql/subgraphs/tmf666-account-gql
+    environment:
+      - APOLLO_OTEL_EXPORTER_TYPE=collector
+      - APOLLO_OTEL_EXPORTER_HOST=collector
+      - REST_ENDPOINT=${REST_ENDPOINT}
+  customers:
+    container_name: customers
+    build: ./graphql/subgraphs/tmf629-customer-gql
+    environment:
+      - APOLLO_OTEL_EXPORTER_TYPE=collector
+      - APOLLO_OTEL_EXPORTER_HOST=collector
+      - DB_USERNAME=${MONGO_USERNAME}
+      - DB_PASSWORD=${MONGO_PASSWORD}
+    depends_on:
+      - "mongodb"
+  collector:
+    container_name: collector
+    image: otel/opentelemetry-collector:0.35.0
+    command: ["--config=/conf/collector-config.yml"]
+    volumes:
+      - ./opentelemetry/collector-config.yml:/conf/collector-config.yml
+    ports:
+      - "9464:9464"
+      - "4317:4317"
+      - "55681:55681"
+    depends_on:
+      - zipkin
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin:2.23.4
+    ports:
+      - "9411:9411"
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:v2.30.0
+    volumes:
+      - ./opentelemetry/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - ./graphql/mongo-volume:/data/db
