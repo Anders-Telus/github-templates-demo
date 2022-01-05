@@ -20,6 +20,7 @@ Listed below are the capabilities can be referred here:
 Sample APIs
 https://jsonplaceholder.typicode.com/
 
-Reference implementations
+References
 https://codesandbox.io/s/njl57?file=/mongoose/schemas.js
+
 https://github.com/apollographql/supergraph-demo-fed2
