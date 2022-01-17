@@ -8,8 +8,7 @@ services:
     volumes:
       - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
     ports:
-      - "4000:4000"
-  
+      - "4002:4000"
   mongodb:
     image: mongo:latest
     container_name: mongodb
