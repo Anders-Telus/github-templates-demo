@@ -1,21 +1,24 @@
-FROM node:14.17-alpine
 
-ENV NO_UPDATE_NOTIFIER=true
+FROM node:12.4.0-alpine as debug
 
-ENV HOME=/app
-WORKDIR /app
+WORKDIR /work/
 
-COPY ./ /app/
-
+COPY ./src/package.json /work/package.json
 RUN npm install
+RUN npm install -g nodemon
 
-RUN addgroup -g 1001 -S telus
-RUN adduser -S telus -u 1001
-
-RUN chown -R telus:telus /app
-RUN chmod -R 755 /app
-USER telus
+COPY ./src/ /work/src/
 
 #EXPOSE 4001
 
-CMD [ "node", "index.js" ]
+ENTRYPOINT [ "nodemon","--inspect=0.0.0.0","./src/index.js" ]
+
+
+# FROM node:12.4.0-alpine as prod
+
+# WORKDIR /work/
+# COPY ./src/package.json /work/package.json
+# RUN npm install
+# COPY ./src/ /work/
+
+# CMD node .

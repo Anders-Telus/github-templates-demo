@@ -1,29 +1,15 @@
 version: "3.9"
 services:
-  router:
-    container_name: router
-    build: ./graphql/router
-    environment:
-      - APOLLO_SCHEMA_CONFIG_EMBEDDED=true
-    volumes:
-      - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
-    ports:
-      - "4000:4000"
-  accounts:
-    container_name: accounts
-    build: ./graphql/subgraphs/tmf666-account-gql
-    environment:
-      - REST_ENDPOINT=${REST_ENDPOINT}
-  customers:
-    container_name: customers
-    build: ./graphql/subgraphs/tmf629-customer-gql
-    environment:
-      - DB_USERNAME=${MONGO_USERNAME}
-      - DB_PASSWORD=${MONGO_PASSWORD}
-    ports:
-      - "4001:4001"
-    depends_on:
-      - "mongodb"
+  # router:
+  #   container_name: router
+  #   build: ./graphql/router
+  #   environment:
+  #     - APOLLO_SCHEMA_CONFIG_EMBEDDED=true
+  #   volumes:
+  #     - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
+  #   ports:
+  #     - "4000:4000"
+  
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -42,3 +28,71 @@ services:
 #     build: ./tmf-services/tmf666-account
 #     ports:
 #         - "4020:4020"
+
+  accounts: #docker run --rm -it -v ${PWD}:/work -w /work -p 5002:5000 poc/accounts:1.0.0 /bin/sh 
+    container_name: accounts
+    image: poc/accounts:1.0.0
+    build:
+      context: ./graphql/subgraphs/tmf666-account-gql
+      target: debug
+    #working_dir: /work      #comment out for build.target:prod
+    #entrypoint: /bin/sh     #comment out for build.target:prod
+    #stdin_open: true        #comment out for build.target:prod
+    #tty: true               #comment out for build.target:prod
+    volumes:
+    - ./graphql/subgraphs/tmf666-account-gql/src/:/work/src/
+    ports:
+      - 4000:4000
+      - 9229:9229            #debug port
+    environment:
+      - REST_ENDPOINT=${REST_ENDPOINT}
+
+  customers:
+    container_name: customers
+    image: poc/customers:1.0.0
+    build:
+      context: ./graphql/subgraphs/tmf629-customer-gql
+      target: debug
+    environment:
+      - DB_USERNAME=${MONGO_USERNAME}
+      - DB_PASSWORD=${MONGO_PASSWORD}
+    volumes:
+    - ./graphql/subgraphs/tmf629-customer-gql/src/:/work/src/
+    ports:
+      - "4001:4001"
+    depends_on:
+      - "mongodb"
+
+  dialog-mfe:
+    container_name: dialog-mfe
+    image: poc/dialog-mfe:1.0.0
+    build:
+      context: ./micro-fe-1/dialog-mfe
+      # target: debug
+    volumes:
+    - ./micro-fe-1/dialog-mfe/src/:/work/src/
+    ports:
+      - 8001:3000
+  search-mfe:
+    container_name: search-mfe
+    image: poc/search-mfe:1.0.0
+    build:
+      context: ./micro-fe-1/search-mfe
+      # target: debug
+    volumes:
+    - ./micro-fe-1/search-mfe/src/:/work/src/
+    ports:
+      - 8002:3000
+  shell:
+    container_name: shell-mfe
+    image: poc/shell:1.0.0
+    build:
+      context: ./shell
+      # target: debug
+    volumes:
+    - ./shell/src/:/work/src/
+    environment: 
+      SEARCH_EXPERIENCE_HOST: http://search-mfe:8002
+      DIALOG_EXPERIENCE_HOST: http://dialog-mfe:8001
+    ports:
+      - 8000:3000

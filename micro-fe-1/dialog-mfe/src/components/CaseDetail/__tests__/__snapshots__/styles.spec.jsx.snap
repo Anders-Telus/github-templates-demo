@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RefreshOverlay match snapshot when a DateTimeLabelContainer warningn is false 1`] = `
+<span
+  className="styles__DateTimeLabelContainer-sc-19qwpvk-52 bUaCnV"
+>
+  <span>
+    Regresh
+  </span>
+</span>
+`;
+
+exports[`RefreshOverlay match snapshot when a DateTimeLabelContainer warningn is true 1`] = `
+<span
+  className="styles__DateTimeLabelContainer-sc-19qwpvk-52 llXZAX"
+>
+  <span>
+    Regresh
+  </span>
+</span>
+`;

@@ -1,0 +1,1 @@
+window.__RUNTIME_CONFIG__ = {"SEARCH_EXPERIENCE_HOST":"http://localhost:8001","DIALOG_EXPERIENCE_HOST":"http://localhost:8004"};

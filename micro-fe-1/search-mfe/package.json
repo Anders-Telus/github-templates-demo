@@ -1,0 +1,91 @@
+{
+  "name": "casa-mfe-search",
+  "version": "1.0.0",
+  "description": "Micro Frontend Experience",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/telus/casa-mfe-search"
+  },
+  "scripts": {
+    "start": "webpack serve --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
+    "lint": "standard | snazzy",
+    "fix": "standard --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.16.0",
+    "@material-ui/core": "^4.11.4",
+    "@mobilelive-inc/bolsterjs": "^1.0.0",
+    "@svgr/webpack": "^6.0.0",
+    "@tds/community-skeleton-provider": "^2.2.0",
+    "@tds/core-box": "^2.3.4",
+    "@tds/core-card": "^2.5.1",
+    "@tds/core-decorative-icon": "^2.11.0",
+    "@tds/core-dimple-divider": "^2.0.17",
+    "@tds/core-hairline-divider": "^2.0.18",
+    "@tds/core-heading": "^3.0.8",
+    "@tds/core-input-feedback": "^2.0.24",
+    "@tds/core-notification": "^3.1.10",
+    "@tds/core-small": "^2.1.14",
+    "@tds/core-spinner": "^3.1.18",
+    "@tds/core-text": "^3.1.5",
+    "@tds/util-helpers": "^1.6.0",
+    "@telus-uds/components-base": "^0.0.2-prerelease.7",
+    "@telus-uds/components-core": "^0.0.2-alpha.82",
+    "@telus-uds/palette-allium": "^0.1.0-prerelease.6",
+    "@telus-uds/theme-allium": "^0.0.2-prerelease.5",
+    "@telus-uds/theme-koodo": "^0.0.2-prerelease.0",
+    "@telus-uds/theme-monarch": "^0.0.2-alpha.82",
+    "babel-plugin-react-native-web": "^0.17.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-preact": "^2.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "^0.66.3",
+    "react-native-svg": "^12.1.1",
+    "react-native-web": "^0.17.5",
+    "react-pose": "^4.0.10",
+    "react-router-dom": "^5.2.0",
+    "react-svg-loader": "^3.0.3",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "snazzy": "^9.0.0",
+    "standard": "^16.0.3",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "standard": {
+    "ignore": [
+      "build/*"
+    ],
+    "env": [
+      "jest",
+      "es6",
+      "browser"
+    ],
+    "parser": "babel-eslint"
+  }
+}

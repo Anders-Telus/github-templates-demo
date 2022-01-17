@@ -1,0 +1,1 @@
+export const auth0RolesNamespace = 'http://casa/mfxp/roles'

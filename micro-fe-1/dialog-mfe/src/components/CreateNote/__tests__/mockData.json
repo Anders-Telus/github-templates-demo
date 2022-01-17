@@ -1,0 +1,236 @@
+{
+  "mockMobilityReducerData":{
+    "tabs":{
+      "context":"31910431_mobility",
+      "tabs":{
+        "31910431_mobility":{
+          "lineOfBusiness":"mobility",
+          "name":"JOEL WINKLER-ZZ",
+          "tabUniqId":"31910431_mobility",
+          "billingAcctNum":"31910431",
+          "customerId":"31910431",
+          "template":"profile",
+          "currentView":"profile"
+        }
+      }
+    },
+    "ban":{
+      "31910431":{
+        "fetchedConnectedAcctsStatus":true,
+        "parentId":"31910431_mobility",
+        "lineOfBusiness":"mobility",
+        "fetchingLinkedAcctEndAt":true
+      }
+    },
+    "notes":{
+      "31910431_mobility":{
+        "notes":[
+          {
+            "id":"2.005866308E9",
+            "billingAccountNumber":"70869624",
+            "billingAcctType":"Koodo - Consumer",
+            "type":"BILE",
+            "date":"2019-09-10T12:07:13Z",
+            "lineOfBusiness":"mobility",
+            "userId":"21011",
+            "brand":"TELUS",
+            "systemText":"",
+            "notesText":"The clients PIN has changed. null",
+            "productInstanceId":null,
+            "productType":"",
+            "referenceEntityId":7654289
+          }
+        ],
+        "isFetching":true,
+        "isError":false,
+        "selectedNote": {
+          "userId": "21053",
+          "brand": "TELUS",
+          "customerSourceSystem": "KB",
+          "productType": "",
+          "lineOfBusiness": "ffh",
+          "notesText": "Address/Contact information has been verified",
+          "date": "2020-07-30T12:01:02.000Z",
+          "sysInd": false,
+          "_id": "60c8b7d8bb9d460f3bad2d6f",
+          "type": "VRFY",
+          "id": "2.006430492E9",
+          "billingAccountNumber": "31910431",
+          "createdAt": "2021-06-15T14:23:20.439Z"
+        }
+      }
+    },
+    "detailPopups":{
+      "31910431_mobility":[
+        {
+          "isDraggable": true,
+          "minimized": false,
+          "position": 1,
+          "dimensions": {
+            "height": "70vh",
+            "width": "75%"
+          },
+          "isOpen": true,
+          "modifieable": {
+            "showMinimizeIcon": true,
+            "showCloseIcon": true,
+            "dragPosition": {},
+            "rel": {
+              "x": 0,
+              "y": 0
+            },
+            "showFooter": false,
+            "showHeader": true,
+            "showBody": true
+          },
+          "type": "CreateNote",
+          "id": "2.006430492E9"
+        }
+      ]
+    }
+  },
+  "mockDetailPopup": [{
+    "isDraggable": false,
+    "minimized": false,
+    "position": 1,
+    "dimensions": {
+      "height": "70vh",
+      "width": "75%"
+    },
+    "isOpen": true,
+    "modifieable": {
+      "showMinimizeIcon": true,
+      "showCloseIcon": true,
+      "dragPosition": {},
+      "rel": {
+        "x": 0,
+        "y": 0
+      },
+      "showFooter": false,
+      "showHeader": true,
+      "showBody": true
+    },
+    "type": "CreateNote",
+    "id": "2.006430492E9"
+  }],
+  "mockMobNotes":[
+    {
+      "id":"2.005866308E9",
+      "billingAccountNumber":"70869624",
+      "billingAcctType":"Koodo - Consumer",
+      "type":"BILE",
+      "date":"2019-09-10T12:07:13Z",
+      "lineOfBusiness":"mobility",
+      "userId":"21011",
+      "brand":"TELUS",
+      "systemText":"",
+      "notesText":"The clients PIN has changed. null",
+      "productInstanceId":null,
+      "productType":"",
+      "referenceEntityId":7654289
+    },
+    {
+      "id":"2.005863264E9",
+      "billingAccountNumber":"70869624",
+      "billingAcctType":"Koodo - Consumer",
+      "type":"PMTM",
+      "date":"2019-09-07T12:01:07Z",
+      "lineOfBusiness":"mobility",
+      "userId":"18654",
+      "brand":"TELUS",
+      "systemText":"",
+      "notesText":"Payment Method information changed: suppress envelope - old value: no, new value: yes, credit card number - old value: , new value: , credit card expiry - old value: n/a, new value: n/a, bank code - old value: n/a, new value: xxx4, bank account # - old value: n/a, new value: xxxxxxxx900, bank branch # - old value: n/a, new value: xxx45, bank account type - old value: n/a, new value: Individual.",
+      "productInstanceId":null,
+      "productType":"",
+      "referenceEntityId":7654289
+    },
+    {
+      "id":"2.005742712E9",
+      "billingAccountNumber":"70869624",
+      "billingAcctType":"MOB - Consumer",
+      "type":"AUTH",
+      "date":"2019-04-22T12:00:12Z",
+      "lineOfBusiness":"mobility",
+      "userId":"911840",
+      "brand":"TELUS",
+      "systemText":"",
+      "notesText":"ROLE MANAGEMENT TOOL ASSIGNED - [4161497832: AA]",
+      "productInstanceId":"7788678569",
+      "productType":"C"
+    },
+    {
+      "id":"2.005742712E9",
+      "billingAccountNumber":"70869624",
+      "billingAcctType":"MOB - Consumer",
+      "type":"AUTH",
+      "date":"2019-04-22T12:00:12Z",
+      "lineOfBusiness":"ffh",
+      "userId":"911840",
+      "brand":"TELUS",
+      "systemText":"",
+      "notesText":"ROLE MANAGEMENT TOOL ASSIGNED - [4161497832: AA]",
+      "productInstanceId":"7788678569",
+      "productType":"C",
+      "sysInd":true,
+      "agentId":911840
+    },
+    {
+      "id":"2.005742712E9",
+      "billingAccountNumber":"70869624",
+      "billingAcctType":"MOB - Consumer",
+      "type":"AUTH",
+      "date":"2019-04-22T12:00:12Z",
+      "lineOfBusiness":"mobility",
+      "userId":"911840",
+      "brand":"TELUS",
+      "systemText":"",
+      "notesText":"ROLE MANAGEMENT TOOL ASSIGNED - [4161497832: AA]",
+      "productInstanceId":"7788678569",
+      "productType":"C"
+    }
+  ],
+  "mockMinimizedDetailPopup": {
+    "31910431_mobility": [
+      {
+        "isDraggable": false,
+        "minimized": true,
+        "position": 1,
+        "dimensions": {
+          "height": "70vh",
+          "width": "75%"
+        },
+        "isOpen": true,
+        "modifieable": {
+          "showMinimizeIcon": true,
+          "showCloseIcon": true,
+          "dragPosition": {},
+          "rel": {
+            "x": 0,
+            "y": 0
+          },
+          "showFooter": false,
+          "showHeader": true,
+          "showBody": true
+        },
+        "type": "CreateNote",
+        "id": "2.006430492E9"
+      }
+    ]
+  },
+  "mockModifeableDetailPopup": {
+    "31910431_mobility": [
+      {
+        "isDraggable": false,
+        "minimized": false,
+        "position": 1,
+        "dimensions": {
+          "height": "70vh",
+          "width": "75%"
+        },
+        "isOpen": true,
+        "type": "CreateNote",
+        "id": "2.006430492E9"
+      }
+    ]
+  }
+}

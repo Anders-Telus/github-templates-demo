@@ -1,0 +1,146 @@
+String appName
+String buildVersion
+String gitCommitId
+String gitCommitMsg
+String templateDir
+
+pipeline {
+  agent any
+
+  options {
+    ansiColor('xterm')
+    skipDefaultCheckout true
+    timeout(20)
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        script {
+          sh "oc project ${env.PROJECT_NAME}"
+
+          checkout scm
+
+          appName = env.JOB_BASE_NAME.split("${env.PROJECT_NAME}-")[1].split("-pipeline")[0]
+
+          String gitCommitNum = sh(returnStdout: true, script: 'git rev-list HEAD --count').trim()
+          String gitShortId = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+          buildVersion = gitCommitNum + '-' + gitShortId
+
+          gitCommitId = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+          gitCommitMsg = sh(returnStdout: true, script: 'git log --format=%B -n 1 HEAD').trim()
+        }
+      }
+    }
+
+    stage('Apply Templates') {
+      steps {
+        script {
+          String currentBranch = sh(
+            script: "oc get bc ${appName}-pipeline -o=\'jsonpath={.spec.source.git.ref}\'",
+            returnStdout: true
+          )
+
+          if (fileExists('.platform/openshift4/openshift-template.yml')) {
+            templateDir = '.platform/openshift4'
+          } else if (fileExists('openshift4/openshift-template.yml')) {
+            templateDir = 'openshift4'
+          } else {
+            errorMessage = "🚨 ERROR: openshift-template.yml not found 🚨"
+            currentBuild.result = "FAILURE"
+            throw new Exception(errorMessage)
+          }
+          sh "oc apply -f ${templateDir}/openshift-template.yml"
+          sh "oc process ${appName}-pipeline BRANCH=${currentBranch} | oc apply -f -"
+        }
+      }
+    }
+
+    stage('Build') {
+      steps {
+        script {
+          sh("""
+            if oc get istag ${appName}:${buildVersion} > /dev/null 2>&1
+            then
+              echo "Image tag ${appName}:${buildVersion} exists... skipping build"
+              exit 0
+            fi
+
+            oc start-build ${appName} --follow --commit=${gitCommitId} --wait=true
+
+            oc tag ${appName}:latest ${appName}:${buildVersion}
+          """)
+        }
+      }
+    }
+
+    stage('Deploy Canary') {
+      steps {
+        script {
+          deploy(
+            appName: appName,
+            buildVersion: buildVersion,
+            environment: 'canary',
+            numReplicas: 1,
+            templateDir: templateDir
+          )
+        }
+      }
+    }
+
+  }
+
+  post {
+    always {
+      echo 'Clean up workspace'
+      deleteDir()
+    }
+    success {
+      notifyBuild(
+        message: 'Build succeeded',
+        color: '#00FF00',
+        emoji: 'panda_dance',
+        buildVersion: buildVersion,
+        gitCommitMsg: gitCommitMsg
+      )
+    }
+    failure {
+      notifyBuild(
+        message:  'Build failed',
+        color: '#FF0000',
+        emoji: 'sadpanda',
+        buildVersion: buildVersion,
+        gitCommitMsg: gitCommitMsg
+      )
+    }
+  }
+}
+
+def deploy(Map attrs) {
+  String proxyIPs = sh(
+    script: "oc get secret proxy-ips-${attrs.environment} -o jsonpath=\'{.data}\'| jq -r .ips | base64 --decode",
+    returnStdout: true
+  )
+
+  println "proxyIPs: ${proxyIPs}"
+
+  sh("""
+    ${attrs.templateDir}/run-deploy.sh ${attrs.appName} ${attrs.environment} ${attrs.buildVersion} ${attrs.numReplicas} \"${proxyIPs}\"
+    ${attrs.templateDir}/run-newrelic-notify.sh ${attrs.appName} ${attrs.environment} ${attrs.buildVersion}
+  """)
+}
+
+def notifyBuild(Map attrs) {
+  node {
+    String route = sh(returnStdout: true, script: 'oc get route jenkins -o=\'jsonpath={.spec.host}\'').trim()
+    String url = "https://${route}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console"
+
+    slackSend(
+      color: attrs.color,
+      message: "Openshift v4\n_${env.JOB_BASE_NAME}_ <${url}|${attrs.buildVersion}>\n*${attrs.message}* :${attrs.emoji}:\n`````````${attrs.gitCommitMsg}`````````",
+      teamDomain: 'telusdigital',
+      channel: 'casa-ci',
+      token: env.SLACK_TOKEN
+    )
+  }
+}

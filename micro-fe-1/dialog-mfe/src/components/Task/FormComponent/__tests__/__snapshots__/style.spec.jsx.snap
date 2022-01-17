@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component renders correctly 1`] = `
+<style__DateTimeLabelContainer
+  isWarning={true}
+>
+  <span
+    className="style__DateTimeLabelContainer-sc-1t6e875-3 kLSkUQ"
+  />
+</style__DateTimeLabelContainer>
+`;
+
+exports[`Button Component renders correctly CheckBox 1`] = `
+<style__CheckBox
+  disabled={true}
+>
+  <div
+    className="style__CheckBox-sc-1t6e875-11 ciyFeT"
+    disabled={true}
+  />
+</style__CheckBox>
+`;

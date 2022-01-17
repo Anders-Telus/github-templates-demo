@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RefreshOverlay match snapshot when a language is en and type is error 1`] = `
+<div
+  className="styles__ErrorContent-sc-1otijvf-17 doEWZi"
+  type="error"
+>
+  <span>
+    Regresh
+  </span>
+</div>
+`;
+
+exports[`RefreshOverlay match snapshot when a language is en and type is not error 1`] = `
+<div
+  className="styles__ErrorContent-sc-1otijvf-17 doEWZi"
+>
+  <span>
+    Regresh
+  </span>
+</div>
+`;
+
+exports[`RefreshOverlay match snapshot when a language is fr and type is error 1`] = `
+<div
+  className="styles__ErrorContent-sc-1otijvf-17 doEWZi"
+  type="error"
+>
+  <span>
+    Regresh
+  </span>
+</div>
+`;
+
+exports[`RefreshOverlay match snapshot when a language is fr and type is not error 1`] = `
+<div
+  className="styles__ErrorContent-sc-1otijvf-17 doEWZi"
+>
+  <span>
+    Regresh
+  </span>
+</div>
+`;

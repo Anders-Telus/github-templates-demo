@@ -1,0 +1,19 @@
+{
+  "mobility": "Mobility",
+  "category": "Sub Note",
+  "childDialogText": "Add comments",
+  "openChildDialog": "Open Child Dialog",
+  "comments": "Comments",
+  "noteTextPlaceholder": "Note Text",
+  "createNote": "Create Note",
+  "newTask": "New Task",
+  "openNoteDialog": "Open Note Dialog",
+  "openTaskDialog": "Open Task Dialog",
+  "select": "Select",
+  "request": "Request",
+  "type": "Type",
+  "agentFunction": "Agent Function",
+  "routeAnotherAgentFunction": "Route to another Agent Function",
+  "dueDate": "Due Date",
+  "submit": "Submit"
+}

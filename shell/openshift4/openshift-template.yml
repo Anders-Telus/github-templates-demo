@@ -1,0 +1,215 @@
+# Configures the build pipeline dependencies for openshift
+# See: README.md
+
+apiVersion: v1
+kind: List
+metadata:
+  name: casa-mfe-container-pipeline
+items:
+  # Configure our Docker image repository
+  # https://docs.openshift.com/enterprise/3.2/dev_guide/managing_images.html
+  - kind: ImageStream
+    apiVersion: v1
+    metadata:
+      name: casa-mfe-container
+      labels:
+        app: casa-mfe-container
+    spec:
+      lookupPolicy:
+        local: true
+
+  # Configure our build pipeline template
+  # https://docs.openshift.com/enterprise/3.2/dev_guide/templates.html
+  - apiVersion: v1
+    kind: Template
+    metadata:
+      name: casa-mfe-container-pipeline
+    parameters:
+      - name: BRANCH
+        description: Branch to build from
+        value: master
+    objects:
+      # Configures the OpenShift/Jenkins build pipeline
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/builds.html#defining-a-buildconfig
+      - apiVersion: v1
+        kind: BuildConfig
+        metadata:
+          name: casa-mfe-container-pipeline
+          labels:
+            app: casa-mfe-container
+        spec:
+          successfulBuildsHistoryLimit: 1
+          failedBuildsHistoryLimit: 2
+          source:
+            type: Git
+            git:
+              uri: git@github.com:telus/casa-mfe-container
+              ref: ${BRANCH}
+            sourceSecret:
+              name: jenkins-github-secret
+          triggers:
+            - type: GitHub
+              github:
+                secret: tsask
+          runPolicy: SerialLatestOnly
+          strategy:
+            type: JenkinsPipeline
+            jenkinsPipelineStrategy:
+              jenkinsfilePath: openshift4/Jenkinsfile
+
+      # Configure our Docker container build
+      # https://docs.openshift.com/enterprise/3.2/architecture/core_concepts/builds_and_image_streams.html#docker-build
+      - kind: BuildConfig
+        apiVersion: v1
+        metadata:
+          name: casa-mfe-container
+          labels:
+            app: casa-mfe-container
+        spec:
+          successfulBuildsHistoryLimit: 2
+          failedBuildsHistoryLimit: 2
+          source:
+            type: Git
+            git:
+              uri: git@github.com:telus/casa-mfe-container
+              ref: ${BRANCH}
+            sourceSecret:
+              name: jenkins-github-secret
+            secrets:
+              - secret:
+                  name: npmrc-secret
+            runPolicy: Parallel
+          strategy:
+            type: Docker
+            dockerStrategy:
+              dockerfilePath: Dockerfile
+              forcePull: true
+          output:
+            to:
+              kind: ImageStreamTag
+              name: casa-mfe-container:latest
+
+  # Configure our deployment template
+  # https://docs.openshift.com/enterprise/3.2/dev_guide/templates.html
+  - apiVersion: v1
+    kind: Template
+    metadata:
+      name: casa-mfe-container
+    parameters:
+      - name: VERSION
+        value: 'latest'
+      - name: ENVIRONMENT
+        description: The environment name
+        value: production
+      - name: NUM_REPLICAS
+        description: How many replicas of the pod to deploy?
+        value: '1'
+      - name: MAX_REPLICAS
+        description: Limit on number of replicas to create
+        value: '5'
+      - name: INBOUND_PROXY_IPS
+        description: List of inbound proxy IPs to whitelist
+        value: '35.182.140.164'
+    objects:
+      # How the container is deployed
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/deployments.html
+      - apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: casa-mfe-container-${ENVIRONMENT}
+          labels:
+            app: casa-mfe-container-${ENVIRONMENT}
+            version: ${VERSION}
+        spec:
+          replicas: ${{NUM_REPLICAS}}
+          selector:
+            matchLabels:
+              app: casa-mfe-container-${ENVIRONMENT}
+          template:
+            metadata:
+              labels:
+                app: casa-mfe-container-${ENVIRONMENT}
+            spec:
+              containers:
+                - name: casa-mfe-container
+                  image: casa-mfe-container:${VERSION}
+                  imagePullPolicy: Always
+                  env:
+                    - name: APP_ENV
+                      value: ${ENVIRONMENT}
+                    - name: FASTIFY_ADDRESS
+                      value: '0.0.0.0'
+                  ports:
+                    - containerPort: 3000
+                  livenessProbe:
+                    tcpSocket:
+                      port: 3000
+                    initialDelaySeconds: 1
+                    timeoutSeconds: 1
+                  readinessProbe:
+                    httpGet:
+                      path: /healthz
+                      port: 3000
+                    initialDelaySeconds: 1
+                    timeoutSeconds: 1
+                  resources:
+                    requests:
+                      cpu: 20m
+                      memory: 128Mi
+                    limits:
+                      cpu: 1000m
+                      memory: 1Gi
+
+      # How the container is load balanced
+      # https://docs.openshift.com/enterprise/3.2/architecture/core_concepts/pods_and_services.html
+      - apiVersion: v1
+        kind: Service
+        metadata:
+          name: casa-mfe-container-${ENVIRONMENT}
+          labels:
+            app: casa-mfe-container-${ENVIRONMENT}
+        spec:
+          ports:
+            - port: 3000
+              targetPort: 3000
+          selector:
+            app: casa-mfe-container-${ENVIRONMENT}
+
+      # How the container is exposed
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/routes.html
+      - apiVersion: v1
+        kind: Route
+        metadata:
+          name: casa-mfe-container-${ENVIRONMENT}
+          labels:
+            app: casa-mfe-container
+          annotations:
+            haproxy.router.openshift.io/disable_cookies: 'true'
+            haproxy.router.openshift.io/ip_whitelist: ${INBOUND_PROXY_IPS}
+        spec:
+          to:
+            kind: Service
+            name: casa-mfe-container-${ENVIRONMENT}
+            weight: 100
+          port:
+            targetPort: 3000
+          tls:
+            termination: edge
+            insecureEdgeTerminationPolicy: Redirect
+
+      # How the container is scaled
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/pod_autoscaling.html
+      - apiVersion: autoscaling/v1
+        kind: HorizontalPodAutoscaler
+        metadata:
+          name: casa-mfe-container-${ENVIRONMENT}
+          labels:
+            app: casa-mfe-container
+        spec:
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: casa-mfe-container-${ENVIRONMENT}
+          minReplicas: ${{NUM_REPLICAS}}
+          maxReplicas: ${{MAX_REPLICAS}}
+          targetCPUUtilizationPercentage: 80

@@ -1,0 +1,18 @@
+{
+  "mobility": "Mobilité",
+  "category": "Sub Note",
+  "openChildDialog": "Ouvrir la boîte de dialogue enfant",
+  "comments": "commentaires",
+  "noteTextPlaceholder": "Remarque Texte",
+  "createNote": "Créer une note",
+  "newTask": "Nouvelle tâche",
+  "openNoteDialog": "Ouvrir la boîte de dialogue Note",
+  "openTaskDialog": "Ouvrir la boîte de dialogue des tâches",
+  "select": "Sélectionner",
+  "request": "Demander",
+  "type": "Taper",
+  "agentFunction": "Fonction d'agent",
+  "routeAnotherAgentFunction": "Router vers une autre fonction d'agent",
+  "dueDate": "Date d'échéance",
+  "submit": "Soumettre"
+}

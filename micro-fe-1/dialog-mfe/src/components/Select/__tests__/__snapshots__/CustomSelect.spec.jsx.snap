@@ -1,0 +1,597 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Select Test cases Should render custom Select with border 1`] = `
+<SelectInput
+  backgroundColor={null}
+  border={false}
+  borderLess={false}
+  caretColor="#2A2C2E"
+  disabled={false}
+  id="custom_select"
+  label=" "
+  onChange={[MockFunction]}
+  options={
+    Array [
+      Object {
+        "text": "Request",
+        "value": "Request",
+      },
+      Object {
+        "text": "telus",
+        "value": "telus",
+      },
+      Object {
+        "text": "subtype",
+        "value": "subtype",
+      },
+    ]
+  }
+  placeholder="Select"
+  value=""
+>
+  <styles__SelectCustomWrapper
+    backgroundColor={null}
+    border={false}
+    borderProps={false}
+    caretColor="#2A2C2E"
+    selectedOption=""
+  >
+    <div
+      className="styles__SelectCustomWrapper-sc-rx4b-0 eDzsEk"
+    >
+      <Select
+        defaultValue=""
+        disabled={false}
+        hintPosition="inline"
+        id="custom_select"
+        label=" "
+        onChange={[MockFunction]}
+        options={
+          Array [
+            Object {
+              "text": "Request",
+              "value": "Request",
+            },
+            Object {
+              "text": "telus",
+              "value": "telus",
+            },
+            Object {
+              "text": "subtype",
+              "value": "subtype",
+            },
+          ]
+        }
+        placeholder="Select"
+        value=""
+      >
+        <Box
+          between={2}
+          inline={false}
+          tag="div"
+        >
+          <styled.div
+            between={2}
+            inline={false}
+            tag="div"
+          >
+            <div
+              className="sc-bdnxRM dkLNUU"
+            >
+              <div>
+                <Box
+                  between={2}
+                  inline={true}
+                  tag="div"
+                >
+                  <styled.div
+                    between={2}
+                    inline={true}
+                    tag="div"
+                  >
+                    <div
+                      className="sc-bdnxRM bRXtsn"
+                    >
+                      <label
+                        htmlFor="customselect"
+                      >
+                        <Styled(Box)
+                          between={2}
+                          inline={true}
+                          tag="span"
+                        >
+                          <Box
+                            between={2}
+                            className="sc-jSFjdj daWNOz"
+                            inline={true}
+                            tag="span"
+                          >
+                            <styled.div
+                              between={2}
+                              className="sc-jSFjdj daWNOz"
+                              inline={true}
+                              tag="span"
+                            >
+                              <span
+                                className="sc-bdnxRM bRXtsn sc-jSFjdj daWNOz sc-jSFjdj daWNOz"
+                              >
+                                <Text
+                                  block={false}
+                                  bold={true}
+                                  data-testid="selectLabel"
+                                  invert={false}
+                                  size="medium"
+                                >
+                                  <Text__StyledText
+                                    block={false}
+                                    bold={true}
+                                    data-testid="selectLabel"
+                                    invert={false}
+                                    size="medium"
+                                  >
+                                    <span
+                                      className="Text__StyledText-sc-1m0rr67-0 bAEvBv"
+                                      data-testid="selectLabel"
+                                      size="medium"
+                                    >
+                                       
+                                    </span>
+                                  </Text__StyledText>
+                                </Text>
+                              </span>
+                            </styled.div>
+                          </Box>
+                        </Styled(Box)>
+                      </label>
+                    </div>
+                  </styled.div>
+                </Box>
+              </div>
+              <styled.div
+                _css={
+                  Object {
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  className="sc-gKAaRy dpMeLX"
+                >
+                  <Select__SelectWrapper>
+                    <div
+                      className="Select__SelectWrapper-sc-1kajzpi-0 fBSKQa"
+                    >
+                      <Select__StyledSelect
+                        aria-invalid={false}
+                        disabled={false}
+                        id="customselect"
+                        onBlur={[Function]}
+                        onChange={[MockFunction]}
+                        onFocus={[Function]}
+                        value=""
+                      >
+                        <select
+                          aria-invalid={false}
+                          className="Select__StyledSelect-sc-1kajzpi-1 iAboTI"
+                          disabled={false}
+                          id="customselect"
+                          onBlur={[Function]}
+                          onChange={[MockFunction]}
+                          onFocus={[Function]}
+                          value=""
+                        >
+                          <option
+                            disabled={true}
+                            value=""
+                          >
+                            Select
+                          </option>
+                          <option
+                            key="Request"
+                            value="Request"
+                          >
+                            Request
+                          </option>
+                          <option
+                            key="telus"
+                            value="telus"
+                          >
+                            telus
+                          </option>
+                          <option
+                            key="subtype"
+                            value="subtype"
+                          >
+                            subtype
+                          </option>
+                        </select>
+                      </Select__StyledSelect>
+                      <Styled(Box)
+                        between={3}
+                        inline={true}
+                      >
+                        <Box
+                          between={3}
+                          className="sc-eCApnc fyvYkl"
+                          inline={true}
+                          tag="div"
+                        >
+                          <styled.div
+                            between={3}
+                            className="sc-eCApnc fyvYkl"
+                            inline={true}
+                            tag="div"
+                          >
+                            <div
+                              className="sc-bdnxRM gSftyV sc-eCApnc fyvYkl sc-eCApnc fyvYkl"
+                            >
+                              <FeedbackIcon
+                                showIcon={false}
+                              >
+                                <Fade
+                                  in={false}
+                                  mountOnEnter={true}
+                                  timeout={100}
+                                  unmountOnExit={true}
+                                >
+                                  <Transition
+                                    appear={false}
+                                    enter={true}
+                                    exit={true}
+                                    in={false}
+                                    mountOnEnter={true}
+                                    onEnter={[Function]}
+                                    onEntered={[Function]}
+                                    onEntering={[Function]}
+                                    onExit={[Function]}
+                                    onExited={[Function]}
+                                    onExiting={[Function]}
+                                    timeout={100}
+                                    unmountOnExit={true}
+                                  />
+                                </Fade>
+                              </FeedbackIcon>
+                              <Select__IconLineFix>
+                                <div
+                                  className="Select__IconLineFix-sc-1kajzpi-2 hpQQuy"
+                                >
+                                  <DecorativeIcon
+                                    size={16}
+                                    symbol="caretDown"
+                                    variant="primary"
+                                  >
+                                    <Icon
+                                      aria-hidden="true"
+                                      size={16}
+                                      symbol="caretDown"
+                                      variant="primary"
+                                    >
+                                      <Icon__StyledIcon
+                                        aria-hidden="true"
+                                        iSize={16}
+                                        symbol="caretDown"
+                                        variant="primary"
+                                      >
+                                        <i
+                                          aria-hidden="true"
+                                          className="Icon__StyledIcon-sc-1g20dn8-0 kHqtHm"
+                                        />
+                                      </Icon__StyledIcon>
+                                    </Icon>
+                                  </DecorativeIcon>
+                                </div>
+                              </Select__IconLineFix>
+                            </div>
+                          </styled.div>
+                        </Box>
+                      </Styled(Box)>
+                    </div>
+                  </Select__SelectWrapper>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+        </Box>
+      </Select>
+    </div>
+  </styles__SelectCustomWrapper>
+</SelectInput>
+`;
+
+exports[`Custom Select Test cases should render custom select without border 1`] = `
+<SelectInput
+  backgroundColor={null}
+  border={false}
+  borderLess={true}
+  caretColor="#2A2C2E"
+  disabled={false}
+  id="custom_select"
+  label=" "
+  onChange={[MockFunction]}
+  options={
+    Array [
+      Object {
+        "text": "Request",
+        "value": "Request",
+      },
+      Object {
+        "text": "telus",
+        "value": "telus",
+      },
+      Object {
+        "text": "subtype",
+        "value": "subtype",
+      },
+    ]
+  }
+  placeholder="Select"
+  value=""
+>
+  <styles__SelectCustomWrapper
+    backgroundColor={null}
+    border={false}
+    borderProps={true}
+    caretColor="#2A2C2E"
+    selectedOption=""
+  >
+    <div
+      className="styles__SelectCustomWrapper-sc-rx4b-0 iyOVdw"
+    >
+      <Select
+        defaultValue=""
+        disabled={false}
+        hintPosition="inline"
+        id="custom_select"
+        label=" "
+        onChange={[MockFunction]}
+        options={
+          Array [
+            Object {
+              "text": "Request",
+              "value": "Request",
+            },
+            Object {
+              "text": "telus",
+              "value": "telus",
+            },
+            Object {
+              "text": "subtype",
+              "value": "subtype",
+            },
+          ]
+        }
+        placeholder="Select"
+        value=""
+      >
+        <Box
+          between={2}
+          inline={false}
+          tag="div"
+        >
+          <styled.div
+            between={2}
+            inline={false}
+            tag="div"
+          >
+            <div
+              className="sc-bdnxRM dkLNUU"
+            >
+              <div>
+                <Box
+                  between={2}
+                  inline={true}
+                  tag="div"
+                >
+                  <styled.div
+                    between={2}
+                    inline={true}
+                    tag="div"
+                  >
+                    <div
+                      className="sc-bdnxRM bRXtsn"
+                    >
+                      <label
+                        htmlFor="customselect"
+                      >
+                        <Styled(Box)
+                          between={2}
+                          inline={true}
+                          tag="span"
+                        >
+                          <Box
+                            between={2}
+                            className="sc-jSFjdj daWNOz"
+                            inline={true}
+                            tag="span"
+                          >
+                            <styled.div
+                              between={2}
+                              className="sc-jSFjdj daWNOz"
+                              inline={true}
+                              tag="span"
+                            >
+                              <span
+                                className="sc-bdnxRM bRXtsn sc-jSFjdj daWNOz sc-jSFjdj daWNOz"
+                              >
+                                <Text
+                                  block={false}
+                                  bold={true}
+                                  data-testid="selectLabel"
+                                  invert={false}
+                                  size="medium"
+                                >
+                                  <Text__StyledText
+                                    block={false}
+                                    bold={true}
+                                    data-testid="selectLabel"
+                                    invert={false}
+                                    size="medium"
+                                  >
+                                    <span
+                                      className="Text__StyledText-sc-1m0rr67-0 bAEvBv"
+                                      data-testid="selectLabel"
+                                      size="medium"
+                                    >
+                                       
+                                    </span>
+                                  </Text__StyledText>
+                                </Text>
+                              </span>
+                            </styled.div>
+                          </Box>
+                        </Styled(Box)>
+                      </label>
+                    </div>
+                  </styled.div>
+                </Box>
+              </div>
+              <styled.div
+                _css={
+                  Object {
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  className="sc-gKAaRy dpMeLX"
+                >
+                  <Select__SelectWrapper>
+                    <div
+                      className="Select__SelectWrapper-sc-1kajzpi-0 fBSKQa"
+                    >
+                      <Select__StyledSelect
+                        aria-invalid={false}
+                        disabled={false}
+                        id="customselect"
+                        onBlur={[Function]}
+                        onChange={[MockFunction]}
+                        onFocus={[Function]}
+                        value=""
+                      >
+                        <select
+                          aria-invalid={false}
+                          className="Select__StyledSelect-sc-1kajzpi-1 iAboTI"
+                          disabled={false}
+                          id="customselect"
+                          onBlur={[Function]}
+                          onChange={[MockFunction]}
+                          onFocus={[Function]}
+                          value=""
+                        >
+                          <option
+                            disabled={true}
+                            value=""
+                          >
+                            Select
+                          </option>
+                          <option
+                            key="Request"
+                            value="Request"
+                          >
+                            Request
+                          </option>
+                          <option
+                            key="telus"
+                            value="telus"
+                          >
+                            telus
+                          </option>
+                          <option
+                            key="subtype"
+                            value="subtype"
+                          >
+                            subtype
+                          </option>
+                        </select>
+                      </Select__StyledSelect>
+                      <Styled(Box)
+                        between={3}
+                        inline={true}
+                      >
+                        <Box
+                          between={3}
+                          className="sc-eCApnc fyvYkl"
+                          inline={true}
+                          tag="div"
+                        >
+                          <styled.div
+                            between={3}
+                            className="sc-eCApnc fyvYkl"
+                            inline={true}
+                            tag="div"
+                          >
+                            <div
+                              className="sc-bdnxRM gSftyV sc-eCApnc fyvYkl sc-eCApnc fyvYkl"
+                            >
+                              <FeedbackIcon
+                                showIcon={false}
+                              >
+                                <Fade
+                                  in={false}
+                                  mountOnEnter={true}
+                                  timeout={100}
+                                  unmountOnExit={true}
+                                >
+                                  <Transition
+                                    appear={false}
+                                    enter={true}
+                                    exit={true}
+                                    in={false}
+                                    mountOnEnter={true}
+                                    onEnter={[Function]}
+                                    onEntered={[Function]}
+                                    onEntering={[Function]}
+                                    onExit={[Function]}
+                                    onExited={[Function]}
+                                    onExiting={[Function]}
+                                    timeout={100}
+                                    unmountOnExit={true}
+                                  />
+                                </Fade>
+                              </FeedbackIcon>
+                              <Select__IconLineFix>
+                                <div
+                                  className="Select__IconLineFix-sc-1kajzpi-2 hpQQuy"
+                                >
+                                  <DecorativeIcon
+                                    size={16}
+                                    symbol="caretDown"
+                                    variant="primary"
+                                  >
+                                    <Icon
+                                      aria-hidden="true"
+                                      size={16}
+                                      symbol="caretDown"
+                                      variant="primary"
+                                    >
+                                      <Icon__StyledIcon
+                                        aria-hidden="true"
+                                        iSize={16}
+                                        symbol="caretDown"
+                                        variant="primary"
+                                      >
+                                        <i
+                                          aria-hidden="true"
+                                          className="Icon__StyledIcon-sc-1g20dn8-0 kHqtHm"
+                                        />
+                                      </Icon__StyledIcon>
+                                    </Icon>
+                                  </DecorativeIcon>
+                                </div>
+                              </Select__IconLineFix>
+                            </div>
+                          </styled.div>
+                        </Box>
+                      </Styled(Box)>
+                    </div>
+                  </Select__SelectWrapper>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+        </Box>
+      </Select>
+    </div>
+  </styles__SelectCustomWrapper>
+</SelectInput>
+`;

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom AddComment component should match Snapshot 1`] = `
+<SelectInput
+  addCommentHandler={[MockFunction]}
+  disabled={false}
+  id="add_new_comment"
+  newCommentText=""
+  placeholder="Add Comment"
+>
+  <styles__TextEditable
+    className="editable"
+    content=""
+    contentEditable={true}
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "",
+      }
+    }
+    id="add_new_comment"
+    maxLength="2000"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onInput={[Function]}
+    placeholder="Add Comment"
+    style={
+      Object {
+        "background": "transparent",
+        "borderBottom": "2px solid #d8d8d8",
+        "maxHeight": "132px",
+        "minHeight": "30px",
+        "overflowY": "scroll",
+        "padding": "9px 8px 9px 8px",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="styles__TextEditable-sc-1nz0nez-0 fXdXMK editable"
+      content=""
+      contentEditable={true}
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "",
+        }
+      }
+      id="add_new_comment"
+      maxLength="2000"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onInput={[Function]}
+      placeholder="Add Comment"
+      style={
+        Object {
+          "background": "transparent",
+          "borderBottom": "2px solid #d8d8d8",
+          "maxHeight": "132px",
+          "minHeight": "30px",
+          "overflowY": "scroll",
+          "padding": "9px 8px 9px 8px",
+          "width": "100%",
+        }
+      }
+    />
+  </styles__TextEditable>
+</SelectInput>
+`;

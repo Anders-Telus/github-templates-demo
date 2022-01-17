@@ -1,24 +1,24 @@
 
-FROM node:alpine
+FROM node:16.10.0-alpine as debug
 
-ENV NODE_VERSION 16.10.0
+WORKDIR /work/
 
-RUN apk add --no-cache libc6-compat
-#WORKDIR /app
-COPY package.json ./
-
-COPY *.js .
-COPY resolvers/ ./resolvers
-COPY datasources/ ./datasources
-COPY accounts.graphql .
-
+COPY ./src/package.json /work/package.json
 RUN npm install
+RUN npm install -g nodemon
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S telus -u 1001
-
-USER telus
+COPY ./src/ /work/src/
 
 #EXPOSE 4001
 
-CMD [ "node", "index.js" ]
+ENTRYPOINT [ "nodemon","--inspect=0.0.0.0","./src/index.js" ]
+
+
+# FROM node:12.4.0-alpine as prod
+
+# WORKDIR /work/
+# COPY ./src/package.json /work/package.json
+# RUN npm install
+# COPY ./src/ /work/
+
+# CMD node .

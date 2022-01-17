@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Docker: Debug Accounts subgraph",
+            "type": "node",
+            "request": "attach",
+            "remoteRoot": "/work/src/",
+            "port": 9229,
+            "address": "localhost",
+            "localRoot": "${workspaceFolder}/graphql/subgraphs/tmf666-account-gql/src/",
+            "protocol": "inspector",
+            "restart": true
+        }
+    ]
+}
