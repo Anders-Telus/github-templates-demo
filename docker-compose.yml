@@ -1,14 +1,14 @@
 version: "3.9"
 services:
-  # router:
-  #   container_name: router
-  #   build: ./graphql/router
-  #   environment:
-  #     - APOLLO_SCHEMA_CONFIG_EMBEDDED=true
-  #   volumes:
-  #     - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
-  #   ports:
-  #     - "4000:4000"
+  router:
+    container_name: router
+    build: ./graphql/router
+    environment:
+      - APOLLO_SCHEMA_CONFIG_EMBEDDED=true
+    volumes:
+      - ./graphql/supergraph.graphql:/etc/config/supergraph.graphql
+    ports:
+      - "4000:4000"
   
   mongodb:
     image: mongo:latest
@@ -63,36 +63,36 @@ services:
     depends_on:
       - "mongodb"
 
-  dialog-mfe:
-    container_name: dialog-mfe
-    image: poc/dialog-mfe:1.0.0
-    build:
-      context: ./micro-fe-1/dialog-mfe
-      # target: debug
-    volumes:
-    - ./micro-fe-1/dialog-mfe/src/:/work/src/
-    ports:
-      - 8001:3000
-  search-mfe:
-    container_name: search-mfe
-    image: poc/search-mfe:1.0.0
-    build:
-      context: ./micro-fe-1/search-mfe
-      # target: debug
-    volumes:
-    - ./micro-fe-1/search-mfe/src/:/work/src/
-    ports:
-      - 8002:3000
-  shell:
-    container_name: shell-mfe
-    image: poc/shell:1.0.0
-    build:
-      context: ./shell
-      # target: debug
-    volumes:
-    - ./shell/src/:/work/src/
-    environment: 
-      SEARCH_EXPERIENCE_HOST: http://search-mfe:8002
-      DIALOG_EXPERIENCE_HOST: http://dialog-mfe:8001
-    ports:
-      - 8000:3000
+  # dialog-mfe:
+  #   container_name: dialog-mfe
+  #   image: poc/dialog-mfe:1.0.0
+  #   build:
+  #     context: ./micro-fe-1/dialog-mfe
+  #     # target: debug
+  #   volumes:
+  #   - ./micro-fe-1/dialog-mfe/src/:/work/src/
+  #   ports:
+  #     - 8001:3000
+  # search-mfe:
+  #   container_name: search-mfe
+  #   image: poc/search-mfe:1.0.0
+  #   build:
+  #     context: ./micro-fe-1/search-mfe
+  #     # target: debug
+  #   volumes:
+  #   - ./micro-fe-1/search-mfe/src/:/work/src/
+  #   ports:
+  #     - 8002:3000
+  # shell:
+  #   container_name: shell-mfe
+  #   image: poc/shell:1.0.0
+  #   build:
+  #     context: ./shell
+  #     # target: debug
+  #   volumes:
+  #   - ./shell/src/:/work/src/
+  #   environment: 
+  #     SEARCH_EXPERIENCE_HOST: http://search-mfe:8002
+  #     DIALOG_EXPERIENCE_HOST: http://dialog-mfe:8001
+  #   ports:
+  #     - 8000:3000
