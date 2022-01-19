@@ -1,8 +1,5 @@
 
 
-import {
-  ApolloError,
-}  from "apollo-server";
 
 const Query = {
     allAccounts(parent, args, { db }, info) {

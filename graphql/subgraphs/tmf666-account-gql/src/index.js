@@ -21,7 +21,7 @@ if (process.env.APOLLO_OTEL_EXPORTER_TYPE) {
 }
 
 import { ApolloServer, gql } from 'apollo-server';
-import { buildFederatedSchema } from '@apollo/federation';
+import { buildSubgraphSchema } from '@apollo/federation';
 import { readFileSync } from 'fs';
 
 const port = process.env.APOLLO_PORT || 4000;
@@ -45,7 +45,7 @@ const getError = (error) => {
 };
 
 const server = new ApolloServer({
-  schema: buildFederatedSchema({
+  schema: buildSubgraphSchema({
     typeDefs,
     resolvers,
   }),

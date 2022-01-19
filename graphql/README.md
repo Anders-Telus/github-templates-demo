@@ -1,7 +1,7 @@
 # GraphQL
 
-
 ## Capabilities
+
 Listed below are the capabilities can be referred here:
 
 1. Folder structure
@@ -10,12 +10,11 @@ Listed below are the capabilities can be referred here:
 4. Recommended federation between various sub-graphs and the super-graph
 5. Unit tests
 6. Integration tests
-7. RestDataSource - to connect REST endpoints from subgraphs
-8. MongoDataSource - to connect with Mongo Databases https://www.apollographql.com/docs/apollo-server/data/data-sources/
-9. Authentication & Authorization
-10. Tracing & Monitoring - OpenTelemetry or any other options
-
-
+7. E2E Tests
+8. RestDataSource - to connect REST endpoints from subgraphs
+9. MongoDataSource - to connect with Mongo Databases <https://www.apollographql.com/docs/apollo-server/data/data-sources/>
+10. Authentication & Authorization
+11. Tracing & Monitoring - OpenTelemetry or any other options
 
 Sample APIs
 https://jsonplaceholder.typicode.com/

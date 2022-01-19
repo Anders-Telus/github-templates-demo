@@ -1,29 +1,30 @@
 # Reference Application
 
-*DEMO APPLICATION*
+-DEMO APPLICATION
 
 For more information please reach out to:
+
 - gonzalo.vazquez@telus.com
 - steve.choi@telus.com
 
-Follow the story at: https://github.com/telus/reference-application/wiki
+Follow the story at: <https://github.com/telus/reference-application/wiki>
 
-Discussions: https://github.com/telus/reference-application/discussions
+Discussions: <https://github.com/telus/reference-application/discussions>
 
-### High Level Architecture
+## High Level Architecture
 
 ![Reference Application](https://user-images.githubusercontent.com/1566236/137525278-8bed145b-ffb8-464a-b83f-ed724a502ad8.png)
 
 ### Structure
 
-*Bottom Up Approach*
+- Bottom Up Approach
 
 1. TMF Specifications
 2. Prism Mock Server - REST Endpoint
 3. GraphQL Layer
 4. MicroFront End
 
-#### Prerequisites 
+#### Prerequisites
 
 - Docker
 - Docker Compose
@@ -31,7 +32,9 @@ Discussions: https://github.com/telus/reference-application/discussions
 #### Instructions
 
 1. Clone repo
-2. Run `docker-compose up` to spin up the services
-3. Run `docker-compose down` to bring down the service
-4. To start with env file `docker-compose --env-file ./config/.env.dev up` 
-5. To start with env file `docker-compose --env-file ./config/.env.dev -f docker-compose.otel-collector.yml up`  
+
+2. To start with env file `docker-compose --env-file ./config/.env.dev build`
+3. To start with env file `docker-compose --env-file ./config/.env.dev up`
+4. To start with env file `docker-compose --env-file ./config/.env.dev -f docker-compose.otel-collector.yml up`  
+5. Run `docker-compose up` to spin up the services
+6. Run `docker-compose down` to bring down the service
