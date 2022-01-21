@@ -1,0 +1,25 @@
+{
+  "name": "customer-gql",
+  "version": "1.0.0",
+  "description": "Customer GraphQL Subgraph",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/federation": "^0.33.6",
+    "supergraph-demo-opentelemetry": "^0.0.3",
+    "apollo-datasource-mongo": "^0.1.7",
+    "apollo-server": "^3.6.1",
+    "apollo-server-errors": "^3.3.0",
+    "express": "^4.16.4",
+    "graphql": "^16.2.0",
+    "graphql-type-json": "^0.3.0",
+    "mongodb-memory-server": "^5.2.6",
+    "mongoose": "^6.0.0"
+  }
+}
