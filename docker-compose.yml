@@ -50,13 +50,13 @@ services:
     container_name: customers
     image: poc/customers:1.0.0
     build:
-      context: ./graphql/subgraphs/tmf629-customer-gql
+      context: ./graphql/subgraphs/customerGraphQL
       target: debug
     environment:
       - DB_USERNAME=${MONGO_USERNAME}
       - DB_PASSWORD=${MONGO_PASSWORD}
     volumes:
-    - ./graphql/subgraphs/tmf629-customer-gql/src/:/work/src/
+    - ./graphql/subgraphs/customerGraphQL/src/:/work/src/
     ports:
       - "4001:4001"
     depends_on:

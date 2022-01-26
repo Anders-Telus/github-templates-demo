@@ -51,7 +51,7 @@ function getErrorMessage(error) {
   return errorMessage;
 }
 
-function getErrorStatus (error) {
+function getErrorStatus(error) {
   let errorStatus = 500;
   let responseBodyStatus = "500";
   if (error.body && error.body.status) {
@@ -61,16 +61,16 @@ function getErrorStatus (error) {
       responseBodyStatus = body.status.toString();
       if (body.status.statusCd) {
         responseBodyStatus = body.status.statusCd.toString();
-      } 
-      
-    } 
+      }
+
+    }
   } else if (error.status) {
     responseBodyStatus = error.status.toString();
   }
 
   if (responseBodyStatus === "404" || responseBodyStatus === "400") {
     errorStatus = 400
-  } else if (responseBodyStatus === "401" ) {
+  } else if (responseBodyStatus === "401") {
     errorStatus = 401
   } else {
     errorStatus = 500
@@ -79,7 +79,7 @@ function getErrorStatus (error) {
   return errorStatus;
 }
 
-module.exports = errorBuilder = (error) => {
+const errorBuilder = (error) => {
   let timestamp = new Date().toISOString();
   if (
     error &&
@@ -95,3 +95,5 @@ module.exports = errorBuilder = (error) => {
     return error;
   }
 };
+
+export default errorBuilder;
