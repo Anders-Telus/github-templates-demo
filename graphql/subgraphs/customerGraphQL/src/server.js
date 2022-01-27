@@ -1,6 +1,6 @@
 import appSchema from "./app.schema.js";
 
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import mongoose from "mongoose";
 import buildCustomerSource from "./services/customer/datasources";
 import errorBuilder from "./common/errorBuilder";
@@ -26,7 +26,6 @@ const db_username = process.env.DB_USERNAME || 'root';
 const db_password = process.env.DB_PASSWORD || 'rootpassword';
 
 (async () => {
-    //const mongoUri = 'mongodb://'+db_username+':'+db_password+'@mongodb:27017/admin';
     const mongoUri = `mongodb://${db_username}:${db_password}@mongodb:27017/admin`;
     console.log("mongo url: " + mongoUri);
     try {
@@ -71,7 +70,7 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
                 console.log("MongoDB connected!!");
             })
             .catch((err) => {
-                console.error(err);
+                console.error('Error in subgraph',err);
             });
     } catch (err) {
         console.log("Failed to connect to MongoDB", err);

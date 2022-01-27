@@ -46,6 +46,28 @@ services:
     environment:
       - REST_ENDPOINT=${REST_ENDPOINT}
 
+  accounts-new: #docker run --rm -it -v ${PWD}:/work -w /work -p 5002:5000 poc/accounts:1.0.0 /bin/sh 
+    container_name: accounts-new
+    image: poc/accounts-new:1.0.0
+    build:
+      context: ./graphql/subgraphs/accountGraphQL
+      target: debug
+      #working_dir: /work      #comment out for build.target:prod
+      #entrypoint: /bin/sh     #comment out for build.target:prod
+      #stdin_open: true        #comment out for build.target:prod
+      #tty: true               #comment out for build.target:prod
+    volumes:
+    - ./graphql/subgraphs/accountGraphQL/src/:/work/src/
+    ports:
+      - 4005:4000
+      - 9230:9229            #debug port
+    environment:
+      - DB_USERNAME=${MONGO_USERNAME}
+      - DB_PASSWORD=${MONGO_PASSWORD}
+    depends_on:
+      - "mongodb"
+  
+  
   customers:
     container_name: customers
     image: poc/customers:1.0.0

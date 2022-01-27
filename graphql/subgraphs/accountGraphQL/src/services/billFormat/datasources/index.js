@@ -1,5 +1,7 @@
-const dbSource = require('./db');
+import BillFormat from './mongoDB';
 
-module.exports = {
-  db: db => dbSource(db)
-};
+const db = (db) => ({ 
+    BillFormat: BillFormat(db)
+});
+
+export default { db };

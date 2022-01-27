@@ -2,28 +2,27 @@
 import { ApolloGateway } from '@apollo/gateway';
 import {ApolloServer} from 'apollo-server';
 import { ApolloOpenTelemetry } from 'supergraph-demo-opentelemetry';
-
 import { readFileSync } from 'fs';
-const port = process.env.APOLLO_PORT || 4000;
-const embeddedSchema = process.env.APOLLO_SCHEMA_CONFIG_EMBEDDED === "true" ? true : false;
 
+const port = process.env.APOLLO_PORT || 4000;
+const embeddedSchema = process.env.APOLLO_SCHEMA_CONFIG_EMBEDDED === 'true' ? true : false;
+console.log(process.env.APOLLO_SCHEMA_CONFIG_EMBEDDED);
 const supergraph = embeddedSchema ? "/etc/config/supergraph.graphql" : "../supergraph.graphql";
 const config = {};
-
-
 
 setupTelementry();
 setupApolloGateway();
 
 function setupApolloGateway() {
   
-  config['supergraphSdl'] = readFileSync(supergraph).toString();
+ config['supergraphSdl'] = readFileSync(supergraph).toString();
+
   //used with docker
   if (embeddedSchema) {
     console.log('Starting Apollo Gateway in local mode ...');
-    console.log(`Using local: ${supergraph}`)
+    console.log('Using local:', `${supergraph}`)
   } else {
-    console.log('Starting Apollo Gateway in managed mode ...');
+    console.log('Starting Apollo Gateway in managed mode ...', `${supergraph}`);
   }
 
   const gateway = new ApolloGateway(config);

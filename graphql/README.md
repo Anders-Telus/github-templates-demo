@@ -17,9 +17,9 @@ Listed below are the capabilities can be referred here:
 11. Tracing & Monitoring - OpenTelemetry or any other options
 
 Sample APIs
-https://jsonplaceholder.typicode.com/
+<https://jsonplaceholder.typicode.com/>
 
 References
-https://codesandbox.io/s/njl57?file=/mongoose/schemas.js
+<https://codesandbox.io/s/njl57?file=/mongoose/schemas.js>
 
-https://github.com/apollographql/supergraph-demo-fed2
+<https://github.com/apollographql/supergraph-demo-fed2>
