@@ -2,8 +2,10 @@ import appSchema from "./app.schema.js";
 import { ApolloServer, gql } from "apollo-server";
 import mongoose from "mongoose";
 import buildBillFormatSource from "./services/billFormat/datasources";
+import buildBillCycleSource from "./services/billCycle/datasources";
 import errorBuilder from "./common/errorBuilder";
 import billFormatLoad from "./services/billFormat/datasources/pre-load";
+import billCycleLoad from "./services/billCycle/datasources/pre-load";
 
 // Open Telemetry (optional)
 import { ApolloOpenTelemetry } from "supergraph-demo-opentelemetry";
@@ -36,6 +38,7 @@ const db_password = process.env.DB_PASSWORD || "rootpassword";
 
     const db = mongoose.connection;
     await billFormatLoad.data(db);
+    await billCycleLoad.data(db);
 
     const getError = (error) => {
       const errorMsg = errorBuilder(error);
@@ -48,6 +51,7 @@ const db_password = process.env.DB_PASSWORD || "rootpassword";
       context: async ({ req }) => {},
       dataSources: () => ({
         ...buildBillFormatSource.db(db),
+        ...buildBillCycleSource.db(db)
       }),
       onHealthCheck: (typeDefs) => {
         return new Promise((resolve, reject) => {

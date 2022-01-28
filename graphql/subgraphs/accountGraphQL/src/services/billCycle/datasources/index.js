@@ -1,5 +1,7 @@
-const dbSource = require('./db');
+import BillCycle from './mongoDB';
 
-module.exports = {
-  db: db => dbSource(db)
-};
+const db = (db) => ({ 
+  BillCycle: BillCycle(db)
+});
+
+export default { db };

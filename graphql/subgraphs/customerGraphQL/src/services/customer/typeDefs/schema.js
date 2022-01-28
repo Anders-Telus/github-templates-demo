@@ -1,7 +1,7 @@
 import { gql } from "graphql-modules";
 
 const customerTypeDefs = gql`
-  scalar DateTime
+scalar DateTime
 
   type Customer {
     id:ID!
