@@ -38,3 +38,7 @@ Discussions: <https://github.com/telus/reference-application/discussions>
 4. To start with env file `docker-compose --env-file ./config/.env.dev -f docker-compose.otel-collector.yml up`  
 5. Run `docker-compose up` to spin up the services
 6. Run `docker-compose down` to bring down the service
+
+### Clean up Guide
+
+- use ./mongo-clean-up.sh to clean up old files for mongo db
