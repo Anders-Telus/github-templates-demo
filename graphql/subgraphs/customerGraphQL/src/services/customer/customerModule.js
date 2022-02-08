@@ -1,7 +1,7 @@
 import { createModule } from "graphql-modules";
 
 import customerTypeDefs from "./typeDefs/schema.js";
-import customerResolver from "./resolvers/query.js";
+import customerResolver from "./resolvers/index";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 

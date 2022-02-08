@@ -16,6 +16,16 @@ export default class Customer extends MongoDataSource {
         }
     }
 
+    saveCustomer(data) {
+        try {
+            const customer = new this.Customer(data);
+            return customer.save();
+        } catch (error) {
+            console.log(`---------> customer save error -------------->  :: ${error}`);
+            return error;
+        }
+    }
+
     allCustomers() {
         try {
             return this.Customer.find({});

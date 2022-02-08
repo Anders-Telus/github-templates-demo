@@ -4,7 +4,8 @@ const customerTypeDefs = gql`
 scalar DateTime
 
   type Customer {
-    id:ID!
+    _id: ID!
+    id: String
     name: String
     status: String
     href: String
@@ -34,6 +35,18 @@ scalar DateTime
   type Query {
     allCustomers: [Customer]
     customer(id: ID!): Customer
+  }
+
+  input CustomerInput {
+    id: String
+    name: String
+    status: String
+    href: String
+    statusReason: String
+  }
+  
+  type Mutation {
+    addCustomer(customer: CustomerInput!): Customer
   }
 `;
 

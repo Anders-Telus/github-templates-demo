@@ -70,7 +70,7 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
                 console.log("MongoDB connected!!");
             })
             .catch((err) => {
-                console.error('Error in subgraph',err);
+                console.error('Error in subgraph', err);
             });
     } catch (err) {
         console.log("Failed to connect to MongoDB", err);
