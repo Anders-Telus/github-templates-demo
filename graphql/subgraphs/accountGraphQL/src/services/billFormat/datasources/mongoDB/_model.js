@@ -33,7 +33,7 @@ export default class BillFormat extends MongoDataSource {
 
   allBillFormats() {
     try {
-      return this.BillFormats.find({});
+      return this.BillFormat.find({});
     } catch (error) {
       console.log(`BillFormats error :: ${error}`);
       return error;
