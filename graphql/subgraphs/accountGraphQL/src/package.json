@@ -21,7 +21,6 @@
     "apollo-datasource-mongo": "^0.1.7",
     "apollo-server": "^3.6.1",
     "apollo-server-errors": "^3.3.0",
-  
     "express": "^4.16.4",
     "graphql": "^15.5.1",
     "graphql-modules": "^1.4.4",
