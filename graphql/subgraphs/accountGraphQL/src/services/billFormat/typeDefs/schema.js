@@ -9,8 +9,19 @@ const billFormatTypeDefs = gql`
     href: String
   }
 
-  type Query {
+  extend type Query {
     billFormat(id: ID!): BillFormat
+    allBillFormats: [BillFormat]
+  }
+  input BillFormatInput {
+    id: String!
+    name: String!
+    description: String
+    href: String
+  }
+
+  extend type Mutation {
+    addBillFormat(billFormat: BillFormatInput!): BillFormat
   }
 `;
 

@@ -1,8 +1,8 @@
+const query = {
+  billFormat: (parent, { id }, { dataSources: { BillFormat } }) =>
+    BillFormat.loadBillFormat(id),
+  allBillFormats: (_, __, { dataSources: { BillFormat } }) =>
+    BillFormat.allBillFormats(),
+};
 
-const billFormatResolver = {
-    Query: {
-        billFormat: (parent, { id } ,{ dataSources: { BillFormat } }) => BillFormat.loadBillFormat(id)
-    }
-}
-
-export default billFormatResolver;
+export default query;

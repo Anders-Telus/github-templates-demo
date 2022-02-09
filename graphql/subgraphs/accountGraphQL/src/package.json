@@ -6,29 +6,37 @@
   "type": "module",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --runInBand"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Telus-Agora",
   "dependencies": {
     "@apollo/federation": "^0.33.6",
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
     "apollo-datasource-mongo": "^0.1.7",
     "apollo-server": "^3.6.1",
     "apollo-server-errors": "^3.3.0",
+  
     "express": "^4.16.4",
     "graphql": "^15.5.1",
     "graphql-modules": "^1.4.4",
     "graphql-tag": "^2.12.5",
-    "graphql-tools": "^7.0.5",
+    "graphql-tools": "^8.2.0",
     "graphql-type-json": "^0.3.0",
     "mongodb-memory-server": "^5.2.6",
     "mongoose": "^6.1.8",
     "path": "^0.12.7",
-    "supergraph-demo-opentelemetry": "^0.0.3",
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.12",
-    "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11"
+    "supergraph-demo-opentelemetry": "^0.0.3"
+  },
+  "devDependencies": {
+    "axios": "^0.25.0",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.4.7",
+    "easygraphql-tester": "^6.0.1"
   }
 }

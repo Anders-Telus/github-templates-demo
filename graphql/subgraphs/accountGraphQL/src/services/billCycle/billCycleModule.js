@@ -1,6 +1,6 @@
 import { createModule } from "graphql-modules";
 import  billCycleTypeDefs  from "./typeDefs/Schema";
-import  billCycleResolver  from "./resolvers/query.js";
+import  billCycleResolver  from "./resolvers/index";
 import { fileURLToPath } from "url";
 import { dirname }  from "path";
 
