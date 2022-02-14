@@ -1,4 +1,4 @@
-const query = {
+ const query = {
   billFormat: (parent, { id }, { dataSources: { BillFormat } }) =>
     BillFormat.loadBillFormat(id),
   allBillFormats: (_, __, { dataSources: { BillFormat } }) =>

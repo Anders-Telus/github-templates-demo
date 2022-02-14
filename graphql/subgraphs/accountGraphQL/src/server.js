@@ -1,4 +1,4 @@
-import appSchema from "./app.schema.js";
+
 import { ApolloServer, gql } from "apollo-server";
 import mongoose from "mongoose";
 import buildBillFormatSource from "./services/billFormat/datasources";
@@ -6,9 +6,14 @@ import buildBillCycleSource from "./services/billCycle/datasources";
 import errorBuilder from "./common/errorBuilder";
 import billFormatLoad from "./services/billFormat/datasources/pre-load";
 import billCycleLoad from "./services/billCycle/datasources/pre-load";
+import {typeDefs } from "./services/index"
+import billCycleResolver from "./services/billCycle/resolvers/index.js";
+import billFormatResolver from "./services/billFormat/resolvers/index.js";
 
 // Open Telemetry (optional)
 import { ApolloOpenTelemetry } from "supergraph-demo-opentelemetry";
+import { makeExecutableSchema } from '@graphql-tools/schema';
+
 
 if (process.env.APOLLO_OTEL_EXPORTER_TYPE) {
   new ApolloOpenTelemetry({
@@ -45,8 +50,14 @@ const db_password = process.env.DB_PASSWORD || "rootpassword";
       return errorMsg;
     };
 
+const resolvers = [billFormatResolver, billCycleResolver];
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
+})
+
     const server = new ApolloServer({
-      schema: appSchema,
+      schema: schema,
       tracing: true,
       context: async ({ req }) => {},
       dataSources: () => ({

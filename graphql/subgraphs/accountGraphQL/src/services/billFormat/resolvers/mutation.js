@@ -1,4 +1,4 @@
-const mutation = {
+ const mutation = {
   addBillFormat: (_, args, { dataSources: { BillFormat } }) => {
     const { id, name, description, href } = args.billFormat;
     return BillFormat.saveBillFormat({

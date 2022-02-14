@@ -1,5 +1,4 @@
-import { MongoDataSource } from 'apollo-datasource-mongo';
-
+import { MongoDataSource } from "apollo-datasource-mongo";
 
 export default class BillFormat extends MongoDataSource {
   initialize(config) {
@@ -13,7 +12,6 @@ export default class BillFormat extends MongoDataSource {
     try {
       return this.BillFormat.loadOneById(billFormatId);
     } catch (error) {
-
       console.log(`---------> error -------------->  :: ${error}`);
       return error;
     }
@@ -31,9 +29,10 @@ export default class BillFormat extends MongoDataSource {
     }
   }
 
-  allBillFormats() {
+  async allBillFormats() {
     try {
-      return this.BillFormat.find({});
+      const billFormatModel = this.BillFormat.find({}).clone().catch(function(err){ console.log(err)});
+      return billFormatModel;
     } catch (error) {
       console.log(`BillFormats error :: ${error}`);
       return error;

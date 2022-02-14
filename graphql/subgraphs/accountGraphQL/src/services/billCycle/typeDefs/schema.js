@@ -1,11 +1,13 @@
 import { gql } from "graphql-modules";
 
-const billCycleTypeDefs = gql`
-scalar DateTime
-type ValidFor {
-    endDateTime: DateTime
-    startDateTime: DateTime
-  }
+ const billCycleTypeDefs = gql`
+
+  scalar DateTime
+
+  type ValidFor {
+      endDateTime: DateTime
+      startDateTime: DateTime
+    }
   
   type BillCycle {
     billingDateShift: Int
@@ -36,15 +38,14 @@ type ValidFor {
     name: String
     paymentDueDateOffset: Int
   }
-   type Query {
+  
+  type Query {
         allBillCycles: [BillCycle]
         billCycle(id: ID!): BillCycle
       }
 
-   type Mutation {
+  type Mutation {
     addBillCycle(billCycle: BillCycleInput!): BillCycle
-  }
-  `
-   
+  }`;
 
 export default billCycleTypeDefs;

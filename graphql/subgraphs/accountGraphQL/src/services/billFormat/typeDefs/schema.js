@@ -1,7 +1,8 @@
 import { gql } from "graphql-modules";
 
-const billFormatTypeDefs = gql`
-  type BillFormat {
+  const billFormatTypeDefs = gql`
+  
+ type BillFormat {
     _id: ID!
     id: String!
     name: String!
@@ -9,7 +10,7 @@ const billFormatTypeDefs = gql`
     href: String
   }
 
-  extend type Query {
+  type Query {
     billFormat(id: ID!): BillFormat
     allBillFormats: [BillFormat]
   }
@@ -20,9 +21,8 @@ const billFormatTypeDefs = gql`
     href: String
   }
 
-  extend type Mutation {
+  type Mutation {
     addBillFormat(billFormat: BillFormatInput!): BillFormat
-  }
-`;
+  }`;
 
 export default billFormatTypeDefs;

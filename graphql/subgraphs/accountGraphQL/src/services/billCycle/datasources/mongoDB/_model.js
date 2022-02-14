@@ -29,9 +29,10 @@ export default class BillCycle extends MongoDataSource {
     }
   }
 
-  allBillCycles() {
+ async allBillCycles() {
     try {
-      return this.BillCycle.find({});
+     const billModel = this.BillCycle.find({}).clone().catch(function(err){ console.log(err)});
+     return billModel;
     } catch (error) {
       console.log(`BillCycle error :: ${error}`);
       return error;
