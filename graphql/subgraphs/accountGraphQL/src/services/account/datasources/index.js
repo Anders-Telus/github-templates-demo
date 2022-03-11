@@ -1,5 +1,7 @@
-const dbSource = require('./db');
+import Account from './mongoDB';
 
-module.exports = {
-  db: db => dbSource(db)
-};
+const db = (db) => ({ 
+  Account: Account(db)
+});
+
+export default { db };

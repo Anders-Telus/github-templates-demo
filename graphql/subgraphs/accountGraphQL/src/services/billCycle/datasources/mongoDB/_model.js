@@ -1,6 +1,6 @@
 import { MongoDataSource } from "apollo-datasource-mongo";
 
-export default class BillCycle extends MongoDataSource {
+export default class BillCycle extends MongoDataSource{
   initialize(config) {
     super.initialize({
       ...config,

@@ -16,6 +16,4 @@ export default mongoose.Schema({
         endDateTime: Date,
         startDateTime: Date
     }
-    
-   
 })

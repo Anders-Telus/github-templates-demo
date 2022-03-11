@@ -1,5 +1,5 @@
-import { gql } from "graphql-modules";
 
+import { gql } from 'apollo-server';
  const billCycleTypeDefs = gql`
 
   scalar DateTime
@@ -8,8 +8,13 @@ import { gql } from "graphql-modules";
       endDateTime: DateTime
       startDateTime: DateTime
     }
+
+   extend type Account {
+    id: ID! @external
+    billCycle: [BillCycle]
+}
   
-  type BillCycle {
+   type BillCycle @key(fields: "id") {
     billingDateShift: Int
     billingPeriod: String
     chargeDateOffset: Int
@@ -39,7 +44,7 @@ import { gql } from "graphql-modules";
     paymentDueDateOffset: Int
   }
   
-  type Query {
+ extend type Query {
         allBillCycles: [BillCycle]
         billCycle(id: ID!): BillCycle
       }

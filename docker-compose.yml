@@ -28,23 +28,23 @@ services:
 #     ports:
 #         - "4020:4020"
 
-  accounts: #docker run --rm -it -v ${PWD}:/work -w /work -p 5002:5000 poc/accounts:1.0.0 /bin/sh 
-    container_name: accounts
-    image: poc/accounts:1.0.0
-    build:
-      context: ./graphql/subgraphs/tmf666-account-gql
-      target: debug
-    #working_dir: /work      #comment out for build.target:prod
-    #entrypoint: /bin/sh     #comment out for build.target:prod
-    #stdin_open: true        #comment out for build.target:prod
-    #tty: true               #comment out for build.target:prod
-    volumes:
-    - ./graphql/subgraphs/tmf666-account-gql/src/:/work/src/
-    ports:
-      - 4000:4000
-      - 9229:9229            #debug port
-    environment:
-      - REST_ENDPOINT=${REST_ENDPOINT}
+  # accounts: #docker run --rm -it -v ${PWD}:/work -w /work -p 5002:5000 poc/accounts:1.0.0 /bin/sh 
+  #   container_name: accounts
+  #   image: poc/accounts:1.0.0
+  #   build:
+  #     context: ./graphql/subgraphs/tmf666-account-gql
+  #     target: debug
+  #   #working_dir: /work      #comment out for build.target:prod
+  #   #entrypoint: /bin/sh     #comment out for build.target:prod
+  #   #stdin_open: true        #comment out for build.target:prod
+  #   #tty: true               #comment out for build.target:prod
+  #   volumes:
+  #   - ./graphql/subgraphs/tmf666-account-gql/src/:/work/src/
+  #   ports:
+  #     - 4000:4000
+  #     - 9229:9229            #debug port
+  #   environment:
+  #     - REST_ENDPOINT=${REST_ENDPOINT}
 
   accounts-new: #docker run --rm -it -v ${PWD}:/work -w /work -p 5002:5000 poc/accounts:1.0.0 /bin/sh 
     container_name: accounts-new

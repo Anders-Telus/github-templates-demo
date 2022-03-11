@@ -36,3 +36,48 @@ After running the commands to start your instances you should be able to navigat
 ```link
 https://www.apollographql.com/docs/apollo-server/v2/api/graphql-tools/
 ```
+
+## Federation 2
+```link
+https://www.apollographql.com/blog/announcement/backend/announcing-federation-2/
+```
+
+- Gateway vs Router
+
+ ```link
+ https://www.apollographql.com/docs/router/ - Router
+ ```
+
+ ```link
+ https://www.apollographql.com/docs/federation/gateway/
+ ```
+
+- Apollo
+
+```link
+https://www.apollographql.com/docs/federation/quickstart/
+```
+
+- federation 2
+
+```link
+https://www.apollographql.com/docs/federation/v2/
+```
+
+- Subgraphs
+
+```link
+https://www.apollographql.com/docs/federation/v2/subgraphs/
+```
+
+- Supergraph
+
+```link
+https://github.com/apollographql/supergraph-demo-fed2/blob/main/supergraph.graphql
+```
+
+- Directives
+
+```link
+https://www.apollographql.com/blog/graphql/directives/eusable-graphql-schema-directives/
+```

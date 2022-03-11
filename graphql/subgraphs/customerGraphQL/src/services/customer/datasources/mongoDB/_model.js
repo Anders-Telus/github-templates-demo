@@ -28,7 +28,7 @@ export default class Customer extends MongoDataSource {
 
     allCustomers() {
         try {
-            return this.Customer.find({});
+            return this.Customer.find({}).clone().catch(function(err){ console.log(err)});
         } catch (error) {
             console.log(`allCustomer error :: ${error}`);
             return error;

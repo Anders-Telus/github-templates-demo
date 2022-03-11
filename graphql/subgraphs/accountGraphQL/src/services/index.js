@@ -1,8 +1,12 @@
-import billFormatTypeDefs  from "./billFormat/typeDefs/schema";
-import billCycleTypeDefs  from "./billCycle/typeDefs/schema";
-import { mergeTypes } from "merge-graphql-schemas";
+import BillCycle from './billCycle/datasources/index';
+import BillFormat from './billFormat/datasources/index';
+import Account from './account/datasources/index';
+import { dbConnection } from '../db'
 
-const types = [billCycleTypeDefs,billFormatTypeDefs];
+export default () => ({
+  billCycle: new BillCycle(dbConnection.collection('billCycle')),
+  billFormat: new BillFormat(dbConnection.collection('billFormat')),
+  account: new Account(dbConnection.collection('account'))
+})
 
-export const typeDefs = mergeTypes(types, { all: true });
- 
+export { BillCycle, BillFormat, Account }

@@ -20,16 +20,6 @@
     "tslib" "^2.3.0"
     "zen-observable-ts" "~1.1.0"
 
-"@apollo/federation@^0.33.6":
-  "integrity" "sha512-Sbau1gvWN6/pJdw13xZCoQ75IQu6F6D9XkZ9FapMVX04bE1j1XXbYtSK+ZVZuOOCfMLnYV/iLEEPxedVb7+0yA=="
-  "resolved" "https://registry.npmjs.org/@apollo/federation/-/federation-0.33.9.tgz"
-  "version" "0.33.9"
-  dependencies:
-    "@apollo/subgraph" "^0.1.5"
-    "apollo-graphql" "^0.9.5"
-    "apollo-server-types" "^3.0.2"
-    "lodash.xorby" "^4.7.0"
-
 "@apollo/protobufjs@1.2.2":
   "integrity" "sha512-vF+zxhPiLtkwxONs6YanSt1EpwpGilThpneExUN5K3tCymuxNnVq2yojTvnpRjv2QfsEIt/n7ozPIIzBLwGIDQ=="
   "resolved" "https://registry.npmjs.org/@apollo/protobufjs/-/protobufjs-1.2.2.tgz"
@@ -49,12 +39,10 @@
     "@types/node" "^10.1.0"
     "long" "^4.0.0"
 
-"@apollo/subgraph@^0.1.5":
-  "integrity" "sha512-i1uU9llldGMV7GcBOUQRqnbGfgOpc6nrOVw93oKlugZq5R00q8y/RX8KgvMfdXZyr4MJ2/gO6Kw7LzbjCKU+Kw=="
-  "resolved" "https://registry.npmjs.org/@apollo/subgraph/-/subgraph-0.1.5.tgz"
-  "version" "0.1.5"
-  dependencies:
-    "apollo-graphql" "^0.9.5"
+"@apollo/subgraph@0.3.1":
+  "integrity" "sha512-MWqzfZEcvN86iwwgsgkFnkoBvv/wCdw/qyXjayuZ4wwQgVZ8NpFNbUxjRC0MwKNHwBU/ZH1oDHOnC8WbUuUMsg=="
+  "resolved" "https://registry.npmjs.org/@apollo/subgraph/-/subgraph-0.3.1.tgz"
+  "version" "0.3.1"
 
 "@apollographql/apollo-tools@^0.5.1":
   "integrity" "sha512-KxZiw0Us3k1d0YkJDhOpVH5rJ+mBfjXcgoRoCcslbgirjgLotKMzOcx4PZ7YTEvvEROmvG7X3Aon41GvMmyGsw=="
@@ -67,13 +55,6 @@
   "version" "1.6.29"
   dependencies:
     "xss" "^1.0.8"
-
-"@ardatan/aggregate-error@0.0.6":
-  "integrity" "sha512-vyrkEHG1jrukmzTPtyWB4NLPauUw5bQeg4uhn8f+1SSynmrOcyvlb1GKQjjgoBzElLdfXCRYX8UnBlhklOHYRQ=="
-  "resolved" "https://registry.npmjs.org/@ardatan/aggregate-error/-/aggregate-error-0.0.6.tgz"
-  "version" "0.0.6"
-  dependencies:
-    "tslib" "~2.0.1"
 
 "@babel/cli@^7.16.8":
   "integrity" "sha512-FTKBbxyk5TclXOGmwYyqelqP5IF6hMxaeJskd85jbR5jBfYlwqgwAbJwnixi1ZBbTqKfFuAA95mdmUFeSRwyJA=="
@@ -1038,42 +1019,10 @@
   "resolved" "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   "version" "0.2.3"
 
-"@graphql-tools/batch-execute@^7.1.2":
-  "integrity" "sha512-IuR2SB2MnC2ztA/XeTMTfWcA0Wy7ZH5u+nDkDNLAdX+AaSyDnsQS35sCmHqG0VOGTl7rzoyBWLCKGwSJplgtwg=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/batch-execute/-/batch-execute-7.1.2.tgz"
-  "version" "7.1.2"
-  dependencies:
-    "@graphql-tools/utils" "^7.7.0"
-    "dataloader" "2.0.0"
-    "tslib" "~2.2.0"
-    "value-or-promise" "1.0.6"
-
-"@graphql-tools/delegate@^7.1.5":
-  "integrity" "sha512-bQu+hDd37e+FZ0CQGEEczmRSfQRnnXeUxI/0miDV+NV/zCbEdIJj5tYFNrKT03W6wgdqx8U06d8L23LxvGri/g=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/delegate/-/delegate-7.1.5.tgz"
-  "version" "7.1.5"
-  dependencies:
-    "@ardatan/aggregate-error" "0.0.6"
-    "@graphql-tools/batch-execute" "^7.1.2"
-    "@graphql-tools/schema" "^7.1.5"
-    "@graphql-tools/utils" "^7.7.1"
-    "dataloader" "2.0.0"
-    "tslib" "~2.2.0"
-    "value-or-promise" "1.0.6"
-
-"@graphql-tools/merge@^6.0.11":
-  "integrity" "sha512-G5YrOew39fZf16VIrc49q3c8dBqQDD0ax5LYPiNja00xsXDi0T9zsEWVt06ApjtSdSF6HDddlu5S12QjeN8Tow=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/merge/-/merge-6.2.17.tgz"
-  "version" "6.2.17"
-  dependencies:
-    "@graphql-tools/schema" "^8.0.2"
-    "@graphql-tools/utils" "8.0.2"
-    "tslib" "~2.3.0"
-
-"@graphql-tools/merge@^8.2.1":
-  "integrity" "sha512-Q240kcUszhXiAYudjuJgNuLgy9CryDP3wp83NOZQezfA6h3ByYKU7xI6DiKrdjyVaGpYN3ppUmdj0uf5GaXzMA=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/merge/-/merge-8.2.1.tgz"
-  "version" "8.2.1"
+"@graphql-tools/merge@^8.2.1", "@graphql-tools/merge@^8.2.2":
+  "integrity" "sha512-2DyqhIOMUMKbCPqo8p6xSdll2OBcBxGdOrxlJJlFQvinsSaYqp/ct3dhAxNtzaIcvSVgXvttQqfD7O2ziFtE7Q=="
+  "resolved" "https://registry.npmjs.org/@graphql-tools/merge/-/merge-8.2.2.tgz"
+  "version" "8.2.2"
   dependencies:
     "@graphql-tools/utils" "^8.5.1"
     "tslib" "~2.3.0"
@@ -1088,26 +1037,7 @@
     "fast-json-stable-stringify" "^2.1.0"
     "tslib" "~2.3.0"
 
-"@graphql-tools/schema@^7.0.0", "@graphql-tools/schema@^7.1.5":
-  "integrity" "sha512-uyn3HSNSckf4mvQSq0Q07CPaVZMNFCYEVxroApOaw802m9DcZPgf9XVPy/gda5GWj9AhbijfRYVTZQgHnJ4CXA=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/schema/-/schema-7.1.5.tgz"
-  "version" "7.1.5"
-  dependencies:
-    "@graphql-tools/utils" "^7.1.2"
-    "tslib" "~2.2.0"
-    "value-or-promise" "1.0.6"
-
 "@graphql-tools/schema@^8.0.0", "@graphql-tools/schema@^8.3.1":
-  "integrity" "sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/schema/-/schema-8.3.1.tgz"
-  "version" "8.3.1"
-  dependencies:
-    "@graphql-tools/merge" "^8.2.1"
-    "@graphql-tools/utils" "^8.5.1"
-    "tslib" "~2.3.0"
-    "value-or-promise" "1.0.11"
-
-"@graphql-tools/schema@^8.0.2":
   "integrity" "sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ=="
   "resolved" "https://registry.npmjs.org/@graphql-tools/schema/-/schema-8.3.1.tgz"
   "version" "8.3.1"
@@ -1127,48 +1057,14 @@
     "tslib" "~2.3.0"
     "value-or-promise" "1.0.11"
 
-"@graphql-tools/utils@^7.1.2", "@graphql-tools/utils@^7.7.0", "@graphql-tools/utils@^7.7.1", "@graphql-tools/utils@^7.8.1":
-  "integrity" "sha512-d334r6bo9mxdSqZW6zWboEnnOOFRrAPVQJ7LkU8/6grglrbcu6WhwCLzHb90E94JI3TD3ricC3YGbUqIi9Xg0w=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/utils/-/utils-7.10.0.tgz"
-  "version" "7.10.0"
-  dependencies:
-    "@ardatan/aggregate-error" "0.0.6"
-    "camel-case" "4.1.2"
-    "tslib" "~2.2.0"
-
-"@graphql-tools/utils@^8.5.1":
+"@graphql-tools/utils@^8.5.1", "@graphql-tools/utils@^8.6.0":
   "integrity" "sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg=="
   "resolved" "https://registry.npmjs.org/@graphql-tools/utils/-/utils-8.6.1.tgz"
   "version" "8.6.1"
   dependencies:
     "tslib" "~2.3.0"
 
-"@graphql-tools/utils@^8.6.0":
-  "integrity" "sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/utils/-/utils-8.6.1.tgz"
-  "version" "8.6.1"
-  dependencies:
-    "tslib" "~2.3.0"
-
-"@graphql-tools/utils@8.0.2":
-  "integrity" "sha512-gzkavMOgbhnwkHJYg32Adv6f+LxjbQmmbdD5Hty0+CWxvaiuJq+nU6tzb/7VSU4cwhbNLx/lGu2jbCPEW1McZQ=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/utils/-/utils-8.0.2.tgz"
-  "version" "8.0.2"
-  dependencies:
-    "tslib" "~2.3.0"
-
-"@graphql-tools/wrap@^7.0.1":
-  "integrity" "sha512-1NDUymworsOlb53Qfh7fonDi2STvqCtbeE68ntKY9K/Ju/be2ZNxrFSbrBHwnxWcN9PjISNnLcAyJ1L5tCUyhg=="
-  "resolved" "https://registry.npmjs.org/@graphql-tools/wrap/-/wrap-7.0.8.tgz"
-  "version" "7.0.8"
-  dependencies:
-    "@graphql-tools/delegate" "^7.1.5"
-    "@graphql-tools/schema" "^7.1.5"
-    "@graphql-tools/utils" "^7.8.1"
-    "tslib" "~2.2.0"
-    "value-or-promise" "1.0.6"
-
-"@graphql-typed-document-node/core@^3.0.0", "@graphql-typed-document-node/core@^3.1.0":
+"@graphql-typed-document-node/core@^3.0.0":
   "integrity" "sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg=="
   "resolved" "https://registry.npmjs.org/@graphql-typed-document-node/core/-/core-3.1.1.tgz"
   "version" "3.1.1"
@@ -1368,146 +1264,132 @@
   "resolved" "https://registry.npmjs.org/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz"
   "version" "2.1.8-no-fsevents.3"
 
-"@opentelemetry/api-metrics@0.22.0":
-  "integrity" "sha512-hrErhb+JphdErB1WuBwpCnO1FjiKfKzO9DjhvquzzM8SYL2bBpYEvTpBTU9cenRnRHUbUAfHI1X384vm37HKeQ=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/api-metrics/-/api-metrics-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/api-metrics@0.27.0":
+  "integrity" "sha512-tB79288bwjkdhPNpw4UdOEy3bacVwtol6Que7cAu8KEJ9ULjRfSiwpYEwJY/oER3xZ7zNFz0uiJ7N1jSiotpVA=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/api-metrics/-/api-metrics-0.27.0.tgz"
+  "version" "0.27.0"
 
-"@opentelemetry/api@^1.0.0", "@opentelemetry/api@^1.0.1":
+"@opentelemetry/api@^1.0.0", "@opentelemetry/api@^1.0.2", "@opentelemetry/api@>=1.0.0 <1.1.0", "@opentelemetry/api@1.0":
   "integrity" "sha512-BuJuXRSJNQ3QoKA6GWWDyuLpOUck+9hAXNMCnrloc1aWVoy6Xq6t9PUV08aBZ4Lutqq2LEHM486bpZqoViScog=="
   "resolved" "https://registry.npmjs.org/@opentelemetry/api/-/api-1.0.4.tgz"
   "version" "1.0.4"
 
-"@opentelemetry/context-async-hooks@0.22.0":
-  "integrity" "sha512-JakZ9NJCiaf8FJ6lcR2Fle9xkBKxSFbXK4mk9gZ14totNh9SOTiUBUk08bAnATWUINrQlN8/5hpGKi5gs+FUxQ=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/context-async-hooks/-/context-async-hooks-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/context-async-hooks@1.0.1":
+  "integrity" "sha512-oGCPjDlZ03gXPAdLxw5iqaQJIpL8BZFaiZhAPgF7Vj6XYmrmrA/FXVIsjfNECQTa2D+lt5p8vf0xYIkFufgceQ=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/context-async-hooks/-/context-async-hooks-1.0.1.tgz"
+  "version" "1.0.1"
 
-"@opentelemetry/core@^0.22.0", "@opentelemetry/core@0.22", "@opentelemetry/core@0.22.0":
-  "integrity" "sha512-x6JxuQ4rY2x39GEXJSqMgyf8XZPNNiZrGcCMhZSrtypq/WXlsJuxMNnUAl2hj2rpSGGukhhWn5cMpCmMJJz1hw=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/core/-/core-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/core@^1.0.0", "@opentelemetry/core@1.0", "@opentelemetry/core@1.0.1":
+  "integrity" "sha512-90nQ2X6b/8X+xjcLDBYKooAcOsIlwLRYm+1VsxcX5cHl6V4CSVmDpBreQSDH/A21SqROzapk6813008SatmPpQ=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/core/-/core-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/semantic-conventions" "0.22.0"
-    "semver" "^7.1.3"
+    "@opentelemetry/semantic-conventions" "1.0.1"
 
-"@opentelemetry/exporter-collector@0.22":
-  "integrity" "sha512-USbE+PrA0LOv0E39tg19KXNAA936PTckYJ+O4OPXqr6nABFPmZlnnMtDNtk/W/HnBCsb4+UdPLJO1aOpBBxlbA=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/exporter-collector/-/exporter-collector-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/exporter-trace-otlp-http@0.27":
+  "integrity" "sha512-ZE8Ns/GGW83E4igrby69shiqEkVo+cULzbm4DprSEMCWrPAL/NBobETFOiOQyBBBgIfrhi5EG6truUiafB1cMQ=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-http/-/exporter-trace-otlp-http-0.27.0.tgz"
+  "version" "0.27.0"
   dependencies:
-    "@opentelemetry/api-metrics" "0.22.0"
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/metrics" "0.22.0"
-    "@opentelemetry/resources" "0.22.0"
-    "@opentelemetry/tracing" "0.22.0"
+    "@opentelemetry/core" "1.0.1"
+    "@opentelemetry/resources" "1.0.1"
+    "@opentelemetry/sdk-trace-base" "1.0.1"
 
-"@opentelemetry/exporter-zipkin@0.22":
-  "integrity" "sha512-X1CLoS9m8jIejrgwE1xNK4I3lmgr5cjouoXa8VkRxuAIKPka38ALu5J8It3AbIVHZNO7hMbwRD11Sgc7XKYdpg=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/exporter-zipkin/-/exporter-zipkin-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/exporter-zipkin@1.0":
+  "integrity" "sha512-2QeuQI5NufKiyBUc7C6BT/5XZasF4HLLpWpaBdQzZACBdIIWW7c79ZpEcvb33jOURZ1to3+cOLNwA2cMjBQXhg=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/exporter-zipkin/-/exporter-zipkin-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/resources" "0.22.0"
-    "@opentelemetry/semantic-conventions" "0.22.0"
-    "@opentelemetry/tracing" "0.22.0"
+    "@opentelemetry/core" "1.0.1"
+    "@opentelemetry/resources" "1.0.1"
+    "@opentelemetry/sdk-trace-base" "1.0.1"
+    "@opentelemetry/semantic-conventions" "1.0.1"
 
-"@opentelemetry/instrumentation-express@0.22":
-  "integrity" "sha512-GAcTrTeYZqhxOSE9kksSpGouxhBFOe56g4Zro4drGhsVVS30a1bKKqtdtaWvzxfCV8pKy+rATxUqygXvIfaReA=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation-express/-/instrumentation-express-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/instrumentation-express@0.28":
+  "integrity" "sha512-pXdoisqncu8IJ0uEVAv9ZDHpZW5ocYh44lSTc5ROkkF1M/9Wl8C6VbdRCLcTU0RUA6ARpn9/xBRSatHy++chxQ=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation-express/-/instrumentation-express-0.28.0.tgz"
+  "version" "0.28.0"
   dependencies:
-    "@opentelemetry/core" "^0.22.0"
-    "@opentelemetry/instrumentation" "^0.22.0"
-    "@opentelemetry/semantic-conventions" "^0.22.0"
-    "@types/express" "4.17.12"
+    "@opentelemetry/core" "^1.0.0"
+    "@opentelemetry/instrumentation" "^0.27.0"
+    "@opentelemetry/semantic-conventions" "^1.0.0"
+    "@types/express" "4.17.13"
 
-"@opentelemetry/instrumentation-graphql@0.22":
-  "integrity" "sha512-7ERGMreKDKjFSBbLpb2+RVovuzOpIFWR9W8luoNiA7m+y+GxZSd1sA7BgGheG1+JZhjZSJYmVSyZxcbgRxUUTw=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation-graphql/-/instrumentation-graphql-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/instrumentation-graphql@0.27":
+  "integrity" "sha512-jobfcnSxuBBevbiqOhisvTCe3N7/mKMFL5laH1hQ3PPmUC61h/MXOoHx+yg5tTQPXhgfi1JiBXa9nZxxPItH5Q=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation-graphql/-/instrumentation-graphql-0.27.3.tgz"
+  "version" "0.27.3"
   dependencies:
-    "@opentelemetry/instrumentation" "^0.22.0"
-    "@types/graphql" "14.5.0"
+    "@opentelemetry/instrumentation" "^0.27.0"
+    "graphql" "^15.5.1"
 
-"@opentelemetry/instrumentation-http@0.22":
-  "integrity" "sha512-vqM1hqgYtcO8Upq8pl4I+YW0bnodHlUSSKYuOH7m9Aujbi571pU3zFctpiU5pNhj9eLEJ/r7aOTV6O4hCxqOjQ=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation-http/-/instrumentation-http-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/instrumentation-http@0.27":
+  "integrity" "sha512-Q1dxUt+5d70rbY6jJAC8nwpIQJontmJW94eIS5CsGngvCRYw6tgjLZp2fpVL1o7Lj7uiLpGigeE4EN5Lr2YDFA=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation-http/-/instrumentation-http-0.27.0.tgz"
+  "version" "0.27.0"
   dependencies:
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/instrumentation" "0.22.0"
-    "@opentelemetry/semantic-conventions" "0.22.0"
-    "semver" "^7.1.3"
+    "@opentelemetry/core" "1.0.1"
+    "@opentelemetry/instrumentation" "0.27.0"
+    "@opentelemetry/semantic-conventions" "1.0.1"
+    "semver" "^7.3.5"
 
-"@opentelemetry/instrumentation@^0.22.0", "@opentelemetry/instrumentation@0.22", "@opentelemetry/instrumentation@0.22.0":
-  "integrity" "sha512-/NT3+mZO9Bll6UZPjqemrD2VhkI7wRrMto884+wKGK8LIC+EKlg5EKk9y9ym4Vtnlis8/hVxNrFSeaS29N2NLw=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation/-/instrumentation-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/instrumentation@^0.27.0", "@opentelemetry/instrumentation@0.27", "@opentelemetry/instrumentation@0.27.0":
+  "integrity" "sha512-dUwY/VoDptdK8AYigwS3IKblG+unV5xIdV4VQKy+nX5aT3f7vd5PMYs4arCQSYLbLRe0s7GxK6S9dtjai/TsHQ=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/instrumentation/-/instrumentation-0.27.0.tgz"
+  "version" "0.27.0"
   dependencies:
-    "@opentelemetry/api-metrics" "0.22.0"
+    "@opentelemetry/api-metrics" "0.27.0"
     "require-in-the-middle" "^5.0.3"
     "semver" "^7.3.2"
     "shimmer" "^1.2.1"
 
-"@opentelemetry/metrics@0.22.0":
-  "integrity" "sha512-Ida3ZYSIx7RzKDicUxUP2/R03vN85Z+ZvZ8ioIfYFDMriai4zsFgMTbpEOmFUXfV3Oc5WOEq/DVonuMq1Dgzyw=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/metrics/-/metrics-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/propagator-b3@1.0.1":
+  "integrity" "sha512-UQQiOpR/WXyoqIRQEkn6RuXtGfpjhBDMq/1HrVxRCRPMVn7f4e+zxZWoQSsCOvSGQTu9S+W8eAutm00sRJN7fg=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/propagator-b3/-/propagator-b3-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/api-metrics" "0.22.0"
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/resources" "0.22.0"
-    "lodash.merge" "^4.6.2"
+    "@opentelemetry/core" "1.0.1"
 
-"@opentelemetry/node@0.22":
-  "integrity" "sha512-+HhGbDruQ7cwejVOIYyxRa28uosnG8W95NiQZ6qE8PXXPsDSyGeftAPbtYpGit0H2f5hrVcMlwmWHeAo9xkSLA=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/node/-/node-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/propagator-jaeger@1.0.1":
+  "integrity" "sha512-bzvXksBn3j0GyiFXQbx87CUSGC1UDyp4hjL+CCOrQfzIEdp6usKCLHv40Ib5WU6739hPMkyr59CPfKwzlviTtA=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/propagator-jaeger/-/propagator-jaeger-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/context-async-hooks" "0.22.0"
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/propagator-b3" "0.22.0"
-    "@opentelemetry/propagator-jaeger" "0.22.0"
-    "@opentelemetry/tracing" "0.22.0"
-    "semver" "^7.1.3"
+    "@opentelemetry/core" "1.0.1"
 
-"@opentelemetry/propagator-b3@0.22.0":
-  "integrity" "sha512-7UESJWUUmInXrlux9whSjoIMfpmajKbu2UBU/ux7TVkLTeaJwebLHoqDhuUTS4dbmvg3fnkpfmocyUgby16NwQ=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/propagator-b3/-/propagator-b3-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/resources@1.0", "@opentelemetry/resources@1.0.1":
+  "integrity" "sha512-p8DevOaAEepPucUtImR4cZKHOE2L1jgQAtkdZporV+XnxPA/HqCHPEESyUVuo4f5M0NUlL6k5Pba75KwNJlTRg=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/resources/-/resources-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/core" "0.22.0"
+    "@opentelemetry/core" "1.0.1"
+    "@opentelemetry/semantic-conventions" "1.0.1"
 
-"@opentelemetry/propagator-jaeger@0.22.0":
-  "integrity" "sha512-Xclq+eLfc0Zk1UAbY6clYjoCZqikk4SzvG8C/ODJ6LfDHnqMr/fKXaHHhh/DdHdi6d73o9S8ytblryc+CaTkrw=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/propagator-jaeger/-/propagator-jaeger-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/sdk-trace-base@1.0", "@opentelemetry/sdk-trace-base@1.0.1":
+  "integrity" "sha512-JVSAepTpW7dnqfV7XFN0zHj1jXGNd5OcvIGQl76buogqffdgJdgJWQNrOuUJaus56zrOtlzqFH+YtMA9RGEg8w=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/sdk-trace-base/-/sdk-trace-base-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/core" "0.22.0"
+    "@opentelemetry/core" "1.0.1"
+    "@opentelemetry/resources" "1.0.1"
+    "@opentelemetry/semantic-conventions" "1.0.1"
 
-"@opentelemetry/resources@0.22", "@opentelemetry/resources@0.22.0":
-  "integrity" "sha512-LiX6/JyuD2eHi7Ewrq/PUP79azDqshd0r2oksNTJ+VwgbGfMlq79ykd4FhiEEk23fFbajGt+9ginadXoRk17dg=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/resources/-/resources-0.22.0.tgz"
-  "version" "0.22.0"
+"@opentelemetry/sdk-trace-node@1.0":
+  "integrity" "sha512-0ifT2pEI5aXy14zDDUQkl3ODzY6jjaC1plbxyAuz5BdPxGJzav9vzIJ2BhEwfXDn1LKqpQ5D1Yy+XnNRQpOo3w=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/sdk-trace-node/-/sdk-trace-node-1.0.1.tgz"
+  "version" "1.0.1"
   dependencies:
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/semantic-conventions" "0.22.0"
+    "@opentelemetry/context-async-hooks" "1.0.1"
+    "@opentelemetry/core" "1.0.1"
+    "@opentelemetry/propagator-b3" "1.0.1"
+    "@opentelemetry/propagator-jaeger" "1.0.1"
+    "@opentelemetry/sdk-trace-base" "1.0.1"
+    "semver" "^7.3.5"
 
-"@opentelemetry/semantic-conventions@^0.22.0", "@opentelemetry/semantic-conventions@0.22.0":
-  "integrity" "sha512-t4fKikazahwNKmwD+CE/icHyuZldWvNMupJhjxdk9T/KxHFx3zCGjHT3MKavwYP6abzgAAm5WwzD1oHlmj7dyg=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/semantic-conventions/-/semantic-conventions-0.22.0.tgz"
-  "version" "0.22.0"
-
-"@opentelemetry/tracing@0.22", "@opentelemetry/tracing@0.22.0":
-  "integrity" "sha512-EFrKTFndiEdh/KnzwDgo/EcphG/5z/NyLck8oiUUY+YMP7hskXNYHjTWSAv9UxtYe1MzgLbjmAateTuMmFIVNw=="
-  "resolved" "https://registry.npmjs.org/@opentelemetry/tracing/-/tracing-0.22.0.tgz"
-  "version" "0.22.0"
-  dependencies:
-    "@opentelemetry/core" "0.22.0"
-    "@opentelemetry/resources" "0.22.0"
-    "@opentelemetry/semantic-conventions" "0.22.0"
-    "lodash.merge" "^4.6.2"
+"@opentelemetry/semantic-conventions@^1.0.0", "@opentelemetry/semantic-conventions@1.0.1":
+  "integrity" "sha512-7XU1sfQ8uCVcXLxtAHA8r3qaLJ2oq7sKtEwzZhzuEXqYmjW+n+J4yM3kNo0HQo3Xp1eUe47UM6Wy6yuAvIyllg=="
+  "resolved" "https://registry.npmjs.org/@opentelemetry/semantic-conventions/-/semantic-conventions-1.0.1.tgz"
+  "version" "1.0.1"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   "integrity" "sha1-m4sMxmPWaafY9vXQiToU00jzD78="
@@ -1650,16 +1532,6 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@4.17.12":
-  "integrity" "sha512-pTYas6FrP15B1Oa0bkN5tQMNqOcVXa9j4FTFtO8DWI9kppKib+6NJtfTOOLcwxuuYvcX2+dVG6et1SxW/Kc17Q=="
-  "resolved" "https://registry.npmjs.org/@types/express/-/express-4.17.12.tgz"
-  "version" "4.17.12"
-  dependencies:
-    "@types/body-parser" "*"
-    "@types/express-serve-static-core" "^4.17.18"
-    "@types/qs" "*"
-    "@types/serve-static" "*"
-
 "@types/express@4.17.13":
   "integrity" "sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA=="
   "resolved" "https://registry.npmjs.org/@types/express/-/express-4.17.13.tgz"
@@ -1676,13 +1548,6 @@
   "version" "4.1.5"
   dependencies:
     "@types/node" "*"
-
-"@types/graphql@14.5.0":
-  "integrity" "sha512-MOkzsEp1Jk5bXuAsHsUi6BVv0zCO+7/2PTiZMXWDSsMXvNU6w/PLMQT2vHn8hy2i0JqojPz1Sz6rsFjHtsU0lA=="
-  "resolved" "https://registry.npmjs.org/@types/graphql/-/graphql-14.5.0.tgz"
-  "version" "14.5.0"
-  dependencies:
-    "graphql" "*"
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   "integrity" "sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g=="
@@ -1782,13 +1647,6 @@
   "version" "0.6.1"
   dependencies:
     "tslib" "^2.3.0"
-
-"@wry/equality@^0.1.2":
-  "integrity" "sha512-mwEVBDUVODlsQQ5dfuLUS5/Tf7jqUKyhKYHmVi4fPB6bDMOfWvUPJmKgS1Z7Za/sOI3vzWt4+O7yCiL/70MogA=="
-  "resolved" "https://registry.npmjs.org/@wry/equality/-/equality-0.1.11.tgz"
-  "version" "0.1.11"
-  dependencies:
-    "tslib" "^1.9.3"
 
 "@wry/equality@^0.5.0":
   "integrity" "sha512-oVMxbUXL48EV/C0/M7gLVsoK6qRHPS85x8zECofEZOVvxGmIPLA9o5Z27cc2PoAyZz1S2VoM2A7FLAnpfGlneA=="
@@ -1921,25 +1779,6 @@
     "apollo-server-caching" "^3.3.0"
     "apollo-server-env" "^4.2.1"
 
-"apollo-graphql@^0.9.5":
-  "integrity" "sha512-RGt5k2JeBqrmnwRM0VOgWFiGKlGJMfmiif/4JvdaEqhMJ+xqe/9cfDYzXfn33ke2eWixsAbjEbRfy8XbaN9nTw=="
-  "resolved" "https://registry.npmjs.org/apollo-graphql/-/apollo-graphql-0.9.5.tgz"
-  "version" "0.9.5"
-  dependencies:
-    "core-js-pure" "^3.10.2"
-    "lodash.sortby" "^4.7.0"
-    "sha.js" "^2.4.11"
-
-"apollo-link@^1.2.14":
-  "integrity" "sha512-p67CMEFP7kOG1JZ0ZkYZwRDa369w5PIjtMjvrQd/HnIV8FRsHRqLqK+oAZQnFa1DDdZtOtHTi+aMIW6EatC2jg=="
-  "resolved" "https://registry.npmjs.org/apollo-link/-/apollo-link-1.2.14.tgz"
-  "version" "1.2.14"
-  dependencies:
-    "apollo-utilities" "^1.3.0"
-    "ts-invariant" "^0.4.0"
-    "tslib" "^1.9.3"
-    "zen-observable-ts" "^0.8.21"
-
 "apollo-reporting-protobuf@^3.3.0":
   "integrity" "sha512-51Jwrg0NvHJfKz7TIGU8+Os3rUAqWtXeKRsRtKYtTeMSBPNhzz8UoGjAB3XyVmUXRE3IRmLtDPDRFL7qbxMI/w=="
   "resolved" "https://registry.npmjs.org/apollo-reporting-protobuf/-/apollo-reporting-protobuf-3.3.0.tgz"
@@ -2036,7 +1875,7 @@
   dependencies:
     "apollo-server-types" "^3.5.1"
 
-"apollo-server-types@^3.0.2", "apollo-server-types@^3.5.1":
+"apollo-server-types@^3.5.1":
   "integrity" "sha512-zG7xLl4mmHuZMAYOfjWKHY/IC/GgIkJ3HnYuR7FRrnPpRA9Yt5Kf1M1rjm1Esuqzpb/dt8pM7cX40QaIQObCYQ=="
   "resolved" "https://registry.npmjs.org/apollo-server-types/-/apollo-server-types-3.5.1.tgz"
   "version" "3.5.1"
@@ -2045,7 +1884,7 @@
     "apollo-server-caching" "^3.3.0"
     "apollo-server-env" "^4.2.1"
 
-"apollo-server@^3.6.3":
+"apollo-server@3.6.3":
   "integrity" "sha512-kNvOiDNkIaO+MsfR9v40Vz4ArlDdc9VwVKGJy5dniLW9AoDa/tSF99m8ItfGoMypqlRPMgrNGxkMuToBnvYXNQ=="
   "resolved" "https://registry.npmjs.org/apollo-server/-/apollo-server-3.6.3.tgz"
   "version" "3.6.3"
@@ -2053,16 +1892,6 @@
     "apollo-server-core" "^3.6.3"
     "apollo-server-express" "^3.6.3"
     "express" "^4.17.1"
-
-"apollo-utilities@^1.0.1", "apollo-utilities@^1.3.0":
-  "integrity" "sha512-pk2hiWrCXMAy2fRPwEyhvka+mqwzeP60Jr1tRYi5xru+3ko94HI9o6lK0CT33/w4RDlxWchmdhDCrvdr+pHCig=="
-  "resolved" "https://registry.npmjs.org/apollo-utilities/-/apollo-utilities-1.3.4.tgz"
-  "version" "1.3.4"
-  dependencies:
-    "@wry/equality" "^0.1.2"
-    "fast-json-stable-stringify" "^2.0.0"
-    "ts-invariant" "^0.4.0"
-    "tslib" "^1.10.0"
 
 "argparse@^1.0.7":
   "integrity" "sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg=="
@@ -2343,14 +2172,6 @@
   "resolved" "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz"
   "version" "3.1.0"
 
-"camel-case@4.1.2":
-  "integrity" "sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw=="
-  "resolved" "https://registry.npmjs.org/camel-case/-/camel-case-4.1.2.tgz"
-  "version" "4.1.2"
-  dependencies:
-    "pascal-case" "^3.1.2"
-    "tslib" "^2.0.3"
-
 "camelcase@^5.3.1":
   "integrity" "sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg=="
   "resolved" "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz"
@@ -2382,11 +2203,6 @@
   dependencies:
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
-
-"chance@^1.0.16":
-  "integrity" "sha512-v7fi5Hj2VbR6dJEGRWLmJBA83LJMS47pkAbmROFxHWd9qmE1esHRZW8Clf1Fhzr3rjxnNZVCjOEv/ivFxeIMtg=="
-  "resolved" "https://registry.npmjs.org/chance/-/chance-1.1.8.tgz"
-  "version" "1.1.8"
 
 "char-regex@^1.0.2":
   "integrity" "sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw=="
@@ -2534,11 +2350,6 @@
     "browserslist" "^4.19.1"
     "semver" "7.0.0"
 
-"core-js-pure@^3.10.2":
-  "integrity" "sha512-Q2H6tQ5MtPtcC7f3HxJ48i4Q7T9ybPKgvWyuH7JXIoNa2pm0KuBnycsET/qw1SLLZYfbsbrZQNMeIOClb+6WIA=="
-  "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.20.3.tgz"
-  "version" "3.20.3"
-
 "core-js@^3.20.2":
   "integrity" "sha512-vVl8j8ph6tRS3B8qir40H7yw7voy17xL0piAjlbBUsH7WIfzoedL/ZOr1OV9FyZQLWXsayOJyV4tnRyXR85/ag=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.20.3.tgz"
@@ -2608,7 +2419,7 @@
     "whatwg-mimetype" "^2.3.0"
     "whatwg-url" "^8.0.0"
 
-"dataloader@^2.0.0", "dataloader@2.0.0":
+"dataloader@^2.0.0":
   "integrity" "sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ=="
   "resolved" "https://registry.npmjs.org/dataloader/-/dataloader-2.0.0.tgz"
   "version" "2.0.0"
@@ -2734,11 +2545,6 @@
   "resolved" "https://registry.npmjs.org/depd/-/depd-1.1.2.tgz"
   "version" "1.1.2"
 
-"deprecated-decorator@^0.1.6":
-  "integrity" "sha1-AJZjF7ehL+kvPMgx91g68ym4bDc="
-  "resolved" "https://registry.npmjs.org/deprecated-decorator/-/deprecated-decorator-0.1.6.tgz"
-  "version" "0.1.6"
-
 "destroy@~1.0.4":
   "integrity" "sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA="
   "resolved" "https://registry.npmjs.org/destroy/-/destroy-1.0.4.tgz"
@@ -2760,31 +2566,6 @@
   "version" "2.0.1"
   dependencies:
     "webidl-conversions" "^5.0.0"
-
-"easygraphql-mock@^0.1.17":
-  "integrity" "sha512-J+OLxUfV0dw5LjMlargd9iAjtur7ifgrC0djZQgDnxXLj0g5K0JQX48cY9S95Tw4MXZP24y79w5MJtJxPcDwgQ=="
-  "resolved" "https://registry.npmjs.org/easygraphql-mock/-/easygraphql-mock-0.1.17.tgz"
-  "version" "0.1.17"
-  dependencies:
-    "chance" "^1.0.16"
-    "easygraphql-parser" "^0.0.15"
-
-"easygraphql-parser@^0.0.15":
-  "integrity" "sha512-0fEXFnFlIjgyo1rxBmEsOa1wYZwIEm5Qk3qLR1bY4d7iMsPNIPKy4M6eohyQHYXww0v3RYWrHNoks0QnktJ9bw=="
-  "resolved" "https://registry.npmjs.org/easygraphql-parser/-/easygraphql-parser-0.0.15.tgz"
-  "version" "0.0.15"
-  dependencies:
-    "@graphql-tools/merge" "^6.0.11"
-
-"easygraphql-tester@^6.0.1":
-  "integrity" "sha512-Xn7wi5g8cep1QCy5wq5e7ZpfEPVUD0SnR+lwCogWXLmNnGhaw6jW9Gzmt00NSa4qyB5LHo1h6dcF+u8zYFwGrA=="
-  "resolved" "https://registry.npmjs.org/easygraphql-tester/-/easygraphql-tester-6.0.1.tgz"
-  "version" "6.0.1"
-  dependencies:
-    "easygraphql-mock" "^0.1.17"
-    "easygraphql-parser" "^0.0.15"
-    "graphql-tools" "^4.0.8"
-    "lodash.isobject" "^3.0.2"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -3222,33 +3003,12 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.9.tgz"
   "version" "4.2.9"
 
-"graphql-modules@^1.4.4":
-  "integrity" "sha512-jRmUdJYA2KzpezxhH0roS8we4wRnWY3VvHpBngZJqdEz8QCTp2WNc8YoBTcR2zZCCRjAHoPn0OkgA4UOHaVQPQ=="
-  "resolved" "https://registry.npmjs.org/graphql-modules/-/graphql-modules-1.4.4.tgz"
-  "version" "1.4.4"
-  dependencies:
-    "@graphql-tools/schema" "^7.0.0"
-    "@graphql-tools/wrap" "^7.0.1"
-    "@graphql-typed-document-node/core" "^3.1.0"
-    "ramda" "^0.27.1"
-
 "graphql-tag@^2.11.0", "graphql-tag@^2.12.3", "graphql-tag@^2.12.5":
   "integrity" "sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg=="
   "resolved" "https://registry.npmjs.org/graphql-tag/-/graphql-tag-2.12.6.tgz"
   "version" "2.12.6"
   dependencies:
     "tslib" "^2.1.0"
-
-"graphql-tools@^4.0.8":
-  "integrity" "sha512-MW+ioleBrwhRjalKjYaLQbr+920pHBgy9vM/n47sswtns8+96sRn5M/G+J1eu7IMeKWiN/9p6tmwCHU7552VJg=="
-  "resolved" "https://registry.npmjs.org/graphql-tools/-/graphql-tools-4.0.8.tgz"
-  "version" "4.0.8"
-  dependencies:
-    "apollo-link" "^1.2.14"
-    "apollo-utilities" "^1.0.1"
-    "deprecated-decorator" "^0.1.6"
-    "iterall" "^1.1.3"
-    "uuid" "^3.1.0"
 
 "graphql-tools@^8.2.0":
   "integrity" "sha512-9axT/0exEzVCk+vMPykOPannlrA4VQNo6nuWgh25IJ5arPf92OKxvjSHAbm7dQIFmcWxE0hVvyD2rWHjDqZCgQ=="
@@ -3265,7 +3025,17 @@
   "resolved" "https://registry.npmjs.org/graphql-type-json/-/graphql-type-json-0.3.2.tgz"
   "version" "0.3.2"
 
-"graphql@*", "graphql@^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^0.11.3 || ^0.12.3 || ^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^14.0.0 || ^15.0.0", "graphql@^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^14.2.1 || ^15.0.0", "graphql@^15.3.0 || ^16.0.0", "graphql@^15.5.1", "graphql@^15.5.3", "graphql@>=0.8.0":
+"graphql@^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0":
+  "integrity" "sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw=="
+  "resolved" "https://registry.npmjs.org/graphql/-/graphql-15.8.0.tgz"
+  "version" "15.8.0"
+
+"graphql@^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^14.0.0 || ^15.0.0", "graphql@^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^15.3.0 || ^16.0.0", "graphql@^15.8.0 || ^16.0.0", "graphql@>=0.8.0", "graphql@16.3.0":
+  "integrity" "sha512-xm+ANmA16BzCT5pLjuXySbQVFwH3oJctUVdy81w1sV0vBU0KgDdBGtxQOUd5zqOBk/JayAFeG8Dlmeq74rjm/A=="
+  "resolved" "https://registry.npmjs.org/graphql/-/graphql-16.3.0.tgz"
+  "version" "16.3.0"
+
+"graphql@^15.5.1":
   "integrity" "sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw=="
   "resolved" "https://registry.npmjs.org/graphql/-/graphql-15.8.0.tgz"
   "version" "15.8.0"
@@ -3630,11 +3400,6 @@
   dependencies:
     "html-escaper" "^2.0.0"
     "istanbul-lib-report" "^3.0.0"
-
-"iterall@^1.1.3":
-  "integrity" "sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg=="
-  "resolved" "https://registry.npmjs.org/iterall/-/iterall-1.3.0.tgz"
-  "version" "1.3.0"
 
 "jest-changed-files@^27.5.0":
   "integrity" "sha512-BGWKI7E6ORqbF5usF1oA4ftbkhVZVrXr8jB0/BrU6TAn3kfOVwX2Zx6pKIXYutJ+qNEjT8Da/gGak0ajya/StA=="
@@ -4157,24 +3922,9 @@
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
 
-"lodash.isobject@^3.0.2":
-  "integrity" "sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0="
-  "resolved" "https://registry.npmjs.org/lodash.isobject/-/lodash.isobject-3.0.2.tgz"
-  "version" "3.0.2"
-
-"lodash.merge@^4.6.2":
-  "integrity" "sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ=="
-  "resolved" "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
-  "version" "4.6.2"
-
 "lodash.sortby@^4.7.0":
   "integrity" "sha1-7dFMgk4sycHgsKG0K7UhBRakJDg="
   "resolved" "https://registry.npmjs.org/lodash.sortby/-/lodash.sortby-4.7.0.tgz"
-  "version" "4.7.0"
-
-"lodash.xorby@^4.7.0":
-  "integrity" "sha1-nBmm+fBjputT3QPBtocXmYAUY9c="
-  "resolved" "https://registry.npmjs.org/lodash.xorby/-/lodash.xorby-4.7.0.tgz"
   "version" "4.7.0"
 
 "lodash@^4.7.0":
@@ -4198,13 +3948,6 @@
   "version" "1.4.0"
   dependencies:
     "js-tokens" "^3.0.0 || ^4.0.0"
-
-"lower-case@^2.0.2":
-  "integrity" "sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg=="
-  "resolved" "https://registry.npmjs.org/lower-case/-/lower-case-2.0.2.tgz"
-  "version" "2.0.2"
-  dependencies:
-    "tslib" "^2.0.3"
 
 "lru-cache@^6.0.0":
   "integrity" "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="
@@ -4452,14 +4195,6 @@
   "resolved" "https://registry.npmjs.org/nice-try/-/nice-try-1.0.5.tgz"
   "version" "1.0.5"
 
-"no-case@^3.0.4":
-  "integrity" "sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg=="
-  "resolved" "https://registry.npmjs.org/no-case/-/no-case-3.0.4.tgz"
-  "version" "3.0.4"
-  dependencies:
-    "lower-case" "^2.0.2"
-    "tslib" "^2.0.3"
-
 "node-environment-flags@^1.0.5":
   "integrity" "sha512-5Evy2epuL+6TM0lCQGpFIj6KwiEsGh1SrHUhTbNX+sLbBtjidPZFAnVK9y5yU1+h//RitLbRHTIMyxQPtxMdHw=="
   "resolved" "https://registry.npmjs.org/node-environment-flags/-/node-environment-flags-1.0.6.tgz"
@@ -4637,14 +4372,6 @@
   "resolved" "https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz"
   "version" "1.3.3"
 
-"pascal-case@^3.1.2":
-  "integrity" "sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g=="
-  "resolved" "https://registry.npmjs.org/pascal-case/-/pascal-case-3.1.2.tgz"
-  "version" "3.1.2"
-  dependencies:
-    "no-case" "^3.0.4"
-    "tslib" "^2.0.3"
-
 "path-exists@^3.0.0":
   "integrity" "sha1-zg6+ql94yxiSXqfYENe1mwEP1RU="
   "resolved" "https://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz"
@@ -4817,11 +4544,6 @@
   "integrity" "sha512-TIRk4aqYLNoJUbd+g2lEdz5kLWIuTMRagAXxl78Q0RiVjAOugHmeKNGdd3cwo/ktpf9aL9epCfFqWDEKysUlLQ=="
   "resolved" "https://registry.npmjs.org/qs/-/qs-6.9.6.tgz"
   "version" "6.9.6"
-
-"ramda@^0.27.1":
-  "integrity" "sha512-SbiLPU40JuJniHexQSAgad32hfwd+DRUdwF2PlVuI5RZD0/vahUco7R8vD86J/tcEKKF9vZrUVwgtmGCqlCKyA=="
-  "resolved" "https://registry.npmjs.org/ramda/-/ramda-0.27.2.tgz"
-  "version" "0.27.2"
 
 "range-parser@~1.2.1":
   "integrity" "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg=="
@@ -5041,14 +4763,14 @@
   "resolved" "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz"
   "version" "6.3.0"
 
-"semver@^7.1.3":
+"semver@^7.3.2":
   "integrity" "sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ=="
   "resolved" "https://registry.npmjs.org/semver/-/semver-7.3.5.tgz"
   "version" "7.3.5"
   dependencies:
     "lru-cache" "^6.0.0"
 
-"semver@^7.3.2":
+"semver@^7.3.5":
   "integrity" "sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ=="
   "resolved" "https://registry.npmjs.org/semver/-/semver-7.3.5.tgz"
   "version" "7.3.5"
@@ -5298,22 +5020,22 @@
   "resolved" "https://registry.npmjs.org/strip-final-newline/-/strip-final-newline-2.0.0.tgz"
   "version" "2.0.0"
 
-"supergraph-demo-opentelemetry@^0.0.3":
-  "integrity" "sha512-2EoGI645jAcYJyWhVw6COz5klMFc/XgXgdV+o97mz7h8rYrSFAs7ZK+j4S9WvANUZE31m2ITtbC2WISnIrtVdQ=="
-  "resolved" "https://registry.npmjs.org/supergraph-demo-opentelemetry/-/supergraph-demo-opentelemetry-0.0.3.tgz"
-  "version" "0.0.3"
+"supergraph-demo-opentelemetry@0.2.1":
+  "integrity" "sha512-Fm+qJySKldSmU3Z8S9syRAbrA1IkT7qbzVoOsXuzeexMfKgGQN4Oue6hLC9Ai03YBbL3TNejyZPhMTQ2njYfxQ=="
+  "resolved" "https://registry.npmjs.org/supergraph-demo-opentelemetry/-/supergraph-demo-opentelemetry-0.2.1.tgz"
+  "version" "0.2.1"
   dependencies:
-    "@opentelemetry/api" "^1.0.1"
-    "@opentelemetry/core" "0.22"
-    "@opentelemetry/exporter-collector" "0.22"
-    "@opentelemetry/exporter-zipkin" "0.22"
-    "@opentelemetry/instrumentation" "0.22"
-    "@opentelemetry/instrumentation-express" "0.22"
-    "@opentelemetry/instrumentation-graphql" "0.22"
-    "@opentelemetry/instrumentation-http" "0.22"
-    "@opentelemetry/node" "0.22"
-    "@opentelemetry/resources" "0.22"
-    "@opentelemetry/tracing" "0.22"
+    "@opentelemetry/api" "1.0"
+    "@opentelemetry/core" "1.0"
+    "@opentelemetry/exporter-trace-otlp-http" "0.27"
+    "@opentelemetry/exporter-zipkin" "1.0"
+    "@opentelemetry/instrumentation" "0.27"
+    "@opentelemetry/instrumentation-express" "0.28"
+    "@opentelemetry/instrumentation-graphql" "0.27"
+    "@opentelemetry/instrumentation-http" "0.27"
+    "@opentelemetry/resources" "1.0"
+    "@opentelemetry/sdk-trace-base" "1.0"
+    "@opentelemetry/sdk-trace-node" "1.0"
 
 "supports-color@^5.3.0":
   "integrity" "sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow=="
@@ -5468,13 +5190,6 @@
   "resolved" "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
   "version" "0.0.3"
 
-"ts-invariant@^0.4.0":
-  "integrity" "sha512-uEtWkFM/sdZvRNNDL3Ehu4WVpwaulhwQszV8mrtcdeE8nN00BV9mAmQ88RkrBhFgl9gMgvjJLAQcZbnPXI9mlA=="
-  "resolved" "https://registry.npmjs.org/ts-invariant/-/ts-invariant-0.4.4.tgz"
-  "version" "0.4.4"
-  dependencies:
-    "tslib" "^1.9.3"
-
 "ts-invariant@^0.9.0":
   "integrity" "sha512-63jtX/ZSwnUNi/WhXjnK8kz4cHHpYS60AnmA6ixz17l7E12a5puCWFlNpkne5Rl0J8TBPVHpGjsj4fxs8ObVLQ=="
   "resolved" "https://registry.npmjs.org/ts-invariant/-/ts-invariant-0.9.4.tgz"
@@ -5482,27 +5197,7 @@
   dependencies:
     "tslib" "^2.1.0"
 
-"tslib@^1.10.0", "tslib@^1.9.3":
-  "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
-  "version" "1.14.1"
-
-"tslib@^2.0.3", "tslib@^2.1.0", "tslib@~2.2.0":
-  "integrity" "sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.2.0.tgz"
-  "version" "2.2.0"
-
-"tslib@^2.3.0":
-  "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
-  "version" "2.3.1"
-
-"tslib@~2.0.1":
-  "integrity" "sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.0.3.tgz"
-  "version" "2.0.3"
-
-"tslib@~2.3.0":
+"tslib@^2.1.0", "tslib@^2.3.0", "tslib@~2.3.0":
   "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
   "version" "2.3.1"
@@ -5618,7 +5313,7 @@
   "resolved" "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   "version" "1.0.1"
 
-"uuid@^3.1.0", "uuid@^3.3.3":
+"uuid@^3.3.3":
   "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   "version" "3.4.0"
@@ -5648,11 +5343,6 @@
   "integrity" "sha512-41BrgH+dIbCFXClcSapVs5M6GkENd3gQOJpEfPDNa71LsUGMXDL0jMWpI/Rh7WhX+Aalfz2TTS3Zt5pUsbnhLg=="
   "resolved" "https://registry.npmjs.org/value-or-promise/-/value-or-promise-1.0.11.tgz"
   "version" "1.0.11"
-
-"value-or-promise@1.0.6":
-  "integrity" "sha512-9r0wQsWD8z/BxPOvnwbPf05ZvFngXyouE9EKB+5GbYix+BYnAwrIChCUyFIinfbf2FL/U71z+CPpbnmTdxrwBg=="
-  "resolved" "https://registry.npmjs.org/value-or-promise/-/value-or-promise-1.0.6.tgz"
-  "version" "1.0.6"
 
 "vary@^1", "vary@~1.1.2":
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="
@@ -5864,14 +5554,6 @@
     "buffer-crc32" "~0.2.3"
     "fd-slicer" "~1.1.0"
 
-"zen-observable-ts@^0.8.21":
-  "integrity" "sha512-Yj3yXweRc8LdRMrCC8nIc4kkjWecPAUVh0TI0OUrWXx6aX790vLcDlWca6I4vsyCGH3LpWxq0dJRcMOFoVqmeg=="
-  "resolved" "https://registry.npmjs.org/zen-observable-ts/-/zen-observable-ts-0.8.21.tgz"
-  "version" "0.8.21"
-  dependencies:
-    "tslib" "^1.9.3"
-    "zen-observable" "^0.8.0"
-
 "zen-observable-ts@~1.1.0":
   "integrity" "sha512-1h4zlLSqI2cRLPJUHJFL8bCWHhkpuXkF+dbGkRaWjgDIG26DmzyshUMrdV/rL3UnR+mhaX4fRq8LPouq0MYYIA=="
   "resolved" "https://registry.npmjs.org/zen-observable-ts/-/zen-observable-ts-1.1.0.tgz"
@@ -5880,7 +5562,7 @@
     "@types/zen-observable" "0.8.3"
     "zen-observable" "0.8.15"
 
-"zen-observable@^0.8.0", "zen-observable@0.8.15":
+"zen-observable@0.8.15":
   "integrity" "sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ=="
   "resolved" "https://registry.npmjs.org/zen-observable/-/zen-observable-0.8.15.tgz"
   "version" "0.8.15"

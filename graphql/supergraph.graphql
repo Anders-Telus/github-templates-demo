@@ -1,41 +1,52 @@
 schema
-  @core(feature: "https://specs.apollo.dev/core/v0.2"),
-  @core(feature: "https://specs.apollo.dev/join/v0.1"),
-  @core(feature: "https://specs.apollo.dev/tag/v0.1")
-{
+  @core(feature: "https://specs.apollo.dev/core/v0.2")
+  @core(feature: "https://specs.apollo.dev/join/v0.1")
+  @core(feature: "https://specs.apollo.dev/tag/v0.1") {
   query: Query
   mutation: Mutation
 }
 
 directive @core(feature: String!) repeatable on SCHEMA
 
-directive @join__field(graph: join__Graph, requires: join__FieldSet, provides: join__FieldSet) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+directive @join__field(
+  graph: join__Graph
+  requires: join__FieldSet
+  provides: join__FieldSet
+) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
 
 directive @join__type(graph: join__Graph!, key: join__FieldSet) repeatable on OBJECT | INTERFACE
 
-directive @join__input(graph: join__Graph!, key: join__FieldSet) repeatable on OBJECT | INTERFACE | INPUT_OBJECT
+directive @join__input(
+  graph: join__Graph!
+  key: join__FieldSet
+) repeatable on OBJECT | INTERFACE | INPUT_OBJECT
 
 directive @join__owner(graph: join__Graph!) on OBJECT | INTERFACE | INPUT_OBJECT
 
 directive @join__graph(name: String!, url: String!) on ENUM_VALUE
 
-directive @tag(name: String!) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+directive @tag(
+  name: String!
+) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
 
 scalar join__FieldSet
 
 enum join__Graph {
-  CUSTOMERS @join__graph(name: "customers" url: "http://customers:4001/graphql")
-  ACCOUNTS @join__graph(name: "accounts" url: "http://accounts:4000/graphql")
+  CUSTOMERS
+    @join__graph(name: "customers", url: "http://customers:4001/graphql")
+  ACCOUNTSNEW
+    @join__graph(name: "accounts-new", url: "http://accounts:4005/graphql")
 }
 
-type Customer
-  @join__owner(graph: CUSTOMERS)
 
-{
-  id: ID! @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers") @tag(name: "hi-from-accounts")
+type Customer @join__owner(graph: CUSTOMERS) {
+  id: ID!
+    @join__field(graph: CUSTOMERS)
+    @tag(name: "hi-from-customers")
   accounts: [Account] @join__field(graph: CUSTOMERS)
   name: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
   status: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
+  billCycle: [BillCycle] @join__field(graph: ACCOUNTSNEW)
 }
 
 interface Error {
@@ -49,23 +60,22 @@ type AccountNotFoundError implements Error {
 
 union AccountResult = Account | AccountNotFoundError
 
-type Account
-  @join__owner(graph: ACCOUNTS)
-{
-  id: ID! @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
-  name: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
-  status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
-  type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+type Account @join__owner(graph: ACCOUNTSNEW) 
+@join__type(graph: ACCOUNTSNEW, key: "id"){
+  id: ID! @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  name: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  status: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  type: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  billCycle: [BillCycle] @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-new-accounts")
 }
 
-input inputAccount 
-@join__owner(graph: ACCOUNTS)
-@join__input(graph: ACCOUNTS, key: "id")
-{
-  id: ID! @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
-  name: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
-  status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
-  type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+input inputAccount
+  @join__owner(graph: ACCOUNTSNEW)
+  @join__input(graph: ACCOUNTSNEW, key: "id") {
+  id: ID! @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  name: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  status: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  type: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
 }
 
 type AccountRegisterResultSuccess {
@@ -78,51 +88,22 @@ type AccountRegisterInvalidInputError implements Error {
 }
 
 union AccountRegisterResult =
-  AccountRegisterResultSuccess
+    AccountRegisterResultSuccess
   | AccountRegisterInvalidInputError
 
-type RestUser
-@join__owner(graph: ACCOUNTS)
-{
-    id:ID @join__field(graph: ACCOUNTS)
-    name: String @join__field(graph: ACCOUNTS)
-    username: String @join__field(graph: ACCOUNTS)
-    email: String @join__field(graph: ACCOUNTS)
-    phone: String @join__field(graph: ACCOUNTS)
-    website: String @join__field(graph: ACCOUNTS)
-}
-
 type Query {
-  allAccounts: [Account] @join__field(graph: ACCOUNTS)
-  account(id: ID!): AccountResult @join__field(graph: ACCOUNTS)
+  allAccounts: [Account] @join__field(graph: ACCOUNTSNEW)
+  account(id: ID!): AccountResult @join__field(graph: ACCOUNTSNEW)
   allCustomers: [Customer] @join__field(graph: CUSTOMERS)
-  restUser(id: ID!): RestUser @join__field(graph: ACCOUNTS)
-  branches: [Branch] @join__field(graph: CUSTOMERS)
-  branch(_id: ID!): Branch @join__field(graph: CUSTOMERS)
-  branchProfessionsByQuery(sourceId: Int!, ttl: Int): [Profession] @join__field(graph: CUSTOMERS)
-  jobs(limit: Int): [Job] @join__field(graph: CUSTOMERS)
 }
 
-type Mutation{
-  createAccount(account: inputAccount!) : AccountRegisterResult @join__field(graph: ACCOUNTS)
+type Mutation {
+  createAccount(account: inputAccount!): AccountRegisterResult
+    @join__field(graph: ACCOUNTSNEW)
 }
 
-type Profession 
- @join__owner(graph: CUSTOMERS)
- {
-  _id: ID! @join__field(graph: CUSTOMERS)
-  name: String @join__field(graph: CUSTOMERS)
-  branchSourceId: Int @join__field(graph: CUSTOMERS)
-}
-
-type Branch  @join__owner(graph: CUSTOMERS) {
-  _id: ID! @join__field(graph: CUSTOMERS)
-  name: String @join__field(graph: CUSTOMERS)
-  sourceId: Int @join__field(graph: CUSTOMERS)
-  professions(ttl: Int): [Profession] @join__field(graph: CUSTOMERS)
-}
-
-type Job  @join__owner(graph: CUSTOMERS) {
-  _id: ID! @join__field(graph: CUSTOMERS)
-  profession(ttl: Int): Profession @join__field(graph: CUSTOMERS)
+type BillCycle @join__owner(graph: ACCOUNTSNEW) {
+  id: String @join__field(graph: ACCOUNTSNEW)
+  mailingDateOffset: Int @join__field(graph: ACCOUNTSNEW)
+  name: String @join__field(graph: ACCOUNTSNEW)
 }

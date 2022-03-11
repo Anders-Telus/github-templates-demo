@@ -12,31 +12,28 @@
   "author": "",
   "license": "Telus-Agora",
   "dependencies": {
-    "@apollo/federation": "^0.33.6",
+    "@apollo/subgraph": "0.3.1",
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.12",
     "@babel/node": "^7.16.8",
     "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.11",
+    "@graphql-tools/merge": "^8.2.2",
     "apollo-datasource-mongo": "^0.1.7",
-    "apollo-server": "^3.6.3",
+    "apollo-server": "3.6.3",
     "apollo-server-errors": "^3.3.0",
     "express": "^4.16.4",
-    "graphql": "^15.5.1",
-    "graphql-modules": "^1.4.4",
-    "graphql-tag": "^2.12.5",
+    "graphql": "16.3.0",
     "graphql-tools": "^8.2.0",
     "graphql-type-json": "^0.3.0",
-    "merge-graphql-schemas": "^1.7.8",
     "mongodb-memory-server": "^5.2.6",
     "mongoose": "^6.1.8",
     "path": "^0.12.7",
-    "supergraph-demo-opentelemetry": "^0.0.3"
+    "supergraph-demo-opentelemetry": "0.2.1"
   },
   "devDependencies": {
     "axios": "^0.25.0",
     "babel-jest": "^27.4.6",
-    "easygraphql-tester": "^6.0.1",
     "jest": "^27.4.7"
   }
 }

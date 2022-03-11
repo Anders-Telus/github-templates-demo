@@ -1,16 +1,18 @@
-import { gql } from "graphql-modules";
+import { gql } from 'apollo-server';
 
   const billFormatTypeDefs = gql`
+
+
   
- type BillFormat {
+  type BillFormat @key(fields: "id") {
     _id: ID!
     id: String!
-    name: String!
+    name: String! @external
     description: String
     href: String
   }
 
-  type Query {
+  extend type Query {
     billFormat(id: ID!): BillFormat
     allBillFormats: [BillFormat]
   }
@@ -21,7 +23,7 @@ import { gql } from "graphql-modules";
     href: String
   }
 
-  type Mutation {
+  extend type Mutation {
     addBillFormat(billFormat: BillFormatInput!): BillFormat
   }`;
 

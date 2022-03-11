@@ -1,10 +1,8 @@
-# Please check below mentioned points -
-
-## What kind of change does this PR introduce ?
+# What kind of change does this PR introduce ?
 
 <!-- E.g. Is it a new feature, bugfix, code improvement etc. ? Add some description. -->
 
-### Documentation updated ?
+## Documentation updated ?
 
 - [ ] Yes/No
 

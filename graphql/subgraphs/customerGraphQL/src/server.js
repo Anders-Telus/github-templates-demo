@@ -1,11 +1,12 @@
-import appSchema from "./app.schema.js";
 
 import { ApolloServer } from "apollo-server";
 import mongoose from "mongoose";
 import buildCustomerSource from "./services/customer/datasources";
 import errorBuilder from "./common/errorBuilder";
 import customerLoad from "./services/customer/datasources/pre-load";
-
+import customerTypeDefs from "./services/customer/typeDefs/schema.js";
+import customerResolver from "./services/customer/resolvers/index";
+import  { buildSubgraphSchema } from '@apollo/subgraph';
 // Open Telemetry (optional)
 import { ApolloOpenTelemetry } from "supergraph-demo-opentelemetry";
 
@@ -41,17 +42,23 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
             const errorMsg = errorBuilder(error);
             return errorMsg;
         };
+    
+        console.log('customeresolver',customerResolver);
+        console.log('customerType',customerTypeDefs);
+
 
         const server = new ApolloServer({
-            schema: appSchema,
+            schema: buildSubgraphSchema( [
+                { typeDefs: customerTypeDefs, resolvers: customerResolver },
+              ]),
             tracing: true,
             context: async ({ req }) => { },
             dataSources: () => ({
                 ...buildCustomerSource.db(db),
             }),
-            onHealthCheck: (typeDefs) => {
+            onHealthCheck: (customerTypeDefs) => {
                 return new Promise((resolve, reject) => {
-                    if (typeDefs) {
+                    if (customerTypeDefs) {
                         resolve(); // reach health check using ${url}.well-known/apollo/server-health
                     } else {
                         reject();

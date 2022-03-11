@@ -1,5 +1,4 @@
-import { gql } from "graphql-modules";
-
+import { gql } from 'apollo-server';
 const customerTypeDefs = gql`
 scalar DateTime
 
@@ -33,6 +32,7 @@ scalar DateTime
   }
 
   type Query {
+    me: [Customer]
     allCustomers: [Customer]
     customer(id: ID!): Customer
   }
@@ -44,6 +44,7 @@ scalar DateTime
     href: String
     statusReason: String
   }
+
   
   type Mutation {
     addCustomer(customer: CustomerInput!): Customer
