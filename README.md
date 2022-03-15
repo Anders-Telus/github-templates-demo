@@ -15,7 +15,7 @@ Discussions: <https://github.com/telus/reference-application/discussions>
 
 ![Reference Application](https://user-images.githubusercontent.com/1566236/137525278-8bed145b-ffb8-464a-b83f-ed724a502ad8.png)
 
-### Structure
+## Structure
 
 - Bottom Up Approach
 
@@ -24,20 +24,38 @@ Discussions: <https://github.com/telus/reference-application/discussions>
 3. GraphQL Layer
 4. MicroFront End
 
-#### Prerequisites
+## Prerequisites
 
 - Docker
 - Docker Compose
 
-#### Instructions
+## How to run Subgraphs, Mongo and Docker
 
-1. Clone repo
+How to build Mongo and Graphql
 
-2. To start with env file `docker-compose --env-file ./config/.env.dev build`
-3. To start with env file `docker-compose --env-file ./config/.env.dev up`
-4. To start with env file `docker-compose --env-file ./config/.env.dev -f docker-compose.otel-collector.yml up`  
-5. Run `docker-compose up` to spin up the services
-6. Run `docker-compose down` to bring down the service
+```code
+docker-compose --env-file ./config/.env.dev build
+```
+
+How to get Docker to spin up all your graphs and Mongodb
+
+```code
+docker-compose --env-file ./config/.env.dev up
+```
+
+How to stop all Docker containers running
+
+```code
+docker-compose --env-file ./config/.env.dev down
+```
+
+## Setting your Mongo Credentials
+
+The reference application uses the follwing file to set your mongoDB credentials
+
+```text
+root directory config/.env.dev
+```
 
 ### Clean up Guide
 
