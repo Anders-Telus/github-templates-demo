@@ -25,6 +25,7 @@ import { gql } from 'apollo-server';
 
   extend type Mutation {
     addBillFormat(billFormat: BillFormatInput!): BillFormat
+    deleteBillFormatById(id: String): String
   }`;
 
 export default billFormatTypeDefs;

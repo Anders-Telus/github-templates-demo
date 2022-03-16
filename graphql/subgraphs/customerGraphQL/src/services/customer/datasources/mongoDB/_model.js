@@ -34,4 +34,12 @@ export default class Customer extends MongoDataSource {
             return error;
         }
     }
+
+    deleteCustomerbyId(id) {
+        try {
+          return this.Customer.deleteOne(id).catch((err)=> {return err})
+        } catch (err) {
+          console.log(err)
+        }
+      }
 }

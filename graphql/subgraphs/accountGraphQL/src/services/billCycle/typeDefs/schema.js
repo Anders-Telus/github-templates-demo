@@ -51,6 +51,7 @@ import { gql } from 'apollo-server';
 
   type Mutation {
     addBillCycle(billCycle: BillCycleInput!): BillCycle
+    deleteBillCycle(id: String): String
   }`;
 
 export default billCycleTypeDefs;

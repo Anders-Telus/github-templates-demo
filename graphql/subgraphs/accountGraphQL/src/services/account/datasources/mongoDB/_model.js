@@ -17,6 +17,15 @@ export default class Account extends MongoDataSource {
     }
   }
 
+  deleteAccountbyId(id) {
+    try {
+      return this.Account.deleteOne(id).catch(function (err) {})
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
   saveAccount(data) {
     try {
       const account = new this.Account(data);

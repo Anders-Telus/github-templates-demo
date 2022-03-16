@@ -1,6 +1,7 @@
 import mongoose from  'mongoose';
 
 export default mongoose.Schema({
+    id: String,
     billingDateShift: Number,
     billingPeriod: String,
     chargeDateOffset: Number,
@@ -8,7 +9,7 @@ export default mongoose.Schema({
     description: String,
     frequency: String,
     href: String,
-    id: String,
+    accountId:String,
     mailingDateOffset: Number,
     name: String,
     paymentDueDateOffset: Number,

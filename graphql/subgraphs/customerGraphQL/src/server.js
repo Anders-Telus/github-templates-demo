@@ -38,14 +38,6 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
         const db = mongoose.connection;
         await customerLoad.data(db);
 
-        const getError = (error) => {
-            const errorMsg = errorBuilder(error);
-            return errorMsg;
-        };
-    
-        console.log('customeresolver',customerResolver);
-        console.log('customerType',customerTypeDefs);
-
 
         const server = new ApolloServer({
             schema: buildSubgraphSchema( [
@@ -66,9 +58,19 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
                 });
             },
             formatError: (err) => {
-                const error = getError(err);
-                return error;
-            },
+
+                switch(err.extensions.code) {
+                  case "BAD_USER_INPUT":
+                   return new Error("Please check your input");  
+                  case "GRAPHQL_VALIDATION_FAILED":
+                    return new Error("Your field is spelled incorrect please verify");
+                  default:
+                    return err;
+                }
+                // Don't give the specific errors to the client
+                // Otherwise return the original error. The error can also
+                // be manipulated in other ways, as long as it's returned
+              },
         });
         server
             .listen({ port: port })

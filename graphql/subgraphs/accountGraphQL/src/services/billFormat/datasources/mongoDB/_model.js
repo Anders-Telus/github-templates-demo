@@ -38,4 +38,12 @@ export default class BillFormat extends MongoDataSource {
       return error;
     }
   }
+
+  deleteBillFormatbyId(id) {
+    try {
+      return this.BillFormat.deleteOne(id).catch((err)=> {return err})
+    } catch (err) {
+      console.log(err)
+    }
+  }
 }

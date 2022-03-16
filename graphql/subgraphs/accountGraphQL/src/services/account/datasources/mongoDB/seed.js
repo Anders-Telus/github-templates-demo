@@ -8,17 +8,17 @@ const accounts = [
     billCycleID: "111",
     billFormatID: "101",
     customerID: "1"
-},
-{
-  id: "2",
-  name: "InternetBillAccount",
-  accountType: "Internet",
-  description: "InternetTesting",
-  href: "",
-  billCycleID: "222",
-  billFormatID: "201",
-  customerID: "2"
-}
-];
+  },
+  {
+    id: "2",
+    name: "InternetBillAccount",
+    accountType: "Internet",
+    description: "InternetTesting",
+    href: "",
+    billCycleID: "222",
+    billFormatID: "201",
+    customerID: "2"
+  }
+]
 
-export default { accounts };
+export default { accounts }

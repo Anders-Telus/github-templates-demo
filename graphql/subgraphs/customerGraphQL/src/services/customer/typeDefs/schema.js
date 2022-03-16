@@ -48,6 +48,7 @@ scalar DateTime
   
   type Mutation {
     addCustomer(customer: CustomerInput!): Customer
+    deleteCustomerById(id: String): String
   }
 `;
 

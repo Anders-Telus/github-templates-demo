@@ -60,3 +60,11 @@ root directory config/.env.dev
 ### Clean up Guide
 
 - use ./mongo-clean-up.sh to clean up old files for mongo db
+
+
+## What is prettier and code formatting plugins ?
+
+- in this project we are using the following plugin
+
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
