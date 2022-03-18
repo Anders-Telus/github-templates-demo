@@ -34,8 +34,8 @@ scalar join__FieldSet
 enum join__Graph {
   CUSTOMERS
     @join__graph(name: "customers", url: "http://customers:4001/graphql")
-  ACCOUNTSNEW
-    @join__graph(name: "accounts-new", url: "http://accounts:4005/graphql")
+  ACCOUNTS
+    @join__graph(name: "accounts", url: "http://accounts:4000/graphql")
 }
 
 
@@ -46,7 +46,7 @@ type Customer @join__owner(graph: CUSTOMERS) {
   accounts: [Account] @join__field(graph: CUSTOMERS)
   name: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
   status: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
-  billCycle: [BillCycle] @join__field(graph: ACCOUNTSNEW)
+  billCycle: [BillCycle] @join__field(graph: ACCOUNTS)
 }
 
 interface Error {
@@ -60,22 +60,22 @@ type AccountNotFoundError implements Error {
 
 union AccountResult = Account | AccountNotFoundError
 
-type Account @join__owner(graph: ACCOUNTSNEW) 
-@join__type(graph: ACCOUNTSNEW, key: "id"){
-  id: ID! @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  name: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  status: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  type: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  billCycle: [BillCycle] @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-new-accounts")
+type Account @join__owner(graph: ACCOUNTS) 
+@join__type(graph: ACCOUNTS, key: "id"){
+  id: ID! @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  name: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  billCycle: [BillCycle] @join__field(graph: ACCOUNTS) @tag(name: "hi-from-new-accounts")
 }
 
 input inputAccount
-  @join__owner(graph: ACCOUNTSNEW)
-  @join__input(graph: ACCOUNTSNEW, key: "id") {
-  id: ID! @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  name: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  status: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
-  type: String @join__field(graph: ACCOUNTSNEW) @tag(name: "hi-from-accounts")
+  @join__owner(graph: ACCOUNTS)
+  @join__input(graph: ACCOUNTS, key: "id") {
+  id: ID! @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  name: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
+  type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
 }
 
 type AccountRegisterResultSuccess {
@@ -92,18 +92,18 @@ union AccountRegisterResult =
   | AccountRegisterInvalidInputError
 
 type Query {
-  allAccounts: [Account] @join__field(graph: ACCOUNTSNEW)
-  account(id: ID!): AccountResult @join__field(graph: ACCOUNTSNEW)
+  allAccounts: [Account] @join__field(graph: ACCOUNTS)
+  account(id: ID!): AccountResult @join__field(graph: ACCOUNTS)
   allCustomers: [Customer] @join__field(graph: CUSTOMERS)
 }
 
 type Mutation {
   createAccount(account: inputAccount!): AccountRegisterResult
-    @join__field(graph: ACCOUNTSNEW)
+    @join__field(graph: ACCOUNTS)
 }
 
-type BillCycle @join__owner(graph: ACCOUNTSNEW) {
-  id: String @join__field(graph: ACCOUNTSNEW)
-  mailingDateOffset: Int @join__field(graph: ACCOUNTSNEW)
-  name: String @join__field(graph: ACCOUNTSNEW)
+type BillCycle @join__owner(graph: ACCOUNTS) {
+  id: String @join__field(graph: ACCOUNTS)
+  mailingDateOffset: Int @join__field(graph: ACCOUNTS)
+  name: String @join__field(graph: ACCOUNTS)
 }
