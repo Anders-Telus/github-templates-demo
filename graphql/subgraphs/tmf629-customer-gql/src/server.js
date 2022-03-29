@@ -2,7 +2,6 @@
 import { ApolloServer } from "apollo-server";
 import mongoose from "mongoose";
 import buildCustomerSource from "./services/customer/datasources";
-import errorBuilder from "./common/errorBuilder";
 import customerLoad from "./services/customer/datasources/pre-load";
 import customerTypeDefs from "./services/customer/typeDefs/schema.js";
 import customerResolver from "./services/customer/resolvers/index";
@@ -63,7 +62,7 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
                   case "BAD_USER_INPUT":
                    return new Error("Please check your input");  
                   case "GRAPHQL_VALIDATION_FAILED":
-                    return new Error("Your field is spelled incorrect please verify");
+                    return new Error("Your field is spelled incorrectly please verify");
                   default:
                     return err;
                 }

@@ -13,8 +13,12 @@ const config = {}
 setupTelementry()
 setupApolloGateway()
 
-function setupApolloGateway() {
+async function setupApolloGateway() {
   config["supergraphSdl"] = readFileSync(supergraph).toString()
+  config["debug"] = true
+  config["formatError"] = (err) => {
+    return new Error("error")
+  }
 
   //used with docker
   if (!embeddedSchema) {
@@ -26,17 +30,27 @@ function setupApolloGateway() {
 
   const gateway = new ApolloGateway(config)
 
-  const server = new ApolloServer({ gateway })
+  const server = new ApolloServer({
+    gateway,
+    introspection: true,
+    debug: true,
+    // Subscriptions are unsupported but planned for a future Gateway version.
+    subscriptions: false,
+    formatError: (error) => {
+      // switch(error.extensions.c)
+      switch(error.extensions.code){
+        case "GRAPHQL_VALIDATION_FAILED":
+          return new Error("Error")
+          default:
+            return error.extensions.code
+      }
+    }
+  })
 
-  server
-    .listen({ port: port })
-    .then(({ url }) => {
-      console.log(`🚀 Graph Router ready at ${url}`)
-    })
-    .catch((err) => {
-      console.error(err)
-    })
+  const { url } = await server.listen({ port: port })
+  console.log(`🚀 Server ready at ${url}`)
 }
+
 function setupTelementry() {
   if (process.env.APOLLO_OTEL_EXPORTER_TYPE) {
     return new ApolloOpenTelemetry({
@@ -46,6 +60,10 @@ function setupTelementry() {
         type: process.env.APOLLO_OTEL_EXPORTER_TYPE, // console, zipkin, collector
         host: process.env.APOLLO_OTEL_EXPORTER_HOST,
         port: process.env.APOLLO_OTEL_EXPORTER_PORT
+      },
+      formatError: (err) => {
+        return new Error("error")
+        console.log(err)
       }
     }).setupInstrumentation()
   }

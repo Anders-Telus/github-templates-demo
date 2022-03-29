@@ -39,11 +39,12 @@ enum join__Graph {
 }
 
 
-type Customer @join__owner(graph: CUSTOMERS) {
+type Customer @join__owner(graph: CUSTOMERS) 
+@join__type(graph: Accounts, key: "id", extension: true)
+{
   id: ID!
     @join__field(graph: CUSTOMERS)
     @tag(name: "hi-from-customers")
-  accounts: [Account] @join__field(graph: CUSTOMERS)
   name: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
   status: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
   billCycle: [BillCycle] @join__field(graph: ACCOUNTS)
@@ -67,6 +68,7 @@ type Account @join__owner(graph: ACCOUNTS)
   status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
   type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
   billCycle: [BillCycle] @join__field(graph: ACCOUNTS) @tag(name: "hi-from-new-accounts")
+  billCycle: [BillFormat] @join__field(graph: ACCOUNTS) @tag(name: "hi-from-new-accounts")
 }
 
 input inputAccount
@@ -106,4 +108,11 @@ type BillCycle @join__owner(graph: ACCOUNTS) {
   id: String @join__field(graph: ACCOUNTS)
   mailingDateOffset: Int @join__field(graph: ACCOUNTS)
   name: String @join__field(graph: ACCOUNTS)
+}
+
+type BillFormat @join__owner(graph: ACCOUNTS) {
+    id: String! @join__field(graph: ACCOUNTS)
+    name: String! @join__field(graph: ACCOUNTS)
+    description: String @join__field(graph: ACCOUNTS)
+    href: String @join__field(graph: ACCOUNTS)
 }

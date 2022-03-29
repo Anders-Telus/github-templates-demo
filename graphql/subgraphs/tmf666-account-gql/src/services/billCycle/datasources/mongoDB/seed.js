@@ -22,7 +22,7 @@ const billCycles = [
     billingPeriod: "NET 2",
     paymentDueDateOffset: 20,
     mailingDateOffset: 2,
-    name: "Bond",
+    name: "Anders",
     chargeDateOffset: 15,
     creditDateOffset: 10,
     description: "testing",

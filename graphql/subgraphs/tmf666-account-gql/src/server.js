@@ -56,23 +56,14 @@ const db_password = process.env.DB_PASSWORD || "rootpassword"
       schema: buildSubgraphSchema([{ typeDefs: stitchedSchema, resolvers: newResolvers }]),
       tracing: true,
       context: async ({ req }) => {},
-      plugins: [
-        // ApolloServerPluginUsageReporting({
-        //   rewriteError(err) {
-        //     // Make sure that a specific pattern is removed from all error messages.
-        //     err.message = err.message.replace(/x-api-key:[A-Z0-9-]+/, "REDACTED")
-        //     return err
-        //   }
-        // })
-      ],
       formatError: (err) => {
         switch (err.extensions.code) {
           case "BAD_USER_INPUT":
             return new Error("Please check your input")
           case "GRAPHQL_VALIDATION_FAILED":
-            return new Error("Your field is spelled incorrect please verify")
+            return new Error("Your field is spelled incorrectly please verify")
           case " INTERNAL_SERVER_ERROR":
-            return new Error("Your field is spelled incorrect please verify")
+            return new Error("Server Error")
 
           default:
             return err

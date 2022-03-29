@@ -20,4 +20,5 @@ export default mongoose.Schema({
             startDateTime: Date
         }
     }],
+    billCycle: {type: mongoose.Schema.Types.Array, ref: 'BillCycle'},
 });

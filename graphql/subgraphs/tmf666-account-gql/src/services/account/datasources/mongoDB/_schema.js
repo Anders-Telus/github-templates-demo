@@ -6,5 +6,6 @@ export default mongoose.Schema({
     accountType: String,
     description: String,
     href: String,
-    billCycle: {type: mongoose.Schema.Types.ObjectId, ref: 'BillCycle'}
+    billCycle: {type: mongoose.Schema.Types.Array, ref: 'BillCycle'},
+    billFormat: {type: mongoose.Schema.Types.Array, ref: 'BillFormat'}
 });

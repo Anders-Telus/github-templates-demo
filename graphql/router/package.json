@@ -9,24 +9,24 @@
     "test": "jest --detectOpenHandles"
   },
   "dependencies": {
-    "@apollo/gateway": "0.43.1",
+    "apollo-server": "3.6.5",
+    "apollo-server-core": "3.6.5",
+    "@apollo/gateway": "2.0.0-preview.7",
+    "supergraph-demo-opentelemetry": "0.2.2",
+    "apollo-server-errors": "^3.3.0",
+    "graphql": "16.3.0",
     "@babel/core": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "@babel/runtime": "^7.16.7",
-    "graphql": "15.7.2",
     "regenerator-runtime": "^0.13.9",
-    "supergraph-demo-opentelemetry": "0.0.3",
-    "supertest": "^6.1.6",
-    "apollo-server": "^3.5.0"
+    "supertest": "^6.1.6"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@graphql-tools/merge": "^8.2.1",
-    "apollo-server-testing": "^2.25.3",
-    "easygraphql-tester": "^6.0.1",
+    "@graphql-tools/merge": "^8.2.2",
     "jest": "^27.4.7",
     "msw": "^0.36.3"
   },

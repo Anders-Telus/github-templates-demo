@@ -29,7 +29,9 @@ export default class BillCycle extends MongoDataSource {
 
   deleteBillCycleById(id) {
     try {
-      return this.BillCycle.deleteOne(id).catch(function (err) {})
+      return this.BillCycle.deleteOne(id).catch((err) => {
+        console.log("captain we have and error", err)
+      })
     } catch (err) {
       console.log(err)
     }
@@ -39,7 +41,7 @@ export default class BillCycle extends MongoDataSource {
     try {
       const billModel = this.BillCycle.find({})
         .clone()
-        .catch(function (err) {
+        .catch((err) => {
           console.log(err)
         })
       return billModel

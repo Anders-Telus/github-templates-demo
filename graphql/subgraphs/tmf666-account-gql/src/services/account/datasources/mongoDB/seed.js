@@ -7,7 +7,9 @@ const accounts = [
     href: "",
     billCycleID: "111",
     billFormatID: "101",
-    customerID: "1"
+    customerID: "1",
+    billCycle: "",
+    billFormat:""
   },
   {
     id: "2",
@@ -17,7 +19,9 @@ const accounts = [
     href: "",
     billCycleID: "222",
     billFormatID: "201",
-    customerID: "2"
+    customerID: "2",
+    billCycle: "",
+    billFormat:""
   }
 ]
 

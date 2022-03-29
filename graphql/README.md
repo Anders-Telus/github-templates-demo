@@ -9,7 +9,7 @@ We have 2 services
 - Account
 - Customer
 
- <b>Problem 1 </b>: We could use one service to represent both, and have one big schema to represent Account and Customer. However, this could get out of hand quite quickly and slow developers down in the future.
+ <b> Problem 1 </b>: We could use one service to represent both, and have one big schema to represent Account and Customer. However, this could get out of hand quite quickly and slow developers down in the future.
 
 <b>Solution</b>: Separate these two services with their own Apollo Server along with relative schemas, resolvers, and data sources. With this approach, each service exposes its own GraphQL Server endpoints
 
@@ -32,7 +32,7 @@ We have 2 services
 
 Once the application is up and running you can navigate to the below URL in your browser to access the application.
 
-- Account Subgraph: "http://localhost:4005"
+- Account Subgraph: "http://localhost:4000"
 - Customer Subgraph: "http://localhost:4001"
 
 - Federated Supergraph: "http://localhost:4000"
@@ -164,8 +164,9 @@ https://github.com/apollographql/supergraph-demo-fed2/blob/main/supergraph.graph
 ```link
 https://www.apollographql.com/blog/graphql/directives/eusable-graphql-schema-directives/
 ```
+
 ## Complex Schema Structures
 
 ## Graphql error handeling
 
-- https://www.apollographql.com/docs/apollo-server/v2/data/errors/#internal_server_error
+- <https://www.apollographql.com/docs/apollo-server/v2/data/errors/#internal_server_error>

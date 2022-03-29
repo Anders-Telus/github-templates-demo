@@ -1,16 +1,19 @@
 import { gql } from 'apollo-server';
 
   const billFormatTypeDefs = gql`
-
-
   
   type BillFormat @key(fields: "id") {
     _id: ID!
     id: String!
-    name: String! @external
+    name: String!
     description: String
     href: String
   }
+
+  extend type Account {
+    id: ID! @external
+    billFormat: [BillFormat]
+}
 
   extend type Query {
     billFormat(id: ID!): BillFormat
