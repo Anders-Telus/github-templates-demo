@@ -116,53 +116,13 @@ Listed below are the capabilities can be referred here:
 - Please refer to this link
 [Apollo Server error types](https://www.apollographql.com/docs/react/data/error-handling/)
 
-- This project uses examples via our server, mutation and typedef files.
-We demonstrate this via apollo gateway and apollo server via our router.js and server.js files.
-
 ## Request and Response types
 
-- in our application we get bad or valid responses depending what type of query we are serving.
-
-for example this query for customers
-
-```code
-{
-  "data": {
-    "allCustomers": [
-      {
-        "name": "John"
-      },
-      {
-        "name": "Bob"
-      }
-    ]
-  }
-}
-```
-
-- you can also get a bad response
-
-```code
-{
-  "errors": [
-    {
-      "message": "Field \"name\" argument \"id\" of type \"ID!\" is required but not provided.",
-      "locations": [
-        {
-          "line": 2,
-          "column": 3
-        }
-      ]
-    }
-  ]
-}
-```
+[Apollo types](https://www.apollographql.com/docs/apollo-server/schema/schema/)
 
 ## Federation between sub-graphs and super-graph
 
-- subgraphs are shown in all schema.js files
-
-- please look at supergraph.graphql for future implemenation
+- We are currently using the gateway to connect our subgraphs together
 
 [SuperGraph](https://www.apollographql.com/docs/studio/federated-graphs/)
 
@@ -170,20 +130,17 @@ for example this query for customers
 
 - We are using the built in tool with apollo please see here for the reference
 
-- Please look at all __test__ folders for our unit testing implementation
 [Apollo testing](https://www.apollographql.com/docs/apollo-server/testing/mocking)
 
 ## Integration Tests
 
 - Please see the reference here
-- Please see any integration.test.js files for any implemenation.
 
 [Integration tests](https://www.apollographql.com/docs/apollo-server/testing/testing)
 
 ## E2E Tests
 
 - Please see the reference here
-- We are currently under development and will address this later in future sprints
 
 [E2E](https://www.apollographql.com/docs/apollo-server/testing/testing#end-to-end-testing)
 
@@ -191,29 +148,19 @@ for example this query for customers
 
 [Apollo Datasources](https://www.apollographql.com/docs/apollo-server/data/data-sources)
 
-- We will add this in future releases.
-
 ## RestDataSource
 
 [RestDataSource](https://www.apollographql.com/docs/apollo-server/data/data-sources#restdatasource-reference)
-
-- We will add this in our future releases.
-
 
 ## MongoDataSource
 
 [To connect with Mongo Databases](https://github.com/GraphQLGuide/apollo-datasource-mongodb/)
 
-- Our application uses mongodatasources for all of the graphql -> mongodb middle wear.
-
 ## Authentication and Authorization
 
 [Authorization](https://www.apollographql.com/docs/apollo-server/security/authentication)
-
-- We will add this in our future releases.
 
 ## Tracing and Monitoring
 
 [Tracing and Monitoring](https://www.apollographql.com/docs/apollo-server/monitoring/metrics)
 
-- We will add this in our future releases.
