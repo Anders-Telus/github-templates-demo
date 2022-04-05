@@ -40,14 +40,13 @@ enum join__Graph {
 
 
 type Customer @join__owner(graph: CUSTOMERS) 
-@join__type(graph: CUSTOMERS, key: "id", extension: true)
+@join__type(graph: CUSTOMERS, key: "id")
 {
   id: ID!
     @join__field(graph: CUSTOMERS)
     @tag(name: "hi-from-customers")
   name: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
   status: String @join__field(graph: CUSTOMERS) @tag(name: "hi-from-customers")
-  billCycle: [BillCycle] @join__field(graph: ACCOUNTS)
 }
 
 interface Error {
