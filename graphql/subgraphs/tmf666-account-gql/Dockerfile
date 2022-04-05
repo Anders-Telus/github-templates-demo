@@ -1,4 +1,4 @@
-FROM node:16.13.0 as debug
+FROM node:17.0.0 as debug
 
 WORKDIR /work/
 

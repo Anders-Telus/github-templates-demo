@@ -40,7 +40,7 @@ enum join__Graph {
 
 
 type Customer @join__owner(graph: CUSTOMERS) 
-@join__type(graph: Accounts, key: "id", extension: true)
+@join__type(graph: CUSTOMERS, key: "id", extension: true)
 {
   id: ID!
     @join__field(graph: CUSTOMERS)
@@ -68,7 +68,7 @@ type Account @join__owner(graph: ACCOUNTS)
   status: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
   type: String @join__field(graph: ACCOUNTS) @tag(name: "hi-from-accounts")
   billCycle: [BillCycle] @join__field(graph: ACCOUNTS) @tag(name: "hi-from-new-accounts")
-  billCycle: [BillFormat] @join__field(graph: ACCOUNTS) @tag(name: "hi-from-new-accounts")
+  billFormat: [BillFormat] @join__field(graph: ACCOUNTS) @tag(name: "hi-from-new-accounts")
 }
 
 input inputAccount

@@ -1,5 +1,5 @@
 
-FROM node:17-alpine
+FROM node:17.0.0 as debug
 
 WORKDIR /usr/src/app
 
