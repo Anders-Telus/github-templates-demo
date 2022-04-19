@@ -27,7 +27,7 @@
     "@tds/core-select": "^3.3.0",
     "@tds/core-spinner": "^3.2.0",
     "@tds/core-text": "^3.2.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
