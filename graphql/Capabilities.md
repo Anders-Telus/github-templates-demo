@@ -136,7 +136,7 @@ Listed below are the capabilities can be referred here:
 
 ### What are unit tests?
 
-Mocked data and functionality for different sinariaos.
+Mocked data and functionality for different scenarios.
 
 ### Why did we not use unit tests?
 
