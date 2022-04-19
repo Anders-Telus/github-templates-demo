@@ -11,25 +11,24 @@ const supergraph = embeddedSchema ? "/etc/config/supergraph.graphql" : "../super
 const config = {}
 
 setupTelementry()
-setupApolloGateway()
 
-async function setupApolloGateway() {
-  config["supergraphSdl"] = readFileSync(supergraph).toString()
-  config["debug"] = true
-  config["formatError"] = (err) => {
-    return new Error("error")
-  }
+config["supergraphSdl"] = readFileSync(supergraph).toString()
+config["debug"] = true
+config["formatError"] = (err) => {
+  return new Error("error")
+}
 
-  //used with docker
-  if (!embeddedSchema) {
-    console.log("Starting Apollo Gateway in local mode ...")
-    console.log("Using local:", `${supergraph}`)
-  } else {
-    console.log("Starting Apollo Gateway in managed mode ...", `${supergraph}`)
-  }
+//used with docker
+if (!embeddedSchema) {
+  console.log("Starting Apollo Gateway in local mode ...")
+  console.log("Using local:", `${supergraph}`)
+} else {
+  console.log("Starting Apollo Gateway in managed mode ...", `${supergraph}`)
+}
 
-  const gateway = new ApolloGateway(config)
+const gateway = new ApolloGateway(config)
 
+export const createApolloServer = async (options = { port: 4000 }) => {
   const server = new ApolloServer({
     gateway,
     introspection: true,
@@ -37,18 +36,21 @@ async function setupApolloGateway() {
     // Subscriptions are unsupported but planned for a future Gateway version.
     subscriptions: false,
     formatError: (error) => {
-      // switch(error.extensions.c)
-      switch(error.extensions.code){
+      switch (error.extensions.code) {
         case "GRAPHQL_VALIDATION_FAILED":
-          return new Error("Error")
-          default:
-            return error.extensions.code
+          return new Error("Custom readable error")
+        default:
+          return error.extensions.code
       }
     }
   })
+  const serverInfo = await server.listen(options)
+  if (process.env.NODE_ENV !== "test") {
+    console.log(`🚀 Query endpoint ready at http://localhost:${options.port}${server.graphqlPath}`)
+  }
 
-  const { url } = await server.listen({ port: port })
-  console.log(`🚀 Server ready at ${url}`)
+  // serverInfo is an object containing the server instance and the url the server is listening on
+  return serverInfo
 }
 
 function setupTelementry() {
@@ -63,7 +65,6 @@ function setupTelementry() {
       },
       formatError: (err) => {
         return new Error("error")
-        console.log(err)
       }
     }).setupInstrumentation()
   }

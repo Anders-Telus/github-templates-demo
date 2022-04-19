@@ -116,9 +116,13 @@ Listed below are the capabilities can be referred here:
 - Please refer to this link
 [Apollo Server error types](https://www.apollographql.com/docs/react/data/error-handling/)
 
+- please see our implementation here -> graphql -> router -> router.js[commitforerror](https://github.com/telus/reference-application-poc/commit/87c60fa8a5736450d45a48a49ae7b1e590ae98c2)
+
 ## Request and Response types
 
 [Apollo types](https://www.apollographql.com/docs/apollo-server/schema/schema/)
+
+-please see our implementation here [example](https://github.com/telus/reference-application-poc/blob/feature/AG-41/graphql/subgraphs/tmf629-customer-gql/src/services/customer/typeDefs/schema.js#L53-L54)
 
 ## Federation between sub-graphs and super-graph
 
@@ -126,7 +130,19 @@ Listed below are the capabilities can be referred here:
 
 [SuperGraph](https://www.apollographql.com/docs/studio/federated-graphs/)
 
+-Please see our example here [SuperGraph](https://github.com/telus/reference-application-poc/blob/feature/AG-41/graphql/supergraph.graphql#L14)
+
 ## Unit Tests
+
+### What are unit tests?
+
+Mocked data and functionality for different sinariaos.
+
+### Why did we not use unit tests?
+
+Most of our code base is tightly coupled with mongodb. As such we are using integration tests atm.
+
+### How they are achieved?
 
 - We are using the built in tool with apollo please see here for the reference
 
@@ -134,33 +150,144 @@ Listed below are the capabilities can be referred here:
 
 ## Integration Tests
 
-- Please see the reference here
+### What are integration tests?
+
+-Apollo Server uses a multi-step request pipeline to validate and execute incoming GraphQL operations. This pipeline supports integration with custom plugins at each step, which can affect an operation's execution. Because of this, it's important to perform integration tests with a variety of operations to ensure your request pipeline works as expected.
+
+### Why did we not choose integration tests?
+
+With the combination of Graphql and mongo db and integration test proves how to mock things and not get the real data.
+
+### How did we achive this?
+
+- Please see our feature todo list via the readmegraphqlguide
 
 [Integration tests](https://www.apollographql.com/docs/apollo-server/testing/testing)
 
 ## E2E Tests
 
-- Please see the reference here
+### What are E2E tests?
+
+```text
+Instead of bypassing the HTTP layer, you might want to fully run your server and test it with a real HTTP client. Apollo Server doesn't provide built-in support for this at this time.
+
+You can run operations against your server using a combination of any HTTP or GraphQL client such as supertest or Apollo Client's HTTP Link . There are also community packages available such as apollo-server-integration-testing, which uses mocked Express request and response objects.
+```
+
+### Why did we choose this route?
+
+-Based on our POC we are actually using Graphql and MongoDb. E2E shows us the end to end real life problem we are solving
+
+### How did we acheive this?
+
+- Please see the example for our POC here
+
+[E2EExample](https://github.com/telus/reference-application-poc/blob/feature/AG-41/graphql/router/router.test.js#L1-L96)
+
+Documentation for apollo server
 
 [E2E](https://www.apollographql.com/docs/apollo-server/testing/testing#end-to-end-testing)
 
 ## Data Sources
 
-[Apollo Datasources](https://www.apollographql.com/docs/apollo-server/data/data-sources)
+### What are Data sources?
+
+```text
+Data sources are classes that Apollo Server can use to encapsulate fetching data from a particular source, such as a database or a REST API. These classes help handle caching, deduplication, and errors while resolving operations.
+
+Your server can use any number of different data sources. You don't have to use data sources to fetch data, but they're strongly recommended.
+```
+
+### Why are we using this?
+
+- in our POC we are using [Mongodbdatasource](https://github.com/GraphQLGuide/apollo-datasource-mongodb/)
+
+- this allows us to tightly couple graphql queries and mongodb resolvers all at the same time
+
+### How did we use this feature?
+
+- [MongoDB DatasourcePOC Example](https://github.com/telus/reference-application-poc/blob/feature/AG-41/graphql/subgraphs/tmf629-customer-gql/src/services/customer/datasources/mongoDB/_model.js#L3)
+
+Offical documentation
+
+- [Apollo Datasources](https://www.apollographql.com/docs/apollo-server/data/data-sources)
 
 ## RestDataSource
+
+### What is a rest datasource?
+
+```text
+You then extend the RESTDataSource class and implement whatever data-fetching methods your resolvers need. These methods can use built-in convenience methods (like get and post) to perform HTTP requests, helping you add query parameters, parse JSON results, and handle errors.
+```
+
+### Why would this benificial?
+
+- please read the documentation as they explain all the bells and whitles you can use with this feature
 
 [RestDataSource](https://www.apollographql.com/docs/apollo-server/data/data-sources#restdatasource-reference)
 
 ## MongoDataSource
 
-[To connect with Mongo Databases](https://github.com/GraphQLGuide/apollo-datasource-mongodb/)
+### What is a mongo data source?
+
+- if you ever needed a beautiful way to connect your graphql resolvers and mongodb quries, this is the perfect feature to quickly access your dataset in the graphql layer.
+
+### Why would you use this feature?
+
+- Graphql and MongoDB are very unique beasts. However apollo server has a built in wrapper to allow the two to talk to each other.
+
+### How was this achived ?
+
+- please see our implementaion here [mongo db example](https://github.com/telus/reference-application-poc/blob/feature/AG-41/graphql/subgraphs/tmf629-customer-gql/src/services/customer/datasources/mongoDB/_model.js#L3)
+
+Offical Documentation
+
+- [To connect with Mongo Databases](https://github.com/GraphQLGuide/apollo-datasource-mongodb/)
 
 ## Authentication and Authorization
+
+### What is Authentication and Authorization?
+
+```text
+
+Your GraphQL API probably needs to control which users can see and interact with the various data it provides.
+
+Authentication is determining whether a given user is logged in, and subsequently determining which user someone is.
+Authorization is then determining what a given user has permission to do or see.
+```
+
+### Why would you use this ?
+
+- Before we can correctly control access to data, we have to authenticate a user. There are many patterns for providing authentication credentials, including HTTP headers and JSON web tokens.
+
+### How would we use this?
+
+- In our current POC we are adding this to a future feature list located in readmegraphqlguide.
+
+Offical Documentation
 
 [Authorization](https://www.apollographql.com/docs/apollo-server/security/authentication)
 
 ## Tracing and Monitoring
 
-[Tracing and Monitoring](https://www.apollographql.com/docs/apollo-server/monitoring/metrics)
+### What is Tracing and Monitoring?
 
+```text
+OpenTelemetry is a collection of open-source tools for generating and processing telemetry data (such as logs and metrics) from different systems in a generic, consistent way.
+
+You can configure your gateway, your individual subgraphs, or even a monolothic Apollo Server instance to emit telemetry related to processing GraphQL operations.
+```
+
+### Why are we using this in our application?
+
+When we are dealing with large amounts of data we need a smart way to capture this via our subgraphs
+
+### How are we using this?
+
+Please see our example here.
+
+[ExampleWithopentelementary](https://github.com/telus/reference-application-poc/blob/feature/AG-41-updateddocumentation/graphql/router/router.js#L38)
+
+Offical Documentation
+
+[Tracing and Monitoring](https://www.apollographql.com/docs/apollo-server/monitoring/metrics)

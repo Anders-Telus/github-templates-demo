@@ -26,6 +26,7 @@
     "graphql": "16.3.0",
     "graphql-tools": "^8.2.0",
     "graphql-type-json": "^0.3.0",
+    "mongodb-memory-server": "^8.5.0",
     "mongoose": "^6.1.8",
     "path": "^0.12.7",
     "supergraph-demo-opentelemetry": "0.2.1"

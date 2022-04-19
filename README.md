@@ -49,6 +49,10 @@ How to stop all Docker containers running
 docker-compose --env-file ./config/.env.dev down
 ```
 
+## Starter guide for Subgraphs and Super Graphs
+
+- please see READMEGRAPHQLGUIDE.md for further details
+
 ## Setting your Mongo Credentials
 
 The reference application uses the follwing file to set your mongoDB credentials
@@ -61,10 +65,8 @@ root directory config/.env.dev
 
 - use ./mongo-clean-up.sh to clean up old files for mongo db
 
-
 ## What is prettier and code formatting plugins ?
 
 - in this project we are using the following plugin
 
-https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-
+[prettier-vscode[(https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
