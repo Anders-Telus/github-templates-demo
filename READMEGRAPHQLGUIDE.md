@@ -1,23 +1,25 @@
-# Prerequisites
 
-- Docker
-- Docker Compose
+# Introductory
 
-## How to run Subgraphs, Mongo and Docker
+```text
+GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data. GraphQL isn't tied to any specific database or storage engine and is instead backed by your existing code and data.
 
-How to build Mongo and Graphql
+A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type. 
+```
+
+## How to build Mongo and Graphql
 
 ```code
 docker-compose --env-file ./config/.env.dev build
 ```
 
-How to get Docker to spin up all your graphs and Mongodb
+### How to get Docker to spin up all your graphs and Mongodb
 
 ```code
 docker-compose --env-file ./config/.env.dev up
 ```
 
-How to stop all Docker containers running
+### How to stop all Docker containers running
 
 ```code
 docker-compose --env-file ./config/.env.dev down
@@ -25,23 +27,51 @@ docker-compose --env-file ./config/.env.dev down
 
 ## Overview of Supergraph and Subgraph
 
-- Once you the above steps were completed successfully go to the following link
+### What is a SuperGraph?
 
-- What is a SuperGraph
-
-[SuperGraph]https://github.com/telus/reference-application-poc/blob/main/graphql/supergraph.graphql#L14)
-
-- What is a super graph?
-
-[SuperGraph](https://www.apollographql.com/docs/studio/federated-graphs/)
+A federated graph (also known as a supergraph ) is a graph that’s composed of multiple individual subgraphs:
 
 - The Example supergraph in this  project is located below
+
+### Why did we choose to use the super graph
+
+For POC example purposes we wanted to demonstrate the use of multiple subgraghs in one url route.
+
+We can now use data from all over the world and stich it together in one place.
+
+### How did we implement the supergraph?
+
+Our current application example:
+
+[SuperGraph]https://github.com/telus/reference-application-poc/blob/main/graphql/supergraph.graphql#L14)
 
 ```text
 http://localhost:4000/
 ```
 
-- What is a subgraph ?
+Offical Documentation:
+
+[SuperGraph](https://www.apollographql.com/docs/studio/federated-graphs/)
+
+### What is a subgraph ?
+
+```text
+By having one graph, you maximize the value of GraphQL:
+
+More data and services can be accessed from a single query
+Code, queries, skills, and experience are portable across teams
+One central catalog of all available data that all graph users can look to
+Implementation cost is minimized, because graph implementation work isn't duplicated
+Central management of the graph – for example, unified access control policies – becomes possible
+```
+
+### Why Did we use the subgraph?
+
+- for our use case we want to show how different teams in Telus can easily talk to one another. 
+
+### How did we implement a subgraph ?
+
+Please visit how to start the project inorder to view this example subgraphs here  [How to start the subgraph server](#how-to-run-subgraphs-and-mongo)
 [How to start a sub graph](https://github.com/telus/reference-application-poc/blob/main/graphql/subgraphs/tmf666-account-gql/src/server.js#L55)
 
 - the tmf629customer graph for our example is located here
@@ -144,3 +174,5 @@ root directory config/.env.dev
 - Supergraph type checking needs to be improved and handled via human readable syntax vs leaving the end user confused.
 
 - Here is the list of upgrades via there recommended stategy [Apollo Upgrade guide](https://www.apollographql.com/docs/apollo-server/migration)
+
+- Best practice of [rover-cli](https://bestrustcrates.com/p/apollographqlrover/index.html)
