@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Reference Developer Guide
+  name: reference-developer-guide
+  namespace: default
+  snackDescription: 'My Telus is demonstrating what the best practices are for modern coding '
+  description: Reference application
+  url: https://github.com/telus/reference-application-poc
+  githubBranch: main
+  directory: ''
+  homePage: README.md
+  audiences: []
+  category: 5H8LFm5kPoZtIHqz0z5eTf
+  annotations:
+    backstage.io/techdocs-ref: url:https://github.com/telus/reference-application-poc
+spec:
+  type: documentation
+  lifecycle: experimental
+  owner: 7cnf8nrd0RSZZCuWA95gJS
