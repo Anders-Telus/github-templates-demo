@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  title: Reference Developer Guide
+  title: TELUS Digital's Reference Application system
   name: reference-developer-guide
   namespace: default
-  snackDescription: 'My Telus is demonstrating what the best practices are for modern coding '
+  snackDescription: 'My Telus is demonstrating what the best practices are for modern coding'
   description: Reference application
   url: https://github.com/telus/reference-application-poc
   githubBranch: main
