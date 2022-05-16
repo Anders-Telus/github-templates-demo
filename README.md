@@ -1,11 +1,6 @@
 # Reference Application
 
--DEMO APPLICATION
-
-For more information please reach out to:
-
-- gonzalo.vazquez@telus.com
-- steve.choi@telus.com
+For more information please reach out to the Agora team via Slack channel #agora-project.
 
 Follow the story at: <https://github.com/telus/reference-application/wiki>
 
@@ -29,21 +24,21 @@ Discussions: <https://github.com/telus/reference-application/discussions>
 - Docker
 - Docker Compose
 
-## How to run Subgraphs, Mongo and Docker
+## Running Subgraphs, Mongo and Docker
 
-How to build Mongo and Graphql
+### How to build Mongo and Graphql
 
 ```code
 docker-compose --env-file ./config/.env.dev build
 ```
 
-How to get Docker to spin up all your graphs and Mongodb
+### How to get Docker to spin up all your graphs and Mongodb
 
 ```code
 docker-compose --env-file ./config/.env.dev up
 ```
 
-How to stop all Docker containers running
+### How to stop all Docker containers from running
 
 ```code
 docker-compose --env-file ./config/.env.dev down
@@ -51,22 +46,17 @@ docker-compose --env-file ./config/.env.dev down
 
 ## Starter guide for Subgraphs and Super Graphs
 
-- please see READMEGRAPHQLGUIDE.md for further details
+Please see [README.md](https://github.com/telus/reference-application-poc/blob/fix/AG-41-cleanup/graphql/README.md) for further details.
 
 ## Setting your Mongo Credentials
 
-The reference application uses the follwing file to set your mongoDB credentials
+The reference application uses the `root directory config/.env.dev` file to set your mongoDB credentials.
 
-```text
-root directory config/.env.dev
-```
+### Cleaning up files
 
-### Clean up Guide
+Use `./mongo-clean-up.sh` to clean up old files for MongoDB.
 
-- use ./mongo-clean-up.sh to clean up old files for mongo db
+## Code formatting plugins
 
-## What is prettier and code formatting plugins ?
-
-- in this project we are using the following plugin
-
+In this project we are using the following plugin:
 [prettier-vscode[(https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)

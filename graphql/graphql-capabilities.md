@@ -212,7 +212,7 @@ You can run operations against your server using a combination of any HTTP or Gr
 
 Based on our reference-application-poc we are actually using Graphql and MongoDb. E2E shows us the end to end real life problems we are solving.
 
-#### How this was achieved?
+#### How this was achieved
 
 - Here is the [E2E example](https://github.com/telus/reference-application-poc/blob/feature/AG-41/graphql/router/router.test.js#L1-L96) for our POC.
 - Here is [E2E](https://www.apollographql.com/docs/apollo-server/testing/testing#end-to-end-testing) documentation for Apollo Server.
