@@ -2,7 +2,7 @@
 
 GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system that you define for your data. GraphQL isn't tied to any specific database or storage engine and is instead backed by your existing code and data.
 
-A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type. 
+A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type.
 
 ## What is a SuperGraph?
 
@@ -78,4 +78,3 @@ For details, please refer to this [data source article](https://www.apollographq
 - Supergraph type checking needs to be improved and handled via human readable syntax vs leaving the end user confused.
 - Here is the list of upgrades via their recommended stategy [Apollo Upgrade guide](https://www.apollographql.com/docs/apollo-server/migration).
 - Best practice of [rover-cli](https://bestrustcrates.com/p/apollographqlrover/index.html).
-
