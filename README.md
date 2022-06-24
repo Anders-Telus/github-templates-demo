@@ -51,7 +51,6 @@ The benefits of mocking a REST server are:
 - Early-stage testing - mocking lets you test your components without the dependency of having your actual backend up and running.
 - Faster feedback - mocking your REST API response lets internal and external users test components before your backend is ready to be exposed and provides useful feedback earlier in development.
 
-[TO DO - Describe how this is used in the reference-application-poc]
 
 ### 3. GraphQL layer
 
