@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Anders-Telus 
-telus
-/
-reference-application-poc
-Internal
-Code
-Issues
-11
-Pull requests
-34
-Discussions
-Actions
-Wiki
-Security
-Insights
-reference-application-poc/graphql/subgraphs/tmf629-customer-gql/customers.js /
-
-Puttaiah Added Router details
-Latest commit be0ca72 on Nov 29, 2021
- History
- 0 contributors
-48 lines (41 sloc)  1.57 KB
 
 // Open Telemetry (optional)
 const { ApolloOpenTelemetry } = require('supergraph-demo-opentelemetry');
