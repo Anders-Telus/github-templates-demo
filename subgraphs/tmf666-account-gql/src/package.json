@@ -1,0 +1,39 @@
+{
+  "name": "account-gql",
+  "version": "1.0.0",
+  "description": "Account GraphQL Subgraph",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node  --inspect --experimental-specifier-resolution=node server.js",
+    "test": "jest --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Telus-Agora",
+  "dependencies": {
+    "@apollo/subgraph": "0.3.1",
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
+    "@graphql-tools/merge": "^8.2.2",
+    "apollo-datasource-mongo": "^0.1.7",
+    "apollo-server": "^3.10.0",
+    "apollo-server-errors": "^3.3.0",
+    "express": "^4.16.4",
+    "graphql": "15.8.0",
+    "graphql-tools": "^8.2.0",
+    "graphql-type-json": "^0.3.0",
+    "mongodb-memory-server": "^8.5.0",
+    "mongoose": "^6.1.8",
+    "path": "^0.12.7",
+    "supergraph-demo-opentelemetry": "0.2.1"
+  },
+  "devDependencies": {
+    "axios": "^0.25.0",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.4.7"
+  }
+}
