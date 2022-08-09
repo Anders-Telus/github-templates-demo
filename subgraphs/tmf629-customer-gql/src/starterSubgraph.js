@@ -22,20 +22,12 @@ if (process.env.APOLLO_OTEL_EXPORTER_TYPE) {
 }
 
 const port = process.env.APOLLO_PORT || 4001;
-const db_username = process.env.DB_USERNAME || 'root';
-const db_password = process.env.DB_PASSWORD || 'rootpassword';
+
 
 (async () => {
-   // const mongoUri = `mongodb://${db_username}:${db_password}@mongodb:27017/admin`;
-  //  console.log("mongo url: " + mongoUri);
-    try {
-        // await mongoose.connect(mongoUri, {
-        //     useNewUrlParser: true,
-        //     useUnifiedTopology: true,
-        // });
 
-        // const db = mongoose.connection;
-        // await customerLoad.data(db);
+    try {
+
 
         const customers = [
             {
@@ -90,7 +82,7 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
             }
           ]
           
-    const resolvers = {
+    const customerResolvers = {
             Query: {
                 allCustomers: (_, args, context) => {
                     return customers;
@@ -108,7 +100,7 @@ const db_password = process.env.DB_PASSWORD || 'rootpassword';
 
         const server = new ApolloServer({
             schema: buildSubgraphSchema( [
-                { typeDefs: customerTypeDefs, resolvers: resolvers },
+                { typeDefs: customerTypeDefs, resolvers: customerResolvers },
               ]),
             tracing: true,
             context: async ({ req }) => { },

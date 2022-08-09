@@ -1,6 +1,5 @@
-import { MongoDataSource } from "apollo-datasource-mongo"
 
-export default class Account extends MongoDataSource {
+export default class Account  {
   initialize(config) {
     super.initialize({
       ...config,
