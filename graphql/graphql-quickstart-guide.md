@@ -4,25 +4,13 @@ This tutorial is meant to get you up and running with GraphQL for the reference-
 
 ## Prerequisites
 
-- Docker
-- Docker Compose
+- Node 16
 
 ## Step 1: How to build Mongo and Graphql
 
 ```code
-docker-compose --env-file ./config/.env.dev build
-```
-
-## Step 2: How to get Docker to spin up all your graphs and MongoDB
-
-```code
-docker-compose --env-file ./config/.env.dev up
-```
-
-## Step 3: How to stop all Docker containers from running
-
-```code
-docker-compose --env-file ./config/.env.dev down
+npm install
+npm run start
 ```
 
 ## How to run E2E tests for the example
